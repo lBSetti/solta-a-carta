@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dados que assustam — Solta a Carta</title>
+  <meta name="description" content="Dados alarmantes e a trajetória das apostas no Brasil: como o mercado cresceu, quanto movimenta e como foi desenhado para prender quem aposta.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Dados que assustam — Solta a Carta">
+  <meta property="og:description" content="Confira dados alarmantes e a trajetória do problema.">
+  <meta property="og:image" content="assets/img/logo-completo.png">
+  <link rel="icon" href="assets/img/logo-cartas.png">
+
+  <link rel="preload" href="assets/fonts/bernoru-blackultraexpanded.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/fonts/nf-ananias-regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/Luciole-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page-espadas">
+
+<!-- ============================================================
+     Sprite SVG: naipes, coringa, ícones e ilustrações
+     ============================================================ -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <path id="g-spade" d="M12 2.5s-8.5 6.6-8.5 11.6c0 2.5 2 4.3 4.3 4.3 1.4 0 2.6-.6 3.3-1.6L10 21.5h4l-1.1-4.7c.7 1 1.9 1.6 3.3 1.6 2.3 0 4.3-1.8 4.3-4.3C20.5 9.1 12 2.5 12 2.5z"/>
+    <path id="g-diamond" d="M12 2.5 19.5 12 12 21.5 4.5 12z"/>
+    <path id="g-heart" d="M12 20.5S3 14.6 3 8.8C3 6 5.2 4 7.7 4c1.8 0 3.3 1 4.3 2.5C13 5 14.5 4 16.3 4 18.8 4 21 6 21 8.8c0 5.8-9 11.7-9 11.7z"/>
+    <g id="g-club">
+      <circle cx="12" cy="7.2" r="4"/>
+      <circle cx="7" cy="13.4" r="4"/>
+      <circle cx="17" cy="13.4" r="4"/>
+      <circle cx="12" cy="12" r="2.6"/>
+      <path d="M12 11.5 13.5 21.5h-3z"/>
+    </g>
+    <g id="g-joker" stroke-linejoin="round" stroke-width="1.6">
+      <path d="M3.6 18.2 5 8.4l4.3 5L12 5.4l2.7 8 4.3-5 1.4 9.8z"/>
+      <rect x="3" y="18" width="18" height="3.6" rx="1.4"/>
+      <circle cx="5" cy="6.4" r="1.9"/>
+      <circle cx="12" cy="3.3" r="1.9"/>
+      <circle cx="19" cy="6.4" r="1.9"/>
+    </g>
+    <!-- Ícones de traço (viewBox 24) -->
+    <g id="i-globe"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15"/></g>
+    <g id="i-trend"><path d="M3 17.5 9 11.5l4 4 8-8"/><path d="M15 7.5h6v6"/></g>
+    <g id="i-person"><circle cx="12" cy="7" r="3.5"/><path d="M4.5 21c.6-4.4 3.5-7 7.5-7s6.9 2.6 7.5 7"/></g>
+    <g id="i-city"><path d="M3 21h18M5 21V10h6v11M11 21V4h8v17M7.5 13h1M7.5 16.5h1M14 7.5h2M14 11h2M14 14.5h2"/></g>
+    <g id="i-house"><path d="M3 11.5 12 4l9 7.5M5.5 9.5V21h13V9.5M10 21v-6h4v6"/></g>
+    <g id="i-bars"><path d="M4 20.5h16M7 20.5v-5M12 20.5v-9M17 20.5V7"/></g>
+    <g id="i-alert"><path d="M12 3 22 20.5H2z"/><path d="M12 9.5v5M12 17.3v.1"/></g>
+    <g id="i-tv"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M9 21h6M12 17v4"/></g>
+    <g id="i-ball"><circle cx="12" cy="12" r="9"/><path d="M12 7.5l3.2 2.3-1.2 3.8h-4l-1.2-3.8zM12 3v4.5M15.2 9.8l4.3-1.4M14 13.6l2.6 3.6M10 13.6l-2.6 3.6M8.8 9.8 4.5 8.4"/></g>
+    <g id="i-phone"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/><circle cx="12" cy="9.5" r="2.2"/><path d="M8.8 14.6c.7-1.4 1.8-2 3.2-2s2.5.6 3.2 2"/></g>
+    <g id="i-bell"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5a2 2 0 0 0 4 0"/></g>
+    <path id="i-shirt" d="M8 3 3.5 5.5 5 10l2-.8V21h10V9.2l2 .8 1.5-4.5L16 3c-.6 1.6-2.1 2.6-4 2.6S8.6 4.6 8 3z"/>
+
+    <!-- Ilustrações da linha do tempo (viewBox 48) -->
+    <g id="il-law"><path d="M12 5h17l8 8v30H12z"/><path d="M29 5v8h8M17 19h15M17 25h15M17 31h8"/><circle cx="31" cy="35" r="4.5"/></g>
+    <g id="il-shirt"><path d="M16 7 7 12.5l4 9 5-2V42h16V19.5l5 2 4-9-9-5.5c-1.2 3.2-4.3 5.3-8 5.3s-6.8-2.1-8-5.3z"/><rect x="19" y="23" width="10" height="5" rx="1"/></g>
+    <g id="il-phone"><rect x="14" y="4" width="20" height="40" rx="4"/><path d="M18 32l5-6 4 3 6-9M29 20h4v4M21 39h6"/></g>
+    <g id="il-grid"><path d="M8 8h6v6H8zM17 8h6v6h-6zM26 8h6v6h-6zM35 8h6v6h-6zM8 17h6v6H8zM17 17h6v6h-6zM26 17h6v6h-6zM35 17h6v6h-6zM8 26h6v6H8zM17 26h6v6h-6zM26 26h6v6h-6zM35 26h6v6h-6zM8 35h6v6H8zM17 35h6v6h-6zM26 35h6v6h-6zM35 35h6v6h-6z"/></g>
+    <g id="il-scales"><path d="M24 7v34M15 41h18M9 13h30"/><circle cx="24" cy="7" r="2"/><path d="M9 13 4 25h10zM39 13l-5 12h10zM4 25c0 3 2.2 5 5 5s5-2 5-5M34 25c0 3 2.2 5 5 5s5-2 5-5"/></g>
+    <g id="il-search"><circle cx="20" cy="20" r="12"/><path d="M29 29l12 12M14 20h12M20 14v12"/></g>
+    <g id="il-tax"><path d="M12 5h24v38l-4-3-4 3-4-3-4 3-4-3-4 3z"/><circle cx="19" cy="17" r="2.5"/><circle cx="29" cy="29" r="2.5"/><path d="M30 15 18 31"/></g>
+    <g id="il-ad"><rect x="5" y="9" width="38" height="25" rx="3"/><path d="M18 42h12M24 34v8M24 15l8 13H16zM24 19.5v4M24 26v.1"/></g>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ============================================================
+     CABEÇALHO (igual à home; Espadas marcado como página atual)
+     ============================================================ -->
+<header class="site-header" id="topo">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Solta a Carta — página inicial">
+      <span class="brand-mark"><img src="assets/img/logo-cartas.png" alt="" width="1080" height="1080"></span>
+      <span class="brand-word" aria-hidden="true">Solta a<br>Carta</span>
+    </a>
+
+    <nav class="suit-nav" aria-label="Seções do site">
+      <ul class="suit-list">
+        <li>
+          <a class="suit-link" href="dados-que-assustam.html" data-label="Dados que assustam" aria-current="page">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-spade" class="s-out"/><use href="#g-spade" class="s-in"/></svg>
+            <span class="suit-label"><span>Dados que assustam</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="o-que-e-ludopatia.html" data-label="O que é Ludopatia?">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-diamond" class="s-out"/><use href="#g-diamond" class="s-in"/></svg>
+            <span class="suit-label"><span>O que é Ludopatia?</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="apoio-e-ajuda.html" data-label="Apoio &amp; Ajuda">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-heart" class="s-out"/><use href="#g-heart" class="s-in"/></svg>
+            <span class="suit-label"><span>Apoio &amp; Ajuda</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="trevos.html" data-label="Confira nossas ações">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
+            <span class="suit-label"><span>Confira nossas ações</span></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="suit-link joker-link" href="trevos.html#reis-e-rainhas" data-label="Apoie o movimento">
+      <svg class="suit-icon joker-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg>
+      <span class="suit-label"><span>Apoie o movimento</span></span>
+    </a>
+  </div>
+
+  <div class="nav-hint" id="nav-hint" aria-live="polite" hidden>
+    <a class="nav-hint-link" href="#"><span class="nav-hint-label"></span><span class="nav-hint-cta">toque de novo para abrir →</span></a>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- ==========================================================
+       ABERTURA
+       ========================================================== -->
+  <section class="block page-intro" aria-labelledby="page-title">
+    <div class="wrap">
+      <header class="block-head">
+        <p class="tag tag-display">Espadas · Dados que assustam</p>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg>
+      </header>
+
+      <h1 class="display block-title page-title" id="page-title">Confira dados alarmantes e a trajetória do problema</h1>
+
+      <figure class="opener">
+        <p class="opener-num display">R$&nbsp;105<br> bilhões</p>
+        <figcaption class="opener-text">
+          <p class="opener-lead">foram depositados em casas de apostas somente até agosto de 2026.</p>
+          <p>Hoje, já são mais de 43,8 milhões de brasileiros cadastrados em plataformas regulamentadas, no entanto o número pode ser bem maior do que o datado.</p>
+          <p class="src">Fonte: Yogonet Brasil, setembro/2026</p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       LINHA DO TEMPO — régua horizontal com cartas que viram
+       Para usar foto real num acontecimento: coloque um <img> dentro
+       do .tl-photo correspondente (ex.: assets/img/linha-do-tempo/2019.jpg)
+       e preencha o crédito em .tl-credit. O tratamento duotone é automático.
+       ========================================================== -->
+  <section class="block" id="linha-do-tempo" aria-labelledby="tl-title">
+    <div class="wrap">
+      <header class="block-head">
+        <p class="tag">Linha do tempo</p>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg>
+      </header>
+
+      <h2 class="display block-title" id="tl-title">Como isso cresceu tão rápido?</h2>
+      <p class="tl-hint">Passe o mouse ou toque nas cartas para virar cada acontecimento.</p>
+    </div>
+
+    <div class="tl-scroller wrap">
+      <ol class="tl" data-timeline>
+        <li class="tl-slot" data-anchor="start">
+          <div class="tl-card">
+            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2018" aria-label="2018: virar a carta"></button>
+            <div class="tl-inner">
+              <div class="tl-front" aria-hidden="true"></div>
+              <div class="tl-back" id="tl-2018">
+                <div class="tl-back-in">
+                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-law"/></svg></div>
+                  <p class="tl-when">Dezembro · 2018</p>
+                  <p class="tl-text">Michel Temer sanciona a Lei 13.756, abrindo caminho pras apostas esportivas de quota fixa no Brasil.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="tl-tick" aria-hidden="true">2018</span>
+        </li>
+
+        <li class="tl-slot" data-anchor="start">
+          <div class="tl-card">
+            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2019" aria-label="2019: virar a carta"></button>
+            <div class="tl-inner">
+              <div class="tl-front" aria-hidden="true"></div>
+              <div class="tl-back" id="tl-2019">
+                <div class="tl-back-in">
+                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-shirt"/></svg></div>
+                  <p class="tl-when">Janeiro · 2019</p>
+                  <p class="tl-text">O Fortaleza estampa a NetBet na camisa, o primeiro patrocínio de uma casa de apostas num clube brasileiro. Nove meses depois, 65% dos times da Série A já tinham uma bet no peito.</p>
+                  <p class="tl-src">Fonte: Máquina do Esporte, Exame</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="tl-tick" aria-hidden="true">2019</span>
+        </li>
+
+        <li class="tl-slot">
+          <div class="tl-card">
+            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2020" aria-label="2020: virar a carta"></button>
+            <div class="tl-inner">
+              <div class="tl-front" aria-hidden="true"></div>
+              <div class="tl-back" id="tl-2020">
+                <div class="tl-back-in">
+                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-phone"/></svg></div>
+                  <p class="tl-when">2020</p>
+                  <p class="tl-text">Ainda sem uma regulamentação vigente, o mercado já movimentava R$ 7 bilhões por ano no começo da pandemia, quando o consumo digital de apostas começou a decolar no Brasil.</p>
+                  <p class="tl-src">Fonte: BNLData</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="tl-tick" aria-hidden="true">2020</span>
+        </li>
+
+        <li class="tl-slot">
+          <div class="tl-card">
+            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2021" aria-label="2021: virar a carta"></button>
+            <div class="tl-inner">
+              <div class="tl-front" aria-hidden="true"></div>
+              <div class="tl-back" id="tl-2021">
+                <div class="tl-back-in">
+                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-grid"/></svg></div>
+                  <p class="tl-when">2021</p>
+                  <p class="tl-text">Já são 840 empresas de apostas disputando esse mercado no Brasil.</p>
+                  <p class="tl-src">Fonte: BigDataCorp</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="tl-tick" aria-hidden="true">2021</span>
+        </li>
+
+        <li class="tl-slot">
+          <div class="tl-card">
+            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2023" aria-label="2023: virar a carta"></button>
+            <div class="tl-inner">
+              <div class="tl-front" aria-hidden="true"></div>
+              <div class="tl-back" id="tl-2023">
+                <div class="tl-back-in">
+                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-scales"/></svg></div>
+                  <p class="tl-when">Dezembro · 2023</p>
+                  <p class="tl-text">Lula sanciona a Lei 14.790, que regulamenta as bets e amplia o escopo pra incluir cassinos online, é aqui que jogos como o Tigrinho entram formalmente no radar, ainda numa zona cinzenta de fiscalização. Nesse ano, 14 milhões de brasileiros já apostam, movimentando uma estimativa de R$ 120 bilhões.</p>
+                  <p class="tl-src">Fonte: Lei 14.790/2023, Exame</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="tl-tick" aria-hidden="true">2023</span>
+        </li>
+
+        <li class="tl-slot">
+          <div class="tl-card">
+            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2024" aria-label="2024: virar a carta"></button>
+            <div class="tl-inner">
+              <div class="tl-front" aria-hidden="true"></div>
+              <div class="tl-back" id="tl-2024">
+                <div class="tl-back-in">
+                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-search"/></svg></div>
+                  <p class="tl-when">Julho e novembro · 2024</p>
+                  <p class="tl-text">Sai a primeira regra de publicidade pra bets no Brasil. Em novembro, o Congresso instala a CPI das Bets pra investigar possíveis ligações com lavagem de dinheiro e o endividamento de famílias inteiras. Nesse ano, o número de apostadores chega a 23 milhões, com o Banco Central estimando entre R$ 18 e 21 bilhões movimentados por mês só em agosto.</p>
+                  <p class="tl-src">Fonte: Portaria SPA/MF 1.231/2024, CPI das Bets, Banco Central</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="tl-tick" aria-hidden="true">2024</span>
+        </li>
+
+        <li class="tl-slot">
+          <div class="tl-card">
+            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2025" aria-label="2025: virar a carta"></button>
+            <div class="tl-inner">
+              <div class="tl-front" aria-hidden="true"></div>
+              <div class="tl-back" id="tl-2025">
+                <div class="tl-back-in">
+                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-tax"/></svg></div>
+                  <p class="tl-when">Janeiro · 2025</p>
+                  <p class="tl-text">O mercado federal regulado entra oficialmente em vigor, e começa a cobrança de imposto, 12% sobre a receita bruta das operadoras, 15% sobre os prêmios líquidos de quem aposta. No primeiro trimestre, a movimentação mensal já bate R$ 30 bilhões.</p>
+                  <p class="tl-src">Fonte: Senado Notícias, Exame</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="tl-tick" aria-hidden="true">2025</span>
+        </li>
+
+        <li class="tl-slot" data-anchor="end">
+          <div class="tl-card">
+            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2026" aria-label="2026: virar a carta"></button>
+            <div class="tl-inner">
+              <div class="tl-front" aria-hidden="true"></div>
+              <div class="tl-back" id="tl-2026">
+                <div class="tl-back-in">
+                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-ad"/></svg></div>
+                  <p class="tl-when">Julho · 2026</p>
+                  <p class="tl-text">O próprio governo começa a exigir um aviso nos anúncios, “aposta não é investimento”. Até o momento, os cadastros chegam a 43,8 milhões, com mais de R$ 105 bilhões em depósitos acumulados no ano.</p>
+                  <p class="tl-src">Fonte: CNN Brasil, Yogonet Brasil</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="tl-tick" aria-hidden="true">2026</span>
+        </li>
+
+        <li class="tl-slot tl-slot-now" data-anchor="end">
+          <div class="tl-card">
+            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-sac" aria-label="Setembro de 2026: virar a carta"></button>
+            <div class="tl-inner">
+              <div class="tl-front" aria-hidden="true"></div>
+              <div class="tl-back" id="tl-sac">
+                <div class="tl-back-in">
+                  <div class="tl-photo tl-photo-logo"><img class="tl-logo" src="assets/img/logo-completo.png" alt="" width="1080" height="1080" loading="lazy"></div>
+                  <p class="tl-when">Setembro · 2026</p>
+                  <p class="tl-text">A fim de combater a influência das apostas e seus males, nasce o movimento <strong>Solta a Carta</strong>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="tl-tick" aria-hidden="true">Set. 2026</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       A SITUAÇÃO ASSUSTA (preto pontual)
+       ========================================================== -->
+  <section class="block block-dark" id="situacao" aria-labelledby="sit-title">
+    <div class="wrap">
+      <header class="block-head on-dark">
+        <p class="tag">O cenário atual</p>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg>
+      </header>
+
+      <h2 class="display band-title" id="sit-title">A situação assusta</h2>
+      <p class="band-lead">Em menos de 7 anos de liberação, o Brasil já virou bagunça.</p>
+
+      <ul class="figures figures-3">
+        <li class="figure">
+          <div class="fig-top">
+            <p class="fig-num hand">3º</p>
+            <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-globe"/></svg>
+          </div>
+          <p class="fig-text">país do mundo que mais consome plataformas de apostas online, atrás apenas de Estados Unidos e Inglaterra.</p>
+          <p class="fig-src">Fonte: Comscore, 2023</p>
+        </li>
+        <li class="figure">
+          <div class="fig-top">
+            <p class="fig-num hand">+280%</p>
+            <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-trend"/></svg>
+          </div>
+          <p class="fig-text">foi quanto o setor cresceu desde 2019.</p>
+          <p class="fig-src">Fonte: Comscore, 2023</p>
+        </li>
+        <li class="figure">
+          <div class="fig-top">
+            <p class="fig-num hand">20%</p>
+            <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-person"/></svg>
+          </div>
+          <p class="fig-text">é a parcela aproximada da população brasileira que já tem uma conta ativa em plataformas online.</p>
+          <p class="fig-src">Fonte: Yogonet Brasil, setembro/2026</p>
+        </li>
+      </ul>
+
+      <div class="sp-group">
+        <p class="sp-lead">Na maior cidade do país, o número é mais preocupante ainda. A FecomercioSP realizou uma pesquisa entre 4 e 8 de maio de 2026 e descobriu que:</p>
+        <ul class="figures figures-4">
+          <li class="figure">
+            <div class="fig-top">
+              <p class="fig-num hand">50%</p>
+              <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-city"/></svg>
+            </div>
+            <p class="fig-text">dos paulistanos apostam com frequência.</p>
+          </li>
+          <li class="figure">
+            <div class="fig-top">
+              <p class="fig-num hand">35%</p>
+              <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-house"/></svg>
+            </div>
+            <p class="fig-text">apostam buscando aumentar de forma rápida a renda doméstica, um salto de 10 pontos percentuais frente aos 25% de 2024.</p>
+          </li>
+          <li class="figure">
+            <div class="fig-top">
+              <p class="fig-num hand">40%</p>
+              <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bars"/></svg>
+            </div>
+            <p class="fig-text">é quanto sobe essa busca por renda rápida entre quem ganha até 2 salários mínimos.</p>
+          </li>
+          <li class="figure">
+            <div class="fig-top">
+              <p class="fig-num hand">7%</p>
+              <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-alert"/></svg>
+            </div>
+            <p class="fig-text">dos paulistanos reconhecem sofrer de dependência do jogo.</p>
+          </li>
+        </ul>
+        <p class="fig-src sp-src">Fonte: FecomercioSP, maio/2026</p>
+      </div>
+
+      <!-- Índice de risco FECAP: régua em cima, 4 frentes em cartas embaixo -->
+      <div class="risk">
+        <div class="risk-head">
+          <div class="risk-score">
+            <p class="risk-num hand">64,2 <span class="fig-unit">em 100</span></p>
+            <div class="meter" role="img" aria-label="Índice de risco: 64,2 de 100, risco elevado">
+              <span class="meter-fill" style="--v: 64.2%"></span>
+              <span class="meter-mark" style="--v: 64.2%"></span>
+            </div>
+            <p class="meter-scale" aria-hidden="true"><span>0</span><span>100</span></p>
+            <p class="meter-label">Risco elevado</p>
+          </div>
+          <div class="risk-text">
+            <p>É o índice de risco que a FECAP calculou cruzando quatro frentes. A partir dos resultados de cada frente, foi calculada uma pontuação de 0 a 100 pra medir o risco. Entre os jovens paulistas de 18 a 29 anos ouvidos na pesquisa, o resultado foi 64,2, classificado como risco elevado.</p>
+            <p class="fig-src">Fonte: FECAP, 2026</p>
+          </div>
+        </div>
+
+        <ul class="rcards" aria-label="As quatro frentes do índice">
+          <li class="rcard">
+            <span class="rcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg></span>
+            <svg class="rcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-diamond" class="s-out"/><use href="#g-diamond" class="s-in"/></svg>
+            <p class="rcard-name">Financeira</p>
+            <p class="rcard-text">Quanto dinheiro de despesa essencial e quantas dívidas a aposta já consumiu.</p>
+            <span class="rcard-corner rcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg></span>
+          </li>
+          <li class="rcard">
+            <span class="rcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></span>
+            <svg class="rcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-heart" class="s-out"/><use href="#g-heart" class="s-in"/></svg>
+            <p class="rcard-name">Emocional</p>
+            <p class="rcard-text">Quanta ansiedade e culpa ela já causou.</p>
+            <span class="rcard-corner rcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></span>
+          </li>
+          <li class="rcard">
+            <span class="rcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
+            <svg class="rcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
+            <p class="rcard-name">Comportamental</p>
+            <p class="rcard-text">Com que frequência a pessoa tenta recuperar a perda na hora.</p>
+            <span class="rcard-corner rcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
+          </li>
+          <li class="rcard">
+            <span class="rcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></span>
+            <svg class="rcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-spade" class="s-out"/><use href="#g-spade" class="s-in"/></svg>
+            <p class="rcard-name">Acadêmica e profissional</p>
+            <p class="rcard-text">Se já afetou o desempenho na escola ou no trabalho.</p>
+            <span class="rcard-corner rcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       A LÓGICA MERCADOLÓGICA — texto quebrado em linhas com ilustração
+       ========================================================== -->
+  <section class="block" id="logica" aria-labelledby="qg-title">
+    <div class="wrap">
+      <header class="block-head">
+        <p class="tag">A lógica mercadológica</p>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg>
+      </header>
+
+      <h2 class="display block-title" id="qg-title">A engenharia do “quase ganho”</h2>
+
+      <div class="mm">
+
+        <div class="mm-row reveal">
+          <div class="mm-text"><p>Hoje o setor de apostas é o 2º maior anunciante do país, controlando 4% de todo o investimento em mídia no Brasil, ficando atrás apenas do setor de varejo.</p></div>
+          <figure class="mm-visual mm-card">
+            <ol class="rank">
+              <li><span class="rank-pos display">1º</span><span>Varejo</span></li>
+              <li class="is-bets"><span class="rank-pos display">2º</span><span>Apostas</span></li>
+            </ol>
+            <div class="waffle" data-waffle="4" role="img" aria-label="4 de cada 100 reais investidos em mídia no Brasil vão para as apostas"></div>
+            <figcaption><span class="hand mm-num">4%</span> de todo o investimento em mídia no Brasil</figcaption>
+          </figure>
+        </div>
+
+        <div class="mm-row mm-row-rev reveal">
+          <div class="mm-text"><p>Esse dinheiro gasto é principalmente distribuído em compra de espaço de propaganda na televisão, patrocínio esportivo e compra de influência pessoal nas redes sociais.</p></div>
+          <ul class="mm-visual channels" aria-label="Para onde vai o dinheiro">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tv"/></svg><span>Propaganda na televisão</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ball"/></svg><span>Patrocínio esportivo</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg><span>Influência nas redes sociais</span></li>
+          </ul>
+        </div>
+
+        <p class="mm-statement reveal"><span class="display">O gasto não é algo feito por acaso.</span> Quanto mais as apostas aparecem ao lado de coisas e pessoas que você admira e acompanha, menos ela se parece com um risco e mais parece um hábito do dia a dia.</p>
+
+        <div class="mm-row reveal">
+          <div class="mm-text"><p>É estimado pelo Itaú que o setor gasta entre R$ 5,8 e R$ 8,8 bilhões ao ano com marketing e patrocínios. Na televisão, três empresas são responsáveis pelo gasto de dois terços do setor.</p></div>
+          <figure class="mm-visual mm-card">
+            <p class="mm-big"><span class="hand mm-num">R$ 5,8 a 8,8 bi</span><span class="mm-per">por ano em marketing e patrocínios</span></p>
+            <div class="split-bar" role="img" aria-label="Três empresas respondem por dois terços do gasto do setor na televisão">
+              <span class="split-a">3 empresas</span><span class="split-b">o resto do setor</span>
+            </div>
+            <figcaption>Gasto do setor na televisão</figcaption>
+          </figure>
+        </div>
+
+        <div class="mm-row mm-row-rev reveal">
+          <div class="mm-text"><p>Uma das maiores paixões do brasileiro é financiada pelas casas de apostas. Ao todo, mais de R$ 1 bilhão por ano são gastos com patrocínios máster no futebol. Hoje, todos os clubes de futebol da principal liga nacional, a Série A, já foram financiados pelo setor. Inclusive, o campeonato vendeu seus naming rights para a maior anunciante do mercado pela bagatela de R$ 50 milhões por ano, desde 2024.</p></div>
+          <figure class="mm-visual mm-card">
+            <div class="shirts" data-shirts="20" role="img" aria-label="Todos os 20 clubes da Série A já tiveram patrocínio de casa de apostas"></div>
+            <figcaption>Todos os clubes da Série A já foram financiados pelo setor.</figcaption>
+            <div class="mm-mini">
+              <p><span class="hand mm-num">+R$ 1 bi</span> por ano em patrocínios máster</p>
+              <p><span class="hand mm-num">R$ 50 mi</span> por ano pelo nome do campeonato</p>
+            </div>
+          </figure>
+        </div>
+
+        <div class="mm-row reveal">
+          <div class="mm-text"><p>A facilidade não é apenas pra ser visto. Você não precisa sair de casa pra apostar. Não é necessário ir a lugar nenhum e nem falar com ninguém. Você só precisa de um celular e de sua conta bancária pra perder um mês de salário em menos de uma hora, recuperá-lo e depois perder novamente. O jogo foi feito pra te prender a partir da sensação de <span class="hand hand-inline">“quase ganho”,</span> que ativa os mesmos mecanismos de recompensa que substâncias como a cocaína ativam. Diferente de um jogo de carteado tradicional, as casas de apostas online são desenhadas algoritmicamente pra fazer você sentir prazer quando perde, pra ter mais vontade de apostar.</p></div>
+          <figure class="mm-visual loop" aria-label="O ciclo: aposta, quase ganho, sensação de recompensa, vontade de apostar de novo">
+            <svg class="loop-ring" viewBox="0 0 200 200" aria-hidden="true">
+              <defs><marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker></defs>
+              <path d="M128 22A82 82 0 0 1 178 72" marker-end="url(#arrow)"/>
+              <path d="M178 128A82 82 0 0 1 128 178" marker-end="url(#arrow)"/>
+              <path d="M72 178A82 82 0 0 1 22 128" marker-end="url(#arrow)"/>
+              <path d="M22 72A82 82 0 0 1 72 22" marker-end="url(#arrow)"/>
+            </svg>
+            <span class="loop-node loop-n">Aposta</span>
+            <span class="loop-node loop-e is-hot">“Quase ganho”</span>
+            <span class="loop-node loop-s">Sensação de recompensa</span>
+            <span class="loop-node loop-w">Vontade de apostar de novo</span>
+          </figure>
+        </div>
+
+        <div class="mm-row mm-row-rev reveal">
+          <div class="mm-text"><p>Cada notificação, bônus, cupom de depósito, cashback e rodada grátis foram feitos pra você sentir esperança e vontade de jogar novamente. Os jogos são desenhados com animações vibrantes, efeitos sonoros, mascotes e gráficos feitos pra conquistar um pedaço corrosivo do seu cérebro, que cada vez mais vai passar a exigir um estímulo maior.</p></div>
+          <ul class="mm-visual notifs" aria-label="Iscas usadas pelas plataformas">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Notificação</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Bônus</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Cupom de depósito</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Cashback</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Rodada grátis</li>
+          </ul>
+        </div>
+
+        <p class="src mm-src">Fontes: Kantar Ibope Media/Folha de S.Paulo, Ibope Advertising Intelligence/Meio &amp; Mensagem, Itaú Unibanco, Tunad, Lance!, Veja, Mundo do Marketing, Máquina do Esporte, SportsPro</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       EXISTEM 4 FRENTES
+       ========================================================== -->
+  <section class="block" id="frentes" aria-labelledby="fr-title">
+    <div class="wrap">
+      <header class="block-head">
+        <p class="tag">Onde se aposta</p>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg>
+      </header>
+
+      <h2 class="display block-title" id="fr-title">Existem 4 frentes</h2>
+      <div class="prose fronts-lead">
+        <p>Existe aposta em pelo menos quatro formatos rodando no Brasil ao mesmo tempo, e a linha entre eles é mais fina do que parece.</p>
+      </div>
+
+      <div class="fronts" role="list">
+        <p class="fronts-axis" aria-hidden="true">Regulamentado</p>
+        <p class="fronts-axis" aria-hidden="true">Clandestino</p>
+
+        <article class="front" role="listitem">
+          <p class="front-kind">Digital regulamentado</p>
+          <p>As bets com autorização do Ministério da Fazenda, que hoje somam 43,8 milhões de cadastros.</p>
+          <p class="src">Fonte: Yogonet Brasil, setembro/2026</p>
+        </article>
+        <article class="front front-dark" role="listitem">
+          <p class="front-kind">Digital clandestino</p>
+          <p>Mais de 25 mil plataformas restritas que, mesmo assim, ainda respondem por até metade de tudo que é apostado no Brasil, operando com licenças de paraísos fiscais como Curaçao e Malta, sem seguir nenhuma regra brasileira. 13% dos apostadores já foram vítimas de algum golpe nesses ambientes.</p>
+          <p class="src">Fontes: estudo de mercado (25 mil plataformas restringidas); Serasa, 2024 (golpes)</p>
+        </article>
+        <article class="front" role="listitem">
+          <p class="front-kind">Físico regulamentado</p>
+          <p>Terminais de vídeo loteria já operam dentro de shoppings como o Jockey Plaza em Curitiba, sendo licenciados no Paraná desde 2022.</p>
+          <p class="src">Fonte: Lottopar-PR</p>
+        </article>
+        <article class="front front-dark" role="listitem">
+          <p class="front-kind">Físico clandestino</p>
+          <p>Caça-níqueis ilegais são apreendidos aos montes pela polícia em vários estados, sustentados às vezes até por corrupção dentro das próprias corporações policiais, e movimentam um mercado estimado em R$ 3,6 bilhões por ano (a estimativa mais recente disponível é de 2018, já que é um mercado clandestino e não auditado).</p>
+          <p class="src">Fontes: Polícia Civil do Paraná, BNLData/Instituto Brasileiro Jogo Legal</p>
+        </article>
+      </div>
+
+      <p class="closing-line fronts-close">Pra quem já passou pelo vício, essas quatro camadas não são categorias separadas. É tudo a mesma coisa.</p>
+
+      <figure class="testimony">
+        <svg class="testimony-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg>
+        <p class="testimony-label tag">Relato anônimo</p>
+        <blockquote>
+          <p>“Comecei numa plataforma regulamentada, dessas que todo mundo conhece. No mesmo dia que abri minha conta lá, um amigo me indicou uma banca por fora, sem burocracia nenhuma, te dava crédito sem precisar pagar na hora. Você ganhava, não pagava nada, às vezes perdia, pagava um pouquinho, e a bola foi só aumentando. Pra mim não tinha diferença entre o site sério e o clandestino. Os dois queriam a mesma coisa.”</p>
+        </blockquote>
+        <figcaption>Cedido ao movimento por uma pessoa em recuperação. Relato composto a partir de um depoimento real coletado na escuta do movimento com o Jogadores Anônimos, anonimizado seguindo a mesma regra da <a href="privacidade.html">política de privacidade</a>.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       FECHAMENTO
+       ========================================================== -->
+  <section class="block page-close" aria-labelledby="close-title">
+    <div class="wrap">
+      <div class="cta-head">
+        <h2 class="display block-title" id="close-title">Esse problema pode ser resolvido.</h2>
+        <p class="cta-hand hand">Se informar é o primeiro passo pra virar esse jogo.</p>
+      </div>
+
+      <h3 class="tag deck-title">Descubra os outros naipes</h3>
+      <ul class="deck deck-4">
+        <li>
+          <a class="pcard" href="o-que-e-ludopatia.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-diamond" class="s-out"/><use href="#g-diamond" class="s-in"/></svg>
+            <span class="pcard-name">Entenda mais sobre a ludopatia</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard" href="apoio-e-ajuda.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-heart" class="s-out"/><use href="#g-heart" class="s-in"/></svg>
+            <span class="pcard-name">Apoio &amp; Ajuda</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard" href="trevos.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
+            <span class="pcard-name">Confira nossas ações</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard pcard-joker" href="trevos.html#reis-e-rainhas">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg></span>
+            <svg class="pcard-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg>
+            <span class="pcard-name">Apoie o movimento</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     RODAPÉ (igual à home)
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap">
+
+    <div class="help-box">
+      <svg class="help-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg>
+      <div>
+        <p class="tag">Precisa de ajuda agora?</p>
+                <ul class="help-links">
+          <li><strong>Jogadores Anônimos:</strong> <a href="tel:+554198936054">+55 41 9893-6054</a> · <a href="https://jogadoresanonimos.com.br" target="_blank" rel="noopener">jogadoresanonimos.com.br</a></li>
+          <li><strong>CVV</strong> (apoio emocional 24h, gratuito e sigiloso): <a href="tel:188">ligue 188</a> · <a href="https://cvv.org.br" target="_blank" rel="noopener">cvv.org.br</a></li>
+          <li><strong>SUS</strong> (atendimento gratuito, autoavaliação no Meu SUS Digital): <a href="https://www.gov.br/saude/pt-br/assuntos/noticias-ms/2026/julho/campanha-do-ministerio-da-saude-orienta-sobre-riscos-das-apostas-online-e-atendimento-em-saude-mental-no-sus" target="_blank" rel="noopener">saiba mais</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/img/logo-completo.png" alt="Solta a Carta" width="1080" height="1080">
+      </div>
+
+      <nav class="footer-col" aria-label="Seções do site (rodapé)">
+        <p class="footer-h">Navegue</p>
+        <ul>
+          <li><a href="dados-que-assustam.html" aria-current="page"><span aria-hidden="true">♠</span> Dados que assustam</a></li>
+          <li><a href="o-que-e-ludopatia.html"><span aria-hidden="true">♦</span> O que é Ludopatia?</a></li>
+          <li><a href="apoio-e-ajuda.html"><span aria-hidden="true">♥</span> Apoio &amp; Ajuda</a></li>
+          <li><a href="trevos.html"><span aria-hidden="true">♣</span> Confira nossas ações</a></li>
+          <li><a href="trevos.html#reis-e-rainhas" class="footer-joker">Apoie o movimento</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <p class="footer-h">Acompanhe</p>
+        <ul class="social social-foot">
+          <li><a class="soc soc-ig" href="https://www.instagram.com/projetosoltaacarta/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></span><span class="soc-name">Instagram</span></a></li>
+          <li><a class="soc soc-fb" href="https://www.facebook.com/profile.php?id=61594390811809" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></span><span class="soc-name">Facebook</span></a></li>
+          <li><a class="soc soc-ml" href="mailto:projetosoltaacarta@gmail.com?subject=Imprensa%20e%20parcerias" aria-label="E-mail" title="E-mail"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 5.25A2.25 2.25 0 0 1 3.75 3h16.5a2.25 2.25 0 0 1 2.25 2.25v.7L12 12.6 1.5 5.95v-.7zm0 3.15V18.75A2.25 2.25 0 0 0 3.75 21h16.5a2.25 2.25 0 0 0 2.25-2.25V8.4L12 15.05 1.5 8.4z"/></svg></span><span class="soc-name">E-mail</span></a></li>
+          <li><a class="soc soc-lt" href="https://linktr.ee/projetosoltaacarta" target="_blank" rel="noopener" aria-label="Linktree" title="Linktree"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13.73635 5.85251 4.00467-4.11665 2.3248 2.3808-4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766-2.3248 2.3338L12.0005 12.099l-5.74052 5.76852-2.3248-2.3248 4.22864-4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248-2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"/></svg></span><span class="soc-name">Linktree</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-h">Transparência</p>
+        <ul>
+          <li><a href="privacidade.html">Política de Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="disclaimer">O Solta a Carta é um projeto de conscientização e não substitui atendimento profissional. Se você ou alguém que você conhece precisa de ajuda, procure a rede de apoio indicada aqui.</p>
+      <p class="footer-suits" aria-hidden="true">♠ ♦ ♥ ♣</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

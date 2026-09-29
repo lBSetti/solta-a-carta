@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trevos — Solta a Carta</title>
+  <meta name="description" content="Ações, notícias e transparência do movimento Solta a Carta.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Trevos — Solta a Carta">
+  <meta property="og:description" content="Acompanhe nossos passos!">
+  <meta property="og:image" content="assets/img/logo-completo.png">
+  <link rel="icon" href="assets/img/logo-cartas.png">
+
+  <link rel="preload" href="assets/fonts/bernoru-blackultraexpanded.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/fonts/nf-ananias-regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/Luciole-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page-trevos">
+
+<!-- ============================================================
+     Sprite SVG: naipes, coringa e ícones
+     ============================================================ -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <path id="g-spade" d="M12 2.5s-8.5 6.6-8.5 11.6c0 2.5 2 4.3 4.3 4.3 1.4 0 2.6-.6 3.3-1.6L10 21.5h4l-1.1-4.7c.7 1 1.9 1.6 3.3 1.6 2.3 0 4.3-1.8 4.3-4.3C20.5 9.1 12 2.5 12 2.5z"/>
+    <path id="g-diamond" d="M12 2.5 19.5 12 12 21.5 4.5 12z"/>
+    <path id="g-heart" d="M12 20.5S3 14.6 3 8.8C3 6 5.2 4 7.7 4c1.8 0 3.3 1 4.3 2.5C13 5 14.5 4 16.3 4 18.8 4 21 6 21 8.8c0 5.8-9 11.7-9 11.7z"/>
+    <g id="g-club">
+      <circle cx="12" cy="7.2" r="4"/>
+      <circle cx="7" cy="13.4" r="4"/>
+      <circle cx="17" cy="13.4" r="4"/>
+      <circle cx="12" cy="12" r="2.6"/>
+      <path d="M12 11.5 13.5 21.5h-3z"/>
+    </g>
+    <g id="g-joker" stroke-linejoin="round" stroke-width="1.6">
+      <path d="M3.6 18.2 5 8.4l4.3 5L12 5.4l2.7 8 4.3-5 1.4 9.8z"/>
+      <rect x="3" y="18" width="18" height="3.6" rx="1.4"/>
+      <circle cx="5" cy="6.4" r="1.9"/>
+      <circle cx="12" cy="3.3" r="1.9"/>
+      <circle cx="19" cy="6.4" r="1.9"/>
+    </g>
+    <!-- Ícones de traço (viewBox 24) -->
+    <g id="i-person"><circle cx="12" cy="7" r="3.5"/><path d="M4.5 21c.6-4.4 3.5-7 7.5-7s6.9 2.6 7.5 7"/></g>
+    <g id="i-teen"><circle cx="12" cy="7.5" r="3"/><path d="M6.5 21c.5-3.8 2.7-6 5.5-6s5 2.2 5.5 6"/><path d="M9 4.5c1-1.5 5-1.5 6 0"/></g>
+    <g id="i-brain"><path d="M11 4.5a3 3 0 0 0-5.5 1.3A3 3 0 0 0 3.8 11a3.2 3.2 0 0 0 1.5 5.2A3 3 0 0 0 11 19.5zM13 4.5a3 3 0 0 1 5.5 1.3 3 3 0 0 1 1.7 5.2 3.2 3.2 0 0 1-1.5 5.2 3 3 0 0 1-5.7 3.3z"/><path d="M11 9H8.5M13 9h2.5M11 14H8M13 14h3"/></g>
+    <g id="i-ticket"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"/><path d="M15 7v10" stroke-dasharray="2 2"/></g>
+    <g id="i-palette"><path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-.9 2-2 0-1-.9-1.4-.9-2.4 0-1 .9-1.6 2-1.6h2a4 4 0 0 0 4-4c0-4.4-4-8-9.1-8z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="15" cy="7" r="1.2"/></g>
+    <g id="i-clock-off"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2M4 4l16 16"/></g>
+    <g id="i-bell"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5a2 2 0 0 0 4 0"/></g>
+    <g id="i-trophy"><path d="M8 4h8v4a4 4 0 0 1-8 0zM8 5.5H5a3 3 0 0 0 3.2 3.5M16 5.5h3a3 3 0 0 1-3.2 3.5M12 12v3.5M8.5 20.5h7M9.5 15.5h5l.5 5h-6z"/></g>
+    <g id="i-target"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></g>
+    <g id="i-calendar"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g>
+    <g id="i-pulse"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"/></g>
+    <g id="i-phone"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/><circle cx="12" cy="9.5" r="2.2"/><path d="M8.8 14.6c.7-1.4 1.8-2 3.2-2s2.5.6 3.2 2"/></g>
+    <g id="i-stats"><path d="M4 20.5h16M7 20.5v-6M12 20.5V9M17 20.5v-10"/><path d="M5 9l5-4 4 3 5-4"/></g>
+    <g id="i-hourglass"><path d="M7 3h10M7 21h10M8 3c0 5 8 5 8 9s-8 4-8 9M16 3c0 5-8 5-8 9s8 4 8 9"/></g>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ============================================================
+     CABEÇALHO (igual à home; Ouros marcado como página atual)
+     ============================================================ -->
+<header class="site-header" id="topo">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Solta a Carta — página inicial">
+      <span class="brand-mark"><img src="assets/img/logo-cartas.png" alt="" width="1080" height="1080"></span>
+      <span class="brand-word" aria-hidden="true">Solta a<br>Carta</span>
+    </a>
+
+    <nav class="suit-nav" aria-label="Seções do site">
+      <ul class="suit-list">
+        <li>
+          <a class="suit-link" href="dados-que-assustam.html" data-label="Dados que assustam">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-spade" class="s-out"/><use href="#g-spade" class="s-in"/></svg>
+            <span class="suit-label"><span>Dados que assustam</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="o-que-e-ludopatia.html" data-label="O que é Ludopatia?">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-diamond" class="s-out"/><use href="#g-diamond" class="s-in"/></svg>
+            <span class="suit-label"><span>O que é Ludopatia?</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="apoio-e-ajuda.html" data-label="Apoio &amp; Ajuda">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-heart" class="s-out"/><use href="#g-heart" class="s-in"/></svg>
+            <span class="suit-label"><span>Apoio &amp; Ajuda</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="trevos.html" aria-current="page" data-label="Confira nossas ações">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
+            <span class="suit-label"><span>Confira nossas ações</span></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="suit-link joker-link" href="trevos.html#reis-e-rainhas" data-label="Apoie o movimento">
+      <svg class="suit-icon joker-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg>
+      <span class="suit-label"><span>Apoie o movimento</span></span>
+    </a>
+  </div>
+
+  <div class="nav-hint" id="nav-hint" aria-live="polite" hidden>
+    <a class="nav-hint-link" href="#"><span class="nav-hint-label"></span><span class="nav-hint-cta">toque de novo para abrir →</span></a>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="block page-intro" aria-labelledby="page-title">
+    <div class="wrap">
+      <header class="block-head">
+        <p class="tag tag-display">Trevos · Ações, notícias &amp; transparência</p>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg>
+      </header>
+      <h1 class="display block-title page-title" id="page-title">Acompanhe nossos passos!</h1>
+      <p class="page-lead">Um movimento se prova pelo que faz, não só pelo que fala. Aqui estão as ações do Solta a Carta até agora.</p>
+      <div class="xcards">
+        <details class="xcard reveal">
+          <summary><span class="xcard-kind">Pesquisa de campo</span><span class="xcard-title">Fomos ouvir quem vive isso de perto</span><span class="xcard-sum">Visitamos o Jogadores Anônimos pra fazer uma escuta real com pessoas em recuperação, e usamos esse material pra construir o site inteiro.</span><span class="xcard-more" aria-hidden="true">Ler mais</span></summary>
+          <div class="xcard-body"><p>Antes de escrever qualquer conteúdo, a equipe foi até um grupo do Jogadores Anônimos para um momento de escuta ativa. Ouvimos relatos sobre a escalada silenciosa do vício, os impactos emocionais e financeiros, o estigma e o processo de recuperação, sem gravar nomes, rostos ou qualquer dado que identifique alguém.</p><p>Os relatos anonimizados que você lê na página <a href="apoio-e-ajuda.html#relatos">Apoio &amp; Ajuda</a> vieram daí, e os dados do site foram cruzados com o que ouvimos.</p></div>
+        </details>
+        <details class="xcard reveal">
+          <summary><span class="xcard-kind">Redes</span><span class="xcard-title">Siga o Movimento em todas as redes</span><span class="xcard-sum">Ajude a espalhar a causa. Nos siga e compartilhe pra mais gente chegar até aqui.</span><span class="xcard-more" aria-hidden="true">Ler mais</span></summary>
+          <div class="xcard-body"><p>O Solta a Carta ainda não tem verba para impulsionar conteúdo. Cada seguidor, compartilhamento e indicação é alcance que o movimento não teria de outro jeito, e é assim que a mensagem sai do círculo de quem já conhece a causa.</p><ul class="social">
+          <li><a class="soc soc-ig" href="https://www.instagram.com/projetosoltaacarta/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></span><span class="soc-name">Instagram</span></a></li>
+          <li><a class="soc soc-fb" href="https://www.facebook.com/profile.php?id=61594390811809" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></span><span class="soc-name">Facebook</span></a></li>
+          <li><a class="soc soc-ml" href="mailto:projetosoltaacarta@gmail.com?subject=Imprensa%20e%20parcerias" aria-label="E-mail" title="E-mail"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 5.25A2.25 2.25 0 0 1 3.75 3h16.5a2.25 2.25 0 0 1 2.25 2.25v.7L12 12.6 1.5 5.95v-.7zm0 3.15V18.75A2.25 2.25 0 0 0 3.75 21h16.5a2.25 2.25 0 0 0 2.25-2.25V8.4L12 15.05 1.5 8.4z"/></svg></span><span class="soc-name">E-mail</span></a></li>
+          <li><a class="soc soc-lt" href="https://linktr.ee/projetosoltaacarta" target="_blank" rel="noopener" aria-label="Linktree" title="Linktree"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13.73635 5.85251 4.00467-4.11665 2.3248 2.3808-4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766-2.3248 2.3338L12.0005 12.099l-5.74052 5.76852-2.3248-2.3248 4.22864-4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248-2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"/></svg></span><span class="soc-name">Linktree</span></a></li>
+        </ul></div>
+        </details>
+        <details class="xcard reveal">
+          <summary><span class="xcard-kind">Financiamento</span><span class="xcard-title">Financie o movimento</span><span class="xcard-sum">Estamos construindo um portal de transparência pra prestar contas de cada centavo arrecadado, mês a mês. Financiar o Solta a Carta é financiar essa causa de forma verificável.</span><span class="xcard-more" aria-hidden="true">Ler mais</span></summary>
+          <div class="xcard-body"><p>Parte do que for arrecadado vai para compra de mídia. Alcançar o público certo, principalmente jovem, custa dinheiro de verdade: sem investimento em divulgação, a mensagem não sai do círculo de quem já conhece o movimento.</p><p>O plano é falar com adolescentes onde eles já estão, com linguagem, formatos e canais pensados para eles, e não com um anúncio genérico de saúde pública.</p><a class="btn btn-ghost" href="#transparencia">Ver o Portal de Transparência</a></div>
+        </details>
+        <details class="xcard reveal">
+          <summary><span class="xcard-kind">Próxima meta</span><span class="xcard-title">Queremos entrar nos colégios</span><span class="xcard-sum">Ludopatia afeta principalmente adolescentes, e é lá que a conversa precisa acontecer. Essa é uma das nossas próximas metas.</span><span class="xcard-more" aria-hidden="true">Ler mais</span></summary>
+          <div class="xcard-body"><p>A ideia são palestras dentro das escolas não só para alunos, mas também para pais e professores, porque o problema precisa ser reconhecido também por quem convive com os adolescentes fora de casa.</p><p>Queremos que essas palestras tenham suporte técnico de profissionais qualificados, como psicólogos, psiquiatras e educadores, e não apenas voluntários do movimento falando por conta própria.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block block-dark" id="noticias" aria-labelledby="news-title">
+    <div class="wrap">
+      <header class="block-head on-dark"><p class="tag">Notícias</p><svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></header>
+      <h2 class="display band-title" id="news-title">Fique por dentro</h2>
+      <p class="band-lead">Comentários e atualizações sobre o mundo das apostas no Brasil, direto de quem está construindo esse movimento.</p>
+      <!-- Notícias: se data-sheet tiver a URL CSV de uma planilha Google publicada
+           (colunas: titulo, data, resumo, corpo), os cards abaixo são substituídos
+           pelos da planilha. Sem URL, ficam os cards fixos. -->
+      <div class="xcards xcards-news" data-news data-sheet="">
+        <details class="xcard">
+          <summary><span class="xcard-kind">Setembro de 2026</span><span class="xcard-title">Como nasceu o Solta a Carta</span><span class="xcard-sum">A indignação com o tamanho desse problema no Brasil, e a decisão de ouvir, de verdade, quem vive ludopatia de perto.</span><span class="xcard-more" aria-hidden="true">Ler notícia</span></summary>
+          <div class="xcard-body">
+            <p>O Solta a Carta nasceu da indignação com o momento que o Brasil está vivendo. As apostas online se espalharam rápido demais, viraram parte do cotidiano de milhões de brasileiros, e o resultado disso é um problema que só tem a prejudicar a sociedade: famílias endividadas, jovens cada vez mais expostos, e uma indústria bilionária que lucra em cima disso tudo.</p>
+            <p>Antes de escrever uma linha de conteúdo pro site, decidimos que não íamos falar sobre ludopatia sem antes ouvir quem realmente vive esse problema. Fomos até o Jogadores Anônimos e conduzimos uma escuta direta com pessoas em recuperação, gente que passou por perdas financeiras, mentiras, crises familiares e reconstrução.</p>
+            <p>Todos os dados que sustentam a página foram cruzados com o nosso momento de escuta ativa, a fim de averiguar os fatos.</p>
+            <p>Confira agora alguns relatos reunidos a fim de conscientização sobre o tema.</p>
+            <div class="xwarn"><p><strong>Alerta de conteúdo sensível.</strong> Os relatos a seguir falam sobre vício, dívidas, perda de relacionamentos e, em um dos casos, tentativa de suicídio.</p><button class="btn btn-primary" type="button" data-load-stories>Quero ver os relatos</button></div>
+            <div class="stories-slot" tabindex="-1"></div>
+            <p>O Solta a Carta ainda está no começo. Não temos patrocínio, não temos verba de mídia, não temos uma rede de apoiadores formada. O que temos é um trabalho de pesquisa sério e a vontade de transformar isso em algo que realmente ajude, principalmente adolescentes, que são o público que mais cresce entre quem aposta no Brasil.</p>
+            <a class="btn btn-primary" href="#reis-e-rainhas">Faça a diferença. Seja a carta fora do baralho.</a>
+          </div>
+        </details>
+        <details class="xcard">
+          <summary><span class="xcard-kind">Setembro de 2026</span><span class="xcard-title">Por que seguir e compartilhar faz diferença?</span><span class="xcard-sum">Sem verba de mídia, o alcance do Solta a Carta depende de uma coisa só: quem já conhece espalhando pra frente.</span><span class="xcard-more" aria-hidden="true">Ler notícia</span></summary>
+          <div class="xcard-body">
+            <p>Um movimento sem patrocínio compete em desvantagem contra uma indústria que investe bilhões em publicidade todo ano. A gente não tem como comprar espaço em televisão nem pagar influenciador pra falar de ludopatia. O que temos é a rede de quem já chegou até aqui e decidiu que essa causa importa.</p>
+            <p>Cada compartilhamento, cada story, cada indicação pra um amigo é alcance real que o Solta a Carta não teria de outro jeito. Não deixe isso continuar como um cenário de um baralho de cartas marcadas. Faça a diferença para uma sociedade livre de apostas. O jogo não será virado sozinho.</p>
+            <p class="xlabel">Seguir o Solta a Carta</p><ul class="social">
+          <li><a class="soc soc-ig" href="https://www.instagram.com/projetosoltaacarta/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></span><span class="soc-name">Instagram</span></a></li>
+          <li><a class="soc soc-fb" href="https://www.facebook.com/profile.php?id=61594390811809" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></span><span class="soc-name">Facebook</span></a></li>
+          <li><a class="soc soc-ml" href="mailto:projetosoltaacarta@gmail.com?subject=Imprensa%20e%20parcerias" aria-label="E-mail" title="E-mail"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 5.25A2.25 2.25 0 0 1 3.75 3h16.5a2.25 2.25 0 0 1 2.25 2.25v.7L12 12.6 1.5 5.95v-.7zm0 3.15V18.75A2.25 2.25 0 0 0 3.75 21h16.5a2.25 2.25 0 0 0 2.25-2.25V8.4L12 15.05 1.5 8.4z"/></svg></span><span class="soc-name">E-mail</span></a></li>
+          <li><a class="soc soc-lt" href="https://linktr.ee/projetosoltaacarta" target="_blank" rel="noopener" aria-label="Linktree" title="Linktree"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13.73635 5.85251 4.00467-4.11665 2.3248 2.3808-4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766-2.3248 2.3338L12.0005 12.099l-5.74052 5.76852-2.3248-2.3248 4.22864-4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248-2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"/></svg></span><span class="soc-name">Linktree</span></a></li>
+        </ul>
+          </div>
+        </details>
+        <details class="xcard">
+          <summary><span class="xcard-kind">Setembro de 2026</span><span class="xcard-title">Toda ajuda é bem vinda!</span><span class="xcard-sum">Alcançar o público certo, principalmente os adolescentes, exige investimento real. Contamos como pensamos em fazer isso.</span><span class="xcard-more" aria-hidden="true">Ler notícia</span></summary>
+          <div class="xcard-body">
+            <p>Conscientizar sobre ludopatia não é só ter um site bem feito. É chegar até quem mais precisa ver esse conteúdo, e isso, na prática, custa dinheiro. Alcançar adolescentes hoje significa investir em mídia paga nos lugares onde eles realmente estão, linguagem, formato e canal pensados especificamente pra esse público, não um anúncio genérico de saúde pública.</p>
+            <p>Estamos construindo um portal de transparência pra mostrar, mês a mês, exatamente pra onde vai cada centavo arrecadado. Financiar o Solta a Carta é financiar essa causa de um jeito seguro e confiável.</p>
+            <a class="btn btn-primary" href="#transparencia">Conhecer o Portal de Transparência</a>
+          </div>
+        </details>
+        <details class="xcard">
+          <summary><span class="xcard-kind">Setembro de 2026</span><span class="xcard-title">Precisamos entrar nas escolas!</span><span class="xcard-sum">Ludopatia afeta principalmente adolescentes. É lá, dentro da escola, que essa conversa precisa acontecer.</span><span class="xcard-more" aria-hidden="true">Ler notícia</span></summary>
+          <div class="xcard-body">
+            <p>Não basta falar com adolescentes só pela internet. Estamos planejando dinâmicas pedagógicas nas escolas com profissionais qualificados, junto com palestras para pais e mestres, alertando sobre a gravidade do problema.</p>
+            <p>O movimento entende a necessidade da atuação destes profissionais como cruciais para um futuro livre da ludopatia no Brasil.</p>
+            <p>Essa é uma das nossas próximas metas, e ainda não temos data nem parceria fechada. Em breve, você vai acompanhar um pouco mais as nossas ações dentro dos ambientes escolares.</p>
+          </div>
+        </details>
+      </div>
+      <p class="help-title">Nos acompanhe em todas as redes!</p>
+      <ul class="social">
+          <li><a class="soc soc-ig" href="https://www.instagram.com/projetosoltaacarta/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></span><span class="soc-name">Instagram</span></a></li>
+          <li><a class="soc soc-fb" href="https://www.facebook.com/profile.php?id=61594390811809" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></span><span class="soc-name">Facebook</span></a></li>
+          <li><a class="soc soc-ml" href="mailto:projetosoltaacarta@gmail.com?subject=Imprensa%20e%20parcerias" aria-label="E-mail" title="E-mail"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 5.25A2.25 2.25 0 0 1 3.75 3h16.5a2.25 2.25 0 0 1 2.25 2.25v.7L12 12.6 1.5 5.95v-.7zm0 3.15V18.75A2.25 2.25 0 0 0 3.75 21h16.5a2.25 2.25 0 0 0 2.25-2.25V8.4L12 15.05 1.5 8.4z"/></svg></span><span class="soc-name">E-mail</span></a></li>
+          <li><a class="soc soc-lt" href="https://linktr.ee/projetosoltaacarta" target="_blank" rel="noopener" aria-label="Linktree" title="Linktree"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13.73635 5.85251 4.00467-4.11665 2.3248 2.3808-4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766-2.3248 2.3338L12.0005 12.099l-5.74052 5.76852-2.3248-2.3248 4.22864-4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248-2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"/></svg></span><span class="soc-name">Linktree</span></a></li>
+        </ul>
+    </div>
+  </section>
+
+  <section class="block" id="transparencia" aria-labelledby="tr-title">
+    <div class="wrap">
+      <header class="block-head"><p class="tag">Portal de Transparência</p><svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></header>
+      <h2 class="display block-title" id="tr-title">Todo centavo que recebemos de doações é documentado!</h2>
+      <p class="page-lead">Hoje o Movimento Solta a Carta ainda não arrecadou nada. Quando isso começar a acontecer, esse espaço vai mostrar, mês a mês, exatamente pra onde foi cada centavo.</p>
+      <div class="ledger">
+        <div class="ledger-total"><p class="tag">Total arrecadado até agora</p><p class="ledger-num display">R$ 0,00</p><p class="ledger-empty">Nenhum lançamento registrado ainda.</p></div>
+        <p class="ledger-text">A partir do primeiro valor recebido, esse portal passa a ser atualizado mensalmente, com o total arrecadado no período e o detalhamento de onde esse dinheiro foi aplicado, seja em compra de mídia, ações dentro de escolas, ou qualquer outra frente do movimento.</p>
+      </div>
+      <p class="mm-statement">Seja um dos Reis e Rainhas que financiam a virada do jogo contra as casas de apostas. Você pode doar de forma anônima ou declarada, ingressando na lista de apoiadores.</p>
+      <div class="actions"><a class="btn btn-primary" href="#reis-e-rainhas">Ver quadro de apoiadores</a></div>
+    </div>
+  </section>
+
+  <section class="block block-dark" id="valetes" aria-labelledby="va-title">
+    <div class="wrap">
+      <header class="block-head on-dark"><p class="tag">Valetes</p><svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></header>
+      <h2 class="display band-title" id="va-title">Seja um embaixador da causa</h2>
+      <p class="band-lead">Valetes são empresas e figuras públicas que decidiram abraçar essa bandeira, emprestando seu nome e sua voz pra causa.</p>
+      <p class="sp-lead">Ainda não temos nenhum Valete anunciado. Se você é uma marca ou uma pessoa com alcance público e quer usar isso a favor de uma sociedade livre das apostas, o Movimento Solta a Carta quer conversar com você.</p>
+      <!-- Quando houver embaixadores, trocar o .empty-slot por cards .supporter -->
+      <div class="empty-grid">
+        <div class="empty-slot is-first"><span class="empty-letter display">J</span><p>Nenhum embaixador anunciado até o momento. Os primeiros a topar essa causa entram aqui.</p></div>
+        <div class="empty-slot" aria-hidden="true"><span class="empty-letter display">J</span></div>
+        <div class="empty-slot" aria-hidden="true"><span class="empty-letter display">J</span></div>
+      </div>
+      <div class="actions"><a class="btn btn-primary" href="mailto:projetosoltaacarta@gmail.com?subject=Eu%20quero%20ser%20um%20Valete!">Quero ser um Valete</a></div>
+    </div>
+  </section>
+
+  <section class="block" id="reis-e-rainhas" aria-labelledby="rr-title">
+    <div class="wrap">
+      <header class="block-head"><p class="tag">Reis e Rainhas</p><svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></header>
+      <h2 class="display block-title" id="rr-title">Quadro de apoiadores</h2>
+      <p class="page-lead">Reis e Rainhas são quem financia essa virada de jogo com doações reais, com a opção de entrar nesse quadro de forma anônima ou declarada.</p>
+      <!-- Quando houver apoiadores, trocar o .empty-slot por cards .supporter -->
+      <div class="empty-grid">
+        <div class="empty-slot is-first light"><span class="empty-letter display">K</span><p>Nenhum apoiador registrado até o momento. Os primeiros a doarem entrarão nesta seção como fundadores dessa lista.</p></div>
+        <div class="empty-slot light" aria-hidden="true"><span class="empty-letter display">Q</span></div>
+        <div class="empty-slot light" aria-hidden="true"><span class="empty-letter display">K</span></div>
+      </div>
+      <p class="sp-lead">Doar para o Movimento Solta a Carta é sustentar mídia paga, ações dentro de escolas e a manutenção desse portal de transparência que mostra para onde é direcionado cada centavo recebido. Você decide se quer aparecer com seu nome, um pseudônimo, ou de forma totalmente anônima.</p>
+      <div class="actions"><a class="btn btn-primary" href="apoie-o-movimento.html">Tenho um bom Coração.</a></div>
+    </div>
+  </section>
+
+  <section class="block page-close" aria-labelledby="close-title">
+    <div class="wrap">
+      <div class="cta-head">
+        <h2 class="display block-title" id="close-title">Fazer o bem não faz mal à ninguém!</h2>
+        <p class="cta-hand hand">Vamos virar o jogo contra as casas de apostas.</p>
+      </div>
+      <h3 class="tag deck-title">Descubra os outros naipes</h3>
+      <ul class="deck deck-4">
+        <li>
+          <a class="pcard" href="dados-que-assustam.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-spade" class="s-out"/><use href="#g-spade" class="s-in"/></svg>
+            <span class="pcard-name">Confira dados alarmantes</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard" href="o-que-e-ludopatia.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-diamond" class="s-out"/><use href="#g-diamond" class="s-in"/></svg>
+            <span class="pcard-name">Entenda mais sobre a ludopatia</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard" href="apoio-e-ajuda.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-heart" class="s-out"/><use href="#g-heart" class="s-in"/></svg>
+            <span class="pcard-name">Apoio &amp; Ajuda</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard pcard-joker" href="trevos.html#reis-e-rainhas">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg></span>
+            <svg class="pcard-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg>
+            <span class="pcard-name">Apoie o movimento</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+
+
+<!-- ============================================================
+     RODAPÉ (igual à home)
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap">
+
+    <div class="help-box">
+      <svg class="help-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg>
+      <div>
+        <p class="tag">Precisa de ajuda agora?</p>
+                <ul class="help-links">
+          <li><strong>Jogadores Anônimos:</strong> <a href="tel:+554198936054">+55 41 9893-6054</a> · <a href="https://jogadoresanonimos.com.br" target="_blank" rel="noopener">jogadoresanonimos.com.br</a></li>
+          <li><strong>CVV</strong> (apoio emocional 24h, gratuito e sigiloso): <a href="tel:188">ligue 188</a> · <a href="https://cvv.org.br" target="_blank" rel="noopener">cvv.org.br</a></li>
+          <li><strong>SUS</strong> (atendimento gratuito, autoavaliação no Meu SUS Digital): <a href="https://www.gov.br/saude/pt-br/assuntos/noticias-ms/2026/julho/campanha-do-ministerio-da-saude-orienta-sobre-riscos-das-apostas-online-e-atendimento-em-saude-mental-no-sus" target="_blank" rel="noopener">saiba mais</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/img/logo-completo.png" alt="Solta a Carta" width="1080" height="1080">
+      </div>
+
+      <nav class="footer-col" aria-label="Seções do site (rodapé)">
+        <p class="footer-h">Navegue</p>
+        <ul>
+          <li><a href="dados-que-assustam.html"><span aria-hidden="true">♠</span> Dados que assustam</a></li>
+          <li><a href="o-que-e-ludopatia.html"><span aria-hidden="true">♦</span> O que é Ludopatia?</a></li>
+          <li><a href="apoio-e-ajuda.html"><span aria-hidden="true">♥</span> Apoio &amp; Ajuda</a></li>
+          <li><a href="trevos.html" aria-current="page"><span aria-hidden="true">♣</span> Confira nossas ações</a></li>
+          <li><a href="trevos.html#reis-e-rainhas" class="footer-joker">Apoie o movimento</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <p class="footer-h">Acompanhe</p>
+        <ul class="social social-foot">
+          <li><a class="soc soc-ig" href="https://www.instagram.com/projetosoltaacarta/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></span><span class="soc-name">Instagram</span></a></li>
+          <li><a class="soc soc-fb" href="https://www.facebook.com/profile.php?id=61594390811809" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></span><span class="soc-name">Facebook</span></a></li>
+          <li><a class="soc soc-ml" href="mailto:projetosoltaacarta@gmail.com?subject=Imprensa%20e%20parcerias" aria-label="E-mail" title="E-mail"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 5.25A2.25 2.25 0 0 1 3.75 3h16.5a2.25 2.25 0 0 1 2.25 2.25v.7L12 12.6 1.5 5.95v-.7zm0 3.15V18.75A2.25 2.25 0 0 0 3.75 21h16.5a2.25 2.25 0 0 0 2.25-2.25V8.4L12 15.05 1.5 8.4z"/></svg></span><span class="soc-name">E-mail</span></a></li>
+          <li><a class="soc soc-lt" href="https://linktr.ee/projetosoltaacarta" target="_blank" rel="noopener" aria-label="Linktree" title="Linktree"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13.73635 5.85251 4.00467-4.11665 2.3248 2.3808-4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766-2.3248 2.3338L12.0005 12.099l-5.74052 5.76852-2.3248-2.3248 4.22864-4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248-2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"/></svg></span><span class="soc-name">Linktree</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-h">Transparência</p>
+        <ul>
+          <li><a href="privacidade.html">Política de Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="disclaimer">O Solta a Carta é um projeto de conscientização e não substitui atendimento profissional. Se você ou alguém que você conhece precisa de ajuda, procure a rede de apoio indicada aqui.</p>
+      <p class="footer-suits" aria-hidden="true">♠ ♦ ♥ ♣</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

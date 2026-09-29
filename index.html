@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solta a Carta — Virando o jogo contra as casas de aposta</title>
+  <meta name="description" content="Solta a Carta é um movimento sem fins lucrativos de prevenção e conscientização sobre ludopatia, o vício em apostas e jogos de azar.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Solta a Carta">
+  <meta property="og:description" content="Virando o jogo contra as casas de aposta.">
+  <meta property="og:image" content="assets/img/logo-completo.png">
+  <link rel="icon" href="assets/img/logo-cartas.png">
+
+  <link rel="preload" href="assets/fonts/bernoru-blackultraexpanded.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/fonts/nf-ananias-regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/Luciole-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     Sprite SVG: naipes, coringa e ícones dos dados (usados via <use href>)
+     ============================================================ -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <path id="g-spade" d="M12 2.5s-8.5 6.6-8.5 11.6c0 2.5 2 4.3 4.3 4.3 1.4 0 2.6-.6 3.3-1.6L10 21.5h4l-1.1-4.7c.7 1 1.9 1.6 3.3 1.6 2.3 0 4.3-1.8 4.3-4.3C20.5 9.1 12 2.5 12 2.5z"/>
+    <path id="g-diamond" d="M12 2.5 19.5 12 12 21.5 4.5 12z"/>
+    <path id="g-heart" d="M12 20.5S3 14.6 3 8.8C3 6 5.2 4 7.7 4c1.8 0 3.3 1 4.3 2.5C13 5 14.5 4 16.3 4 18.8 4 21 6 21 8.8c0 5.8-9 11.7-9 11.7z"/>
+    <g id="g-club">
+      <circle cx="12" cy="7.2" r="4"/>
+      <circle cx="7" cy="13.4" r="4"/>
+      <circle cx="17" cy="13.4" r="4"/>
+      <circle cx="12" cy="12" r="2.6"/>
+      <path d="M12 11.5 13.5 21.5h-3z"/>
+    </g>
+    <!-- Coringa: só o chapéu com guizos, geométrico e sólido -->
+    <g id="g-joker" stroke-linejoin="round" stroke-width="1.6">
+      <path d="M3.6 18.2 5 8.4l4.3 5L12 5.4l2.7 8 4.3-5 1.4 9.8z"/>
+      <rect x="3" y="18" width="18" height="3.6" rx="1.4"/>
+      <circle cx="5" cy="6.4" r="1.9"/>
+      <circle cx="12" cy="3.3" r="1.9"/>
+      <circle cx="19" cy="6.4" r="1.9"/>
+    </g>
+    <!-- Ícones dos dados (traço) -->
+    <g id="i-phone"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/><circle cx="12" cy="9.5" r="2.2"/><path d="M8.8 14.6c.7-1.4 1.8-2 3.2-2s2.5.6 3.2 2"/></g>
+    <g id="i-thought"><path d="M7.5 15.5a4 4 0 0 1-.6-7.9A5 5 0 0 1 16.4 6a4.5 4.5 0 0 1 .6 9.5z"/><circle cx="7" cy="19" r="1.3"/><circle cx="4" cy="21.3" r=".8"/><path d="M11 8.5v3M11 13.4v.1"/></g>
+    <g id="i-alert"><path d="M12 3 22 20.5H2z"/><path d="M12 9.5v5M12 17.3v.1"/></g>
+    <g id="i-person"><circle cx="12" cy="7" r="3.5"/><path d="M4.5 21c.6-4.4 3.5-7 7.5-7s6.9 2.6 7.5 7"/></g>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ============================================================
+     CABEÇALHO
+     ============================================================ -->
+<header class="site-header" id="topo">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Solta a Carta — página inicial">
+      <span class="brand-mark"><img src="assets/img/logo-cartas.png" alt="" width="1080" height="1080"></span>
+      <span class="brand-word" aria-hidden="true">Solta a<br>Carta</span>
+    </a>
+
+    <nav class="suit-nav" aria-label="Seções do site">
+      <ul class="suit-list">
+        <li>
+          <a class="suit-link" href="dados-que-assustam.html" data-label="Dados que assustam">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-spade" class="s-out"/><use href="#g-spade" class="s-in"/></svg>
+            <span class="suit-label"><span>Dados que assustam</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="o-que-e-ludopatia.html" data-label="O que é Ludopatia?">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-diamond" class="s-out"/><use href="#g-diamond" class="s-in"/></svg>
+            <span class="suit-label"><span>O que é Ludopatia?</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="apoio-e-ajuda.html" data-label="Apoio &amp; Ajuda">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-heart" class="s-out"/><use href="#g-heart" class="s-in"/></svg>
+            <span class="suit-label"><span>Apoio &amp; Ajuda</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="trevos.html" data-label="Confira nossas ações">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
+            <span class="suit-label"><span>Confira nossas ações</span></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Coringa: categoria de AÇÃO. Rótulo final ainda em aberto
+         ("Apoie o movimento" x "Portal de Transparência"). -->
+    <a class="suit-link joker-link" href="trevos.html#reis-e-rainhas" data-label="Apoie o movimento">
+      <svg class="suit-icon joker-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg>
+      <span class="suit-label"><span>Apoie o movimento</span></span>
+    </a>
+  </div>
+
+  <!-- Mobile: 1º toque mostra o rótulo aqui, 2º toque navega -->
+  <div class="nav-hint" id="nav-hint" aria-live="polite" hidden>
+    <a class="nav-hint-link" href="#"><span class="nav-hint-label"></span><span class="nav-hint-cta">toque de novo para abrir →</span></a>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- ==========================================================
+       HERO
+       ========================================================== -->
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="kicker hand">Solta a Carta!</p>
+      <h1 class="hero-title display" id="hero-title">Virando<br> o&nbsp;jogo<br> contra<br> as&nbsp;casas<br> de&nbsp;aposta.</h1>
+      <p class="hero-sub">Um movimento de prevenção e conscientização sobre o vício em apostas, feito para jovens, famílias e qualquer pessoa que queira entender o que está em jogo.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#problema">Entenda o problema</a>
+        <a class="btn btn-ghost" href="#apoie">Abrace a causa</a>
+      </div>
+    </div>
+
+    <div class="hero-card" aria-hidden="true">
+      <div class="hero-card-edge"></div>
+      <div class="hero-card-face">
+        <video class="hero-video" muted playsinline preload="metadata" poster="assets/img/logo-completo.png">
+          <source src="assets/video/MOT_SOLTA_A_CARTA.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <ul class="hero-suits" aria-hidden="true">
+      <li>♠</li><li>♦</li><li>♥</li><li>♣</li>
+    </ul>
+  </section>
+
+  <!-- ==========================================================
+       BLOCO 1 — O problema da ludopatia no Brasil   (♠ dados)
+       ========================================================== -->
+  <section class="block" id="problema" aria-labelledby="b1-title">
+    <div class="wrap">
+      <header class="block-head">
+        <p class="tag">O problema no Brasil</p>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg>
+      </header>
+
+      <div class="b1-grid">
+        <h2 class="display block-title" id="b1-title">O jogo começa antes de&nbsp;você perceber.</h2>
+
+        <aside class="definition" aria-label="Definição de ludopatia">
+          <p class="def-word hand">Ludopatia</p>
+          <p class="def-meta"><strong>(Lu-do-pa-ti-a)</strong> <em>substantivo feminino</em></p>
+          <p class="def-text">Impulso patológico, geralmente irresistível, para o jogo, geralmente em relação a jogos de azar.</p>
+          <svg class="def-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg>
+        </aside>
+      </div>
+
+      <div class="prose">
+        <p>Hoje a ludopatia é a <span class="hand hand-inline">2ª</span> maior dependência comportamental no Brasil, e é bem provável que você nunca tenha ouvido falar dela. Ela só fica atrás do álcool e dos narcóticos. Mas o que realmente assusta é a velocidade com que ela cresce em meio à sociedade brasileira.</p>
+
+        <p>Desde 2018, quando o governo brasileiro liberou as casas de apostas esportivas, elas se tornaram um negócio extremamente popular, estampadas no peito do seu time de coração, presentes em todos os tecidos da sociedade. Do cara que acorda cedo pra pegar o ônibus lotado até o executivo da Faria Lima, todos viraram alvo. Além das apostas esportivas, foram regulamentados os cassinos online, que trouxeram jogos que já viraram clássicos entre o povão. O mais famoso deles, o Jogo do Tigrinho, ficou tão popular que virou sabor de bebida alcoólica e referenciado de maneira positiva em versos de músicas.</p>
+
+        <p>Somado a esse impacto cultural, existe uma crença perigosa entre a população brasileira: 46% dos jogadores enxergam as apostas como uma renda extra, não um sistema desenhado matematicamente para você perder e se viciar na plataforma (Datafolha, abril/2026).</p>
+
+        <p>Hoje mais de 43 milhões de brasileiros têm cadastro em bets ou cassinos online, cerca de 1 em cada 5 brasileiros (Yogonet Brasil, setembro/2026). Desse total, 7% relatam problemas com o jogo, sejam ansiedade ou perdas financeiras, e 1,2% da população sofre de ludopatia severa (FECAP).</p>
+      </div>
+    </div>
+
+    <!-- Faixa de dados em destaque (preto pontual) -->
+    <div class="data-band">
+      <div class="wrap">
+        <header class="band-head">
+          <h3 class="display band-title">Os números do jogo</h3>
+          <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg>
+        </header>
+        <ul class="figures">
+          <li class="figure">
+            <div class="fig-top">
+              <p class="fig-num hand">43 <span class="fig-unit">milhões</span></p>
+              <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>
+            </div>
+            <p class="fig-text">de brasileiros têm cadastro em bets ou cassinos online, cerca de 1 em cada 5.</p>
+            <p class="fig-src">Fonte: Yogonet Brasil, setembro/2026</p>
+          </li>
+          <li class="figure">
+            <div class="fig-top">
+              <p class="fig-num hand">46%</p>
+              <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-thought"/></svg>
+            </div>
+            <p class="fig-text">dos jogadores enxergam as apostas como renda extra.</p>
+            <p class="fig-src">Fonte: Datafolha, abril/2026</p>
+          </li>
+          <li class="figure">
+            <div class="fig-top">
+              <p class="fig-num hand">7%</p>
+              <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-alert"/></svg>
+            </div>
+            <p class="fig-text">dos cadastrados relatam problemas com o jogo, como ansiedade ou perdas financeiras.</p>
+            <p class="fig-src">Fonte: FECAP</p>
+          </li>
+          <li class="figure">
+            <div class="fig-top">
+              <p class="fig-num hand">1,2%</p>
+              <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-person"/></svg>
+            </div>
+            <p class="fig-text">da população sofre de ludopatia severa.</p>
+            <p class="fig-src">Fonte: FECAP</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       BLOCO 2 — Quem é o jogador no Brasil?   (♥ pessoas)
+       ========================================================== -->
+  <section class="block" id="quem-joga" aria-labelledby="b2-title">
+    <div class="wrap">
+      <header class="block-head">
+        <p class="tag">Quem joga</p>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg>
+      </header>
+
+      <h2 class="display block-title" id="b2-title">Mas afinal, quem é o jogador no Brasil?</h2>
+
+      <div class="prose">
+        <p>Você deve ter pensado em diversos estereótipos. Desde o homem que vendeu a esposa pra apostar no carteado até o fanático em futebol que não se cansa de depositar sua “fézinha” em micro toneladas de R$ 10 na Betano ou para o “Vini Sênior”. Mas sinto lhe contrariar: hoje o jogador <span class="hand hand-inline">não tem cara, rosto nem gênero.</span> O jogador pode ser seu amigo, sua colega de trabalho, seu chefe, sua mãe ou até mesmo nós.</p>
+      </div>
+
+      <ul class="faceless" aria-label="O jogador pode ser">
+        <li><span class="fcard" aria-hidden="true"><span class="fcard-q">?</span></span><span class="fcard-name">seu amigo</span></li>
+        <li><span class="fcard" aria-hidden="true"><span class="fcard-q">?</span></span><span class="fcard-name">sua colega de trabalho</span></li>
+        <li><span class="fcard" aria-hidden="true"><span class="fcard-q">?</span></span><span class="fcard-name">seu chefe</span></li>
+        <li><span class="fcard" aria-hidden="true"><span class="fcard-q">?</span></span><span class="fcard-name">sua mãe</span></li>
+        <li><span class="fcard" aria-hidden="true"><span class="fcard-q">?</span></span><span class="fcard-name">nós</span></li>
+      </ul>
+
+      <div class="b2-split">
+        <figure class="big-stat">
+          <p class="big-stat-num display">47%</p>
+          <figcaption>
+            <p class="big-stat-text">dos apostadores no Brasil são mulheres.</p>
+            <p class="big-stat-src">Fonte: Instituto Locomotiva</p>
+          </figcaption>
+        </figure>
+
+        <div class="prose">
+          <p>Apostar não é algo do mundo masculino. A ludopatia não vê sexo, cor ou classe social, ela apenas corrói por dentro, transformando a razão de viver em jogar, sem alterar em nada a aparência de quem passa por você na rua.</p>
+          <p>Por isso é preciso parar de querer enxergar uma imagem única pro apostador e apenas rotulá-lo como irresponsável. Esse é um estigma que afasta quem precisa de ajuda e impede a sociedade de enxergar a magnitude real do problema.</p>
+        </div>
+      </div>
+
+      <p class="closing-line">O importante é reconhecer os sinais e combater quem propaga o vício.</p>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       BLOCO 3 — Nossa missão   (♣ movimento, fundo preto)
+       ========================================================== -->
+  <section class="block block-dark" id="missao" aria-labelledby="b3-title">
+    <div class="wrap">
+      <header class="block-head on-dark">
+        <h2 class="tag" id="b3-title">Nossa missão</h2>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg>
+      </header>
+
+      <div class="b3-grid">
+        <div class="prose on-dark">
+          <p>Tal qual a indústria do tabaco enganou e envenenou a sociedade por décadas, o setor de apostas esportivas e cassinos online utilizam artimanhas semelhantes, como a publicidade massiva para normalizar o comportamento, o lobby em Brasília e a compra de opinião de influenciadores. Esses são só alguns dos métodos dessa indústria.</p>
+          <p>Somos um movimento sem fins lucrativos, e nosso objetivo é acabar com a <span class="hand hand-inline">influência das casas,</span> informando e conscientizando a sociedade, em especial estudantes e jovens, sobre os problemas da ludopatia. Eles são o maior alvo da indústria justamente por serem mais propensos a normalizar novos hábitos.</p>
+        </div>
+
+        <div class="fan" aria-hidden="true">
+          <span class="fan-card fan-1"></span>
+          <span class="fan-card fan-2"></span>
+          <span class="fan-card fan-3"><svg viewBox="0 0 24 24"><use href="#g-club"/></svg></span>
+        </div>
+      </div>
+
+      <p class="mission-line display">O Movimento Solta a Carta nasceu para virar esse jogo.</p>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       BLOCO 4 — CTA final   (coringa)
+       ========================================================== -->
+  <section class="block" id="apoie" aria-labelledby="b4-title">
+    <div class="wrap">
+      <div class="cta-head">
+        <h2 class="display block-title" id="b4-title">Se identificou com a causa?</h2>
+        <p class="cta-hand hand">Abrace essa bandeira!</p>
+      </div>
+
+      <div class="prose cta-prose">
+        <p>A luta contra as casas de aposta é difícil, mas não impossível. Se informar é sua melhor arma pra combater a ludopatia, e o melhor: você pode compartilhar essa arma. Cuidado e informação caminham lado a lado de mãos dadas. Compartilhe o nosso conteúdo com seus amigos e família para fazer do Brasil, e do mundo, um lugar melhor.</p>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" type="button" id="share-btn">Compartilhe o movimento</button>
+        <p class="share-feedback" id="share-feedback" role="status"></p>
+      </div>
+
+      <h3 class="tag deck-title">Descubra os naipes</h3>
+      <ul class="deck">
+        <li>
+          <a class="pcard" href="dados-que-assustam.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-spade" class="s-out"/><use href="#g-spade" class="s-in"/></svg>
+            <span class="pcard-name">Dados que assustam</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard" href="o-que-e-ludopatia.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-diamond" class="s-out"/><use href="#g-diamond" class="s-in"/></svg>
+            <span class="pcard-name">Entenda mais sobre a ludopatia</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard" href="apoio-e-ajuda.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-heart" class="s-out"/><use href="#g-heart" class="s-in"/></svg>
+            <span class="pcard-name">Apoio &amp; Ajuda</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard" href="trevos.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
+            <span class="pcard-name">Confira nossas ações</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard pcard-joker" href="trevos.html#reis-e-rainhas">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg></span>
+            <svg class="pcard-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg>
+            <span class="pcard-name">Apoie o movimento</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     RODAPÉ
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap">
+
+    <div class="help-box">
+      <svg class="help-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg>
+      <div>
+        <p class="tag">Precisa de ajuda agora?</p>
+                <ul class="help-links">
+          <li><strong>Jogadores Anônimos:</strong> <a href="tel:+554198936054">+55 41 9893-6054</a> · <a href="https://jogadoresanonimos.com.br" target="_blank" rel="noopener">jogadoresanonimos.com.br</a></li>
+          <li><strong>CVV</strong> (apoio emocional 24h, gratuito e sigiloso): <a href="tel:188">ligue 188</a> · <a href="https://cvv.org.br" target="_blank" rel="noopener">cvv.org.br</a></li>
+          <li><strong>SUS</strong> (atendimento gratuito, autoavaliação no Meu SUS Digital): <a href="https://www.gov.br/saude/pt-br/assuntos/noticias-ms/2026/julho/campanha-do-ministerio-da-saude-orienta-sobre-riscos-das-apostas-online-e-atendimento-em-saude-mental-no-sus" target="_blank" rel="noopener">saiba mais</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/img/logo-completo.png" alt="Solta a Carta" width="1080" height="1080">
+      </div>
+
+      <nav class="footer-col" aria-label="Seções do site (rodapé)">
+        <p class="footer-h">Navegue</p>
+        <ul>
+          <li><a href="dados-que-assustam.html"><span aria-hidden="true">♠</span> Dados que assustam</a></li>
+          <li><a href="o-que-e-ludopatia.html"><span aria-hidden="true">♦</span> O que é Ludopatia?</a></li>
+          <li><a href="apoio-e-ajuda.html"><span aria-hidden="true">♥</span> Apoio &amp; Ajuda</a></li>
+          <li><a href="trevos.html"><span aria-hidden="true">♣</span> Confira nossas ações</a></li>
+          <li><a href="trevos.html#reis-e-rainhas" class="footer-joker">Apoie o movimento</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <p class="footer-h">Acompanhe</p>
+        <ul class="social social-foot">
+          <li><a class="soc soc-ig" href="https://www.instagram.com/projetosoltaacarta/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></span><span class="soc-name">Instagram</span></a></li>
+          <li><a class="soc soc-fb" href="https://www.facebook.com/profile.php?id=61594390811809" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></span><span class="soc-name">Facebook</span></a></li>
+          <li><a class="soc soc-ml" href="mailto:projetosoltaacarta@gmail.com?subject=Imprensa%20e%20parcerias" aria-label="E-mail" title="E-mail"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 5.25A2.25 2.25 0 0 1 3.75 3h16.5a2.25 2.25 0 0 1 2.25 2.25v.7L12 12.6 1.5 5.95v-.7zm0 3.15V18.75A2.25 2.25 0 0 0 3.75 21h16.5a2.25 2.25 0 0 0 2.25-2.25V8.4L12 15.05 1.5 8.4z"/></svg></span><span class="soc-name">E-mail</span></a></li>
+          <li><a class="soc soc-lt" href="https://linktr.ee/projetosoltaacarta" target="_blank" rel="noopener" aria-label="Linktree" title="Linktree"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13.73635 5.85251 4.00467-4.11665 2.3248 2.3808-4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766-2.3248 2.3338L12.0005 12.099l-5.74052 5.76852-2.3248-2.3248 4.22864-4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248-2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"/></svg></span><span class="soc-name">Linktree</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-h">Transparência</p>
+        <ul>
+          <li><a href="privacidade.html">Política de Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="disclaimer">O Solta a Carta é um projeto de conscientização e não substitui atendimento profissional. Se você ou alguém que você conhece precisa de ajuda, procure a rede de apoio indicada aqui.</p>
+      <p class="footer-suits" aria-hidden="true">♠ ♦ ♥ ♣</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

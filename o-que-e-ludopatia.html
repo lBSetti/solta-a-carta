@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O que é ludopatia — Solta a Carta</title>
+  <meta name="description" content="O que é ludopatia, explicado a fundo: o que caracteriza o transtorno, como o cérebro e o design dos apps são manipulados, quem corre mais risco e o que é mito.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="O que é ludopatia — Solta a Carta">
+  <meta property="og:description" content="Ludopatia não é frescura, fraqueza ou falta de força de vontade.">
+  <meta property="og:image" content="assets/img/logo-completo.png">
+  <link rel="icon" href="assets/img/logo-cartas.png">
+
+  <link rel="preload" href="assets/fonts/bernoru-blackultraexpanded.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/fonts/nf-ananias-regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/Luciole-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page-ouros">
+
+<!-- ============================================================
+     Sprite SVG: naipes, coringa e ícones
+     ============================================================ -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <path id="g-spade" d="M12 2.5s-8.5 6.6-8.5 11.6c0 2.5 2 4.3 4.3 4.3 1.4 0 2.6-.6 3.3-1.6L10 21.5h4l-1.1-4.7c.7 1 1.9 1.6 3.3 1.6 2.3 0 4.3-1.8 4.3-4.3C20.5 9.1 12 2.5 12 2.5z"/>
+    <path id="g-diamond" d="M12 2.5 19.5 12 12 21.5 4.5 12z"/>
+    <path id="g-heart" d="M12 20.5S3 14.6 3 8.8C3 6 5.2 4 7.7 4c1.8 0 3.3 1 4.3 2.5C13 5 14.5 4 16.3 4 18.8 4 21 6 21 8.8c0 5.8-9 11.7-9 11.7z"/>
+    <g id="g-club">
+      <circle cx="12" cy="7.2" r="4"/>
+      <circle cx="7" cy="13.4" r="4"/>
+      <circle cx="17" cy="13.4" r="4"/>
+      <circle cx="12" cy="12" r="2.6"/>
+      <path d="M12 11.5 13.5 21.5h-3z"/>
+    </g>
+    <g id="g-joker" stroke-linejoin="round" stroke-width="1.6">
+      <path d="M3.6 18.2 5 8.4l4.3 5L12 5.4l2.7 8 4.3-5 1.4 9.8z"/>
+      <rect x="3" y="18" width="18" height="3.6" rx="1.4"/>
+      <circle cx="5" cy="6.4" r="1.9"/>
+      <circle cx="12" cy="3.3" r="1.9"/>
+      <circle cx="19" cy="6.4" r="1.9"/>
+    </g>
+    <!-- Ícones de traço (viewBox 24) -->
+    <g id="i-person"><circle cx="12" cy="7" r="3.5"/><path d="M4.5 21c.6-4.4 3.5-7 7.5-7s6.9 2.6 7.5 7"/></g>
+    <g id="i-teen"><circle cx="12" cy="7.5" r="3"/><path d="M6.5 21c.5-3.8 2.7-6 5.5-6s5 2.2 5.5 6"/><path d="M9 4.5c1-1.5 5-1.5 6 0"/></g>
+    <g id="i-brain"><path d="M11 4.5a3 3 0 0 0-5.5 1.3A3 3 0 0 0 3.8 11a3.2 3.2 0 0 0 1.5 5.2A3 3 0 0 0 11 19.5zM13 4.5a3 3 0 0 1 5.5 1.3 3 3 0 0 1 1.7 5.2 3.2 3.2 0 0 1-1.5 5.2 3 3 0 0 1-5.7 3.3z"/><path d="M11 9H8.5M13 9h2.5M11 14H8M13 14h3"/></g>
+    <g id="i-ticket"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"/><path d="M15 7v10" stroke-dasharray="2 2"/></g>
+    <g id="i-palette"><path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-.9 2-2 0-1-.9-1.4-.9-2.4 0-1 .9-1.6 2-1.6h2a4 4 0 0 0 4-4c0-4.4-4-8-9.1-8z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="15" cy="7" r="1.2"/></g>
+    <g id="i-clock-off"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2M4 4l16 16"/></g>
+    <g id="i-bell"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5a2 2 0 0 0 4 0"/></g>
+    <g id="i-trophy"><path d="M8 4h8v4a4 4 0 0 1-8 0zM8 5.5H5a3 3 0 0 0 3.2 3.5M16 5.5h3a3 3 0 0 1-3.2 3.5M12 12v3.5M8.5 20.5h7M9.5 15.5h5l.5 5h-6z"/></g>
+    <g id="i-target"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></g>
+    <g id="i-calendar"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g>
+    <g id="i-pulse"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"/></g>
+    <g id="i-phone"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/><circle cx="12" cy="9.5" r="2.2"/><path d="M8.8 14.6c.7-1.4 1.8-2 3.2-2s2.5.6 3.2 2"/></g>
+    <g id="i-stats"><path d="M4 20.5h16M7 20.5v-6M12 20.5V9M17 20.5v-10"/><path d="M5 9l5-4 4 3 5-4"/></g>
+    <g id="i-hourglass"><path d="M7 3h10M7 21h10M8 3c0 5 8 5 8 9s-8 4-8 9M16 3c0 5-8 5-8 9s8 4 8 9"/></g>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ============================================================
+     CABEÇALHO (igual à home; Ouros marcado como página atual)
+     ============================================================ -->
+<header class="site-header" id="topo">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Solta a Carta — página inicial">
+      <span class="brand-mark"><img src="assets/img/logo-cartas.png" alt="" width="1080" height="1080"></span>
+      <span class="brand-word" aria-hidden="true">Solta a<br>Carta</span>
+    </a>
+
+    <nav class="suit-nav" aria-label="Seções do site">
+      <ul class="suit-list">
+        <li>
+          <a class="suit-link" href="dados-que-assustam.html" data-label="Dados que assustam">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-spade" class="s-out"/><use href="#g-spade" class="s-in"/></svg>
+            <span class="suit-label"><span>Dados que assustam</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="o-que-e-ludopatia.html" data-label="O que é Ludopatia?" aria-current="page">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-diamond" class="s-out"/><use href="#g-diamond" class="s-in"/></svg>
+            <span class="suit-label"><span>O que é Ludopatia?</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="apoio-e-ajuda.html" data-label="Apoio &amp; Ajuda">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-heart" class="s-out"/><use href="#g-heart" class="s-in"/></svg>
+            <span class="suit-label"><span>Apoio &amp; Ajuda</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="trevos.html" data-label="Confira nossas ações">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
+            <span class="suit-label"><span>Confira nossas ações</span></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="suit-link joker-link" href="trevos.html#reis-e-rainhas" data-label="Apoie o movimento">
+      <svg class="suit-icon joker-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg>
+      <span class="suit-label"><span>Apoie o movimento</span></span>
+    </a>
+  </div>
+
+  <div class="nav-hint" id="nav-hint" aria-live="polite" hidden>
+    <a class="nav-hint-link" href="#"><span class="nav-hint-label"></span><span class="nav-hint-cta">toque de novo para abrir →</span></a>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- ==========================================================
+       BLOCO 1 — DEFINIÇÃO CLÍNICA
+       ========================================================== -->
+  <section class="block page-intro" aria-labelledby="page-title">
+    <div class="wrap">
+      <header class="block-head">
+        <p class="tag tag-display">Ouros · O que é ludopatia</p>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg>
+      </header>
+
+      <h1 class="display block-title page-title" id="page-title">É incontrolável</h1>
+
+      <div class="b1-grid">
+        <div>
+          <p class="page-lead">Ludopatia não é frescura, fraqueza ou falta de força de vontade. É um transtorno com critérios diagnósticos definidos e uma explicação biológica clara pra por que é tão difícil parar sozinho.</p>
+        </div>
+        <aside class="definition" aria-label="Definição de ludopatia">
+          <p class="def-word hand">Ludopatia</p>
+          <p class="def-meta"><strong>(Lu-do-pa-ti-a)</strong> <em>substantivo feminino</em></p>
+          <p class="def-text">Impulso patológico, geralmente irresistível, para o jogo, geralmente em relação a jogos de azar.</p>
+          <svg class="def-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg>
+        </aside>
+      </div>
+
+      <!-- De impulso a vício -->
+      <h2 class="display sub-title">De impulso a vício</h2>
+
+      <div class="mm-row reveal">
+        <div class="mm-text">
+          <p>Nem sempre foi entendido assim. Em 1980, quando o jogo patológico entrou pela primeira vez no manual de diagnóstico da psiquiatria americana (o DSM-III), psiquiatras classificaram ele como transtorno do controle de impulso, a mesma categoria de coisas como cleptomania (o impulso incontrolável de furtar) e piromania (o impulso incontrolável de causar incêndios). Na prática, isso significava que a psiquiatria via o jogo patológico como alguém que simplesmente não consegue resistir a uma vontade repentina. Esse rótulo permaneceu por mais de 30 anos.</p>
+        </div>
+        <ol class="shift" aria-label="Como a classificação mudou">
+          <li class="shift-step">
+            <p class="shift-year display">1980</p>
+            <p class="shift-book">DSM-III</p>
+            <div class="shift-box">
+              <p class="shift-cat">Controle de impulso</p>
+              <ul class="shift-chips"><li>Cleptomania</li><li>Piromania</li><li class="is-game">Jogo patológico</li></ul>
+            </div>
+          </li>
+          <li class="shift-step">
+            <p class="shift-year display">2013</p>
+            <p class="shift-book">DSM-5</p>
+            <div class="shift-box">
+              <p class="shift-cat">Transtornos aditivos</p>
+              <ul class="shift-chips"><li>Álcool</li><li>Outras drogas</li><li class="is-game">Jogo patológico</li></ul>
+            </div>
+          </li>
+          <li class="shift-step">
+            <p class="shift-year display">CID-11</p>
+            <p class="shift-book">OMS</p>
+            <div class="shift-box">
+              <p class="shift-cat">Comportamentos aditivos</p>
+              <ul class="shift-chips"><li class="is-game">Transtorno do jogo</li></ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="mm-row mm-row-rev reveal">
+        <div class="mm-text">
+          <p>O paradigma mudou em 2013 com a chegada do DSM-5, a edição mais recente e ainda vigente do principal manual de diagnóstico psiquiátrico do mundo, usado por médicos e psicólogos pra identificar e tratar transtornos mentais. O jogo patológico foi tirado da categoria de controle de impulso e realocado pra dentro de Transtornos Relacionados a Substâncias e Transtornos Aditivos, ao lado do alcoolismo e da dependência de outras drogas. Foi a primeira vez que um comportamento, sem nenhuma substância química envolvida, entrou nessa categoria.</p>
+        </div>
+        <figure class="expert">
+          <svg class="expert-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg>
+          <p class="tag expert-label">Por que mudou</p>
+          <p class="expert-text">Pesquisas mostraram que apostar ativa o sistema de recompensa do cérebro exatamente do jeito que uma droga ativa.</p>
+          <figcaption>Segundo o psiquiatra <strong>Charles O'Brien</strong>, que liderou o grupo de trabalho responsável pela mudança no DSM-5.</figcaption>
+        </figure>
+      </div>
+
+      <div class="prose b1-after reveal">
+        <p>A Organização Mundial da Saúde seguiu a mesma lógica pouco depois, classificando o transtorno do jogo dentro do grupo de comportamentos aditivos na CID-11, a lista internacional de doenças usada no mundo todo.</p>
+      </div>
+
+      <p class="mm-statement reveal"><span class="display">Não é falta de caráter.</span> O jogo patológico é <span class="hand hand-inline">vício,</span> não uma falta de caráter e responsabilidade, possuindo explicação médica sólida.</p>
+
+      <!-- Critérios diagnósticos -->
+      <div class="signs-head">
+        <h2 class="display sub-title">Os 9 sinais de atenção</h2>
+        <div class="signs-rule">
+          <p class="signs-lead">O DSM-5 lista 9 sinais de atenção. Para ser diagnosticado com ludopatia, a pessoa precisa apresentar 4 ou mais deles. Não existe um tempo mínimo pra se preocupar, quanto mais cedo os sinais forem reconhecidos, mais cedo dá pra agir.</p>
+          <div class="pips" role="img" aria-label="4 ou mais de 9 sinais caracterizam o diagnóstico">
+            <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span><span></span><span></span><span></span>
+            <p class="pips-label hand">4 ou mais de 9</p>
+          </div>
+        </div>
+      </div>
+
+      <ol class="signs">
+        <li class="sign reveal"><span class="sign-n display">1</span><p>Precisa apostar valores cada vez maiores pra sentir a mesma excitação.</p></li>
+        <li class="sign reveal"><span class="sign-n display">2</span><p>Fica irritado ou inquieto ao tentar reduzir ou parar.</p></li>
+        <li class="sign reveal"><span class="sign-n display">3</span><p>Já tentou controlar ou parar de apostar, sem sucesso.</p></li>
+        <li class="sign reveal"><span class="sign-n display">4</span><p>Pensa em apostas com frequência, mesmo fora do momento de jogar.</p></li>
+        <li class="sign reveal"><span class="sign-n display">5</span><p>Aposta quando está mal emocionalmente, pra fugir de um problema ou aliviar tensão.</p></li>
+        <li class="sign reveal"><span class="sign-n display">6</span><p>Volta a apostar depois de perder, tentando recuperar o prejuízo.</p></li>
+        <li class="sign reveal"><span class="sign-n display">7</span><p>Mente pra esconder o quanto está envolvido com apostas.</p></li>
+        <li class="sign reveal"><span class="sign-n display">8</span><p>Já perdeu relacionamento, emprego ou oportunidade acadêmica/profissional por causa disso.</p></li>
+        <li class="sign reveal"><span class="sign-n display">9</span><p>Depende de outras pessoas pra sair de dificuldades financeiras causadas pelas apostas.</p></li>
+      </ol>
+
+      <div class="prose signs-after">
+        <p><strong>Nem todo mundo que aposta desenvolve o transtorno.</strong> Nem todos que apostam desenvolvem ludopatia, no entanto, apostar é um comportamento que exige muita atenção e cuidado. A prática facilmente pode se desenvolver, vindo a trazer problemas financeiros e emocionais à sua vida com uma compulsão corrosiva.</p>
+        <p class="src">Fontes: APA/DSM-III (1980), APA/DSM-5 (2013), Dr. Charles O'Brien (ICRG), CID-11/OMS</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       BLOCO 2 — ILUSÃO DE CONTROLE (preto pontual)
+       ========================================================== -->
+  <section class="block block-dark" id="ilusao" aria-labelledby="b2-title">
+    <div class="wrap">
+      <header class="block-head on-dark">
+        <p class="tag">A ilusão de controle</p>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg>
+      </header>
+
+      <h2 class="display band-title b2-title" id="b2-title">Sorte é um apelido para algoritmo</h2>
+      <p class="band-lead">Dinheiro fácil é o sonho de todo mundo, no entanto, as casas de apostas não vão te proporcionar isso.</p>
+
+      <div class="mm">
+        <div class="mm-row reveal">
+          <div class="mm-text">
+            <p>Em 1975, a psicóloga de Harvard Ellen Langer descreveu um fenômeno que ficou conhecido como ilusão de controle: a tendência das pessoas de acreditarem que podem influenciar o resultado de eventos puramente aleatórios, como se habilidade ou esforço pessoal pudessem alterar um evento que está fora do seu alcance. Em um de seus experimentos, ela fez com que pessoas escolhessem um número de rifa e percebeu que os bilhetes selecionados sofriam uma resistência de troca mesmo com todos sabendo que a chance de ganhar continuaria idêntica para qualquer outro número.</p>
+          </div>
+          <figure class="mm-visual tickets">
+            <div class="ticket is-mine">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ticket"/></svg>
+              <p class="ticket-n display">07</p>
+              <p class="ticket-tag">Número que eu escolhi</p>
+            </div>
+            <p class="tickets-eq display" aria-hidden="true">=</p>
+            <div class="ticket">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ticket"/></svg>
+              <p class="ticket-n display">42</p>
+              <p class="ticket-tag">Qualquer outro número</p>
+            </div>
+            <figcaption>A chance de ganhar é idêntica. Mesmo assim, as pessoas resistiam a trocar o bilhete que escolheram.</figcaption>
+          </figure>
+        </div>
+
+        <div class="mm-row mm-row-rev reveal">
+          <div class="mm-text">
+            <p>As casas de apostas exploram exatamente esse mecanismo. Diferente de uma loteria tradicional, onde você só compra um bilhete e espera, as plataformas te entregam estatísticas, histórico de confrontos, desempenho recente de times e jogadores, e deixam você montar sua própria aposta múltipla. Confunde-se sorte com habilidade, mesmo quando o resultado final continua sendo, na essência, imprevisível. A bet acaba transformando eventos imprevisíveis em estatística na qual você aparenta ter o controle.</p>
+          </div>
+          <figure class="mm-visual compare">
+            <div class="compare-col">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hourglass"/></svg>
+              <p class="compare-t">Loteria tradicional</p>
+              <p>Compra o bilhete e espera.</p>
+            </div>
+            <div class="compare-col is-bet">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-stats"/></svg>
+              <p class="compare-t">Casa de apostas</p>
+              <p>Estatísticas, histórico, desempenho, aposta múltipla montada por você.</p>
+            </div>
+            <figcaption><span class="hand">Resultado:</span> imprevisível nos dois casos.</figcaption>
+          </figure>
+        </div>
+
+        <div class="mm-row reveal">
+          <div class="mm-text">
+            <p class="mm-kicker">O “quase ganho”</p>
+            <p>As casas de apostas exploram muito bem esse fenômeno com a provocação do “quase ganho”. Pense em uma roleta que apenas por um décimo de segundo acabou não te concedendo um prêmio milionário, e mesmo assim ocorreu uma animação digna de um feito hercúleo na tela do seu celular, que te devolveu metade do valor da aposta como cashback. O pesquisador Maurício Sant'Ana relata que esse quase-ganho ativa as mesmas áreas de recompensa do cérebro que um ganho de verdade ativaria, liberando muita dopamina mesmo sem ter ganhado nada. Nosso cérebro não consegue distinguir a perda da vitória, e por isso acabamos pensando “a próxima eu consigo vencer”, passando a fazer mais uma jogada.</p>
+          </div>
+          <figure class="mm-visual brains" aria-label="Para o cérebro, o quase ganho ativa as mesmas áreas de recompensa que um ganho de verdade">
+            <div class="brain">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-brain"/></svg>
+              <p>Ganho de verdade</p>
+            </div>
+            <p class="brains-eq display" aria-hidden="true">=</p>
+            <div class="brain">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-brain"/></svg>
+              <p>“Quase ganho”</p>
+            </div>
+            <figcaption>As mesmas áreas de recompensa, a mesma dopamina.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="b2-close reveal">
+        <p class="display b2-close-title">A casa sempre vence.<br> É apenas matemática.</p>
+      </div>
+      <p class="fig-src">Fontes: Ellen Langer, “The Illusion of Control” (1975); Maurício Sant'Ana (pesquisador)</p>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       BLOCO 3 — O DESIGN QUE TE PRENDE (abas interativas)
+       ========================================================== -->
+  <section class="block" id="design" aria-labelledby="b3-title">
+    <div class="wrap">
+      <header class="block-head">
+        <p class="tag">O design que te prende</p>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg>
+      </header>
+
+      <h2 class="display block-title" id="b3-title">Bomba nuclear de dopamina</h2>
+      <p class="page-lead b3-lead">Cada cor, som e notificação dentro de uma casa de apostas foi testado, ajustado e aprovado com um único objetivo: te manter apostando pelo maior tempo possível. Isso não é acidente de design, é possível a partir de conceitos de engenharia comportamental.</p>
+
+      <div class="tabs" data-tabs>
+        <p class="tabs-hint">Escolha uma técnica:</p>
+        <div class="tab-list" role="tablist" aria-label="Técnicas de engenharia comportamental">
+          <button class="tab" role="tab" id="tab-estimulo" aria-controls="panel-estimulo" aria-selected="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-palette"/></svg><span>Estímulo visual e sonoro</span>
+          </button>
+          <button class="tab" role="tab" id="tab-tempo" aria-controls="panel-tempo" aria-selected="false" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock-off"/></svg><span>Percepção de tempo</span>
+          </button>
+          <button class="tab" role="tab" id="tab-notif" aria-controls="panel-notif" aria-selected="false" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg><span>Notificações e urgência</span>
+          </button>
+          <button class="tab" role="tab" id="tab-game" aria-controls="panel-game" aria-selected="false" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-trophy"/></svg><span>Gamificação</span>
+          </button>
+          <button class="tab" role="tab" id="tab-algo" aria-controls="panel-algo" aria-selected="false" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-target"/></svg><span>Personalização por algoritmo</span>
+          </button>
+        </div>
+
+        <div class="tab-panel" role="tabpanel" id="panel-estimulo" aria-labelledby="tab-estimulo">
+          <p class="tab-n display">01</p>
+          <h3 class="tab-title">Estímulo visual e sonoro</h3>
+          <p>As plataformas usam cores quentes e vibrantes como vermelho, dourado e rosa neon, combinadas com animações cheias de partículas e luzes pulsantes, pra manter você num estado contínuo de excitação. Cada ganho, mesmo os mais insignificantes, vem acompanhado de som e efeito visual, celebrando microvitórias que, na prática, muitas vezes nem cobrem o valor apostado.</p>
+        </div>
+        <div class="tab-panel" role="tabpanel" id="panel-tempo" aria-labelledby="tab-tempo" hidden>
+          <p class="tab-n display">02</p>
+          <h3 class="tab-title">Percepção de tempo</h3>
+          <p>Repare que boa parte dos apps não mostra relógio, ou esconde ele bem discreto na tela. Sem essa referência, fica mais difícil perceber quanto tempo você já passou apostando.</p>
+        </div>
+        <div class="tab-panel" role="tabpanel" id="panel-notif" aria-labelledby="tab-notif" hidden>
+          <p class="tab-n display">03</p>
+          <h3 class="tab-title">Notificações e urgência artificial</h3>
+          <ul class="fake-push" aria-label="Exemplos de notificações">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>“Aposte no jogo de hoje.”</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>“Seu bônus especial expira em breve.”</li>
+          </ul>
+          <p>Notificações push são disparadas com mensagens desenhadas pra criar senso de urgência e oportunidade, te puxando de volta pro app mesmo quando você não estava nem pensando em apostar.</p>
+        </div>
+        <div class="tab-panel" role="tabpanel" id="panel-game" aria-labelledby="tab-game" hidden>
+          <p class="tab-n display">04</p>
+          <h3 class="tab-title">Gamificação</h3>
+          <p>Metas diárias, sistema de pontos, rankings entre amigos, emblemas por conquista. As casas de apostas transformaram o ato de apostar dinheiro de verdade num jogo de progressão, do tipo que você vê em qualquer joguinho de celular. Bônus de boas-vindas, apostas grátis e cashback quando você perde entram nessa mesma lógica, criando a ilusão de que você não está arriscando seu próprio dinheiro, quando na verdade está.</p>
+        </div>
+        <div class="tab-panel" role="tabpanel" id="panel-algo" aria-labelledby="tab-algo" hidden>
+          <p class="tab-n display">05</p>
+          <h3 class="tab-title">Personalização por algoritmo</h3>
+          <p>Cada clique, cada aposta, cada depósito que você faz alimenta um sistema que aprende seu comportamento e devolve promoções, odds mais atrativas e tipos de aposta alinhados exatamente ao seu perfil. As apostas, e seus resultados, viram uma espécie de conversão personalizada pensada exatamente em você.</p>
+        </div>
+      </div>
+
+      <p class="src b3-src">Fontes: Jornal da Unicamp (ago/2026), Correio Braziliense (jul/2026)</p>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       BLOCO 5 — FATORES DE RISCO (preto pontual)
+       ========================================================== -->
+  <section class="block block-dark" id="risco" aria-labelledby="b5-title">
+    <div class="wrap">
+      <header class="block-head on-dark">
+        <p class="tag">Fatores de risco</p>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg>
+      </header>
+
+      <h2 class="display band-title" id="b5-title">Quem corre mais risco?</h2>
+      <p class="band-lead">Ludopatia não escolhe vítima ao acaso.</p>
+
+      <ul class="figures">
+        <li class="figure">
+          <div class="fig-top">
+            <p class="fig-num hand">38,6%</p>
+            <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-person"/></svg>
+          </div>
+          <p class="fig-text">de quem aposta já apresenta algum grau de risco ou enfrenta problemas relacionados ao vício.</p>
+          <p class="fig-src">Fonte: Observatório Brasileiro de Informações sobre Drogas (OBID), 2025</p>
+        </li>
+        <li class="figure">
+          <div class="fig-top">
+            <p class="fig-num hand">55,2%</p>
+            <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-teen"/></svg>
+          </div>
+          <p class="fig-text">é esse número entre adolescentes de 14 a 17 anos.</p>
+          <p class="fig-src">Fonte: OBID, 2025</p>
+        </li>
+      </ul>
+
+      <div class="factors">
+        <article class="factor reveal">
+          <header class="factor-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendar"/></svg>
+            <h3 class="factor-title display">Idade</h3>
+          </header>
+          <div class="factor-body">
+            <p>Jovens adultos entre 16 e 24 anos apresentam o maior risco. Tal qual o cigarro, quanto mais cedo o contato com apostas, maior o risco de desenvolver o transtorno conforme o comportamento se torna mais frequente. No mundo todo, uma em cada cinco pessoas começa a apostar em jogos online até os 11 anos de idade (Fonte: Unicef, dados que seguem atuais em 2026). No Brasil, uma pesquisa de 2026 da Frente Parlamentar Mista de Educação, com 1.912 estudantes, encontrou que 9,5% fez a primeira aposta até os 11 anos, quase metade dos alunos do 3º ano do ensino médio já apostou, e entre os que têm 12 anos ou mais esse número chega a 78%.</p>
+          </div>
+          <figure class="factor-visual">
+            <div class="people" role="img" aria-label="1 em cada 5 pessoas começa a apostar online até os 11 anos">
+              <svg class="on" viewBox="0 0 24 24"><use href="#i-person"/></svg><svg viewBox="0 0 24 24"><use href="#i-person"/></svg><svg viewBox="0 0 24 24"><use href="#i-person"/></svg><svg viewBox="0 0 24 24"><use href="#i-person"/></svg><svg viewBox="0 0 24 24"><use href="#i-person"/></svg>
+            </div>
+            <figcaption><span class="hand">1 em cada 5</span> começa a apostar online até os 11 anos</figcaption>
+          </figure>
+        </article>
+
+        <article class="factor reveal">
+          <header class="factor-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pulse"/></svg>
+            <h3 class="factor-title display">Comorbidades psiquiátricas</h3>
+          </header>
+          <div class="factor-body">
+            <p>O Ministério da Saúde e a CID-11 da Organização Mundial da Saúde associam o transtorno do jogo a transtornos por uso de substâncias, ansiedade, transtornos de humor e risco de autolesão. A literatura clínica também aponta associação com depressão, transtorno bipolar e TDAH. Não é incomum que o jogo apareça como uma tentativa de regulação emocional, uma forma de fugir de uma situação difícil.</p>
+            <p class="src">Fonte: Ministério da Saúde, CID-11/OMS</p>
+          </div>
+          <figure class="factor-visual">
+            <ul class="chips" aria-label="Condições associadas">
+              <li>Uso de substâncias</li><li>Ansiedade</li><li>Transtornos de humor</li><li>Risco de autolesão</li><li>Depressão</li><li>Transtorno bipolar</li><li>TDAH</li>
+            </ul>
+          </figure>
+        </article>
+
+        <article class="factor reveal">
+          <header class="factor-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-person"/></svg>
+            <h3 class="factor-title display">Gênero</h3>
+          </header>
+          <div class="factor-body">
+            <p>A ludopatia vem afetando cada vez mais mulheres, hoje representando cerca de um terço dos casos, principalmente entre aquelas que já apresentam sintomas depressivos.</p>
+            <p class="src">Fonte: Rodrigo Lancelote Alberto, psiquiatra, CAISM Franco da Rocha</p>
+          </div>
+          <figure class="factor-visual">
+            <div class="people people-3" role="img" aria-label="Cerca de um terço dos casos são mulheres">
+              <svg class="on" viewBox="0 0 24 24"><use href="#i-person"/></svg><svg viewBox="0 0 24 24"><use href="#i-person"/></svg><svg viewBox="0 0 24 24"><use href="#i-person"/></svg>
+            </div>
+            <figcaption><span class="hand">1 em cada 3</span> casos, aproximadamente, são mulheres</figcaption>
+          </figure>
+        </article>
+
+        <article class="factor reveal">
+          <header class="factor-head">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>
+            <h3 class="factor-title display">Ambiente digital</h3>
+          </header>
+          <div class="factor-body">
+            <p>A facilidade de acesso às plataformas digitais, a disponibilidade contínua, os mecanismos de recompensa imediata, a gamificação e o anonimato de apostar sozinho, sem ninguém saber, são fatores de risco por si só. Quando apostar se torna o elemento que organiza a rotina de alguém, substituindo relações e projetos pessoais, o risco de desenvolver o transtorno aumenta de forma significativa.</p>
+            <p class="src">Fonte: Rodrigo Lancelote Alberto, psiquiatra, CAISM Franco da Rocha</p>
+          </div>
+          <figure class="factor-visual">
+            <ul class="chips" aria-label="Fatores do ambiente digital">
+              <li>Acesso fácil</li><li>Disponível o tempo todo</li><li>Recompensa imediata</li><li>Gamificação</li><li>Anonimato</li>
+            </ul>
+          </figure>
+        </article>
+      </div>
+
+      <p class="b5-close">Nenhum desses fatores garante que alguém vai desenvolver ludopatia. Mas conhecer eles ajuda a entender por que certas pessoas, em certos contextos, correm mais perigo do que outras.</p>
+      <p class="fig-src">Fontes: OBID (2025), Unicef, Frente Parlamentar Mista de Educação (2026), Ministério da Saúde, CID-11/OMS, Rodrigo Lancelote Alberto/CAISM Franco da Rocha</p>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       BLOCO 6 — MITOS X REALIDADE (cartas que viram + moeda)
+       ========================================================== -->
+  <section class="block" id="mitos" aria-labelledby="b6-title">
+    <div class="wrap">
+      <header class="block-head">
+        <p class="tag">Mitos x realidade</p>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg>
+      </header>
+
+      <div class="myths-head">
+        <div>
+          <h2 class="display block-title" id="b6-title">O que você acha que sabe sobre apostar</h2>
+          <p class="page-lead">Existem crenças populares sobre apostas repetidas tantas vezes que viram quase senso comum.</p>
+          <p class="myths-hint">Passe o mouse ou toque nas cartas para virar o mito.</p>
+        </div>
+
+        <!-- Moeda: cada lançamento é independente do anterior -->
+        <div class="coin-box" data-coin>
+          <p class="tag coin-label">Teste você mesmo</p>
+          <div class="coin" aria-hidden="true"><span class="coin-face coin-cara display">Cara</span><span class="coin-face coin-coroa display">Coroa</span></div>
+          <button class="btn btn-primary coin-btn" type="button">Jogar a moeda</button>
+          <ol class="coin-history" aria-label="Últimos resultados"></ol>
+          <p class="coin-status" role="status">Jogue algumas vezes. Não importa a sequência, a chance da próxima continua 50%.</p>
+        </div>
+      </div>
+
+      <ul class="myths">
+        <li class="flip">
+          <button class="flip-toggle" type="button" aria-pressed="false" aria-label="Mito 1: virar a carta"></button>
+          <div class="flip-inner">
+            <div class="flip-front">
+              <p class="flip-kind">Mito <span class="display">1</span></p>
+              <p class="flip-myth">“Depois de várias derrotas, uma vitória está próxima.”</p>
+            </div>
+            <div class="flip-back">
+              <p class="flip-kind flip-kind-real">Realidade</p>
+              <p>Isso é mentira. Se uma moeda cair cara cinco vezes seguidas, a chance do próximo lançamento dar coroa continua exatamente 50%. O histórico não influencia o próximo resultado, cada rodada é independente da anterior.</p>
+            </div>
+          </div>
+        </li>
+        <li class="flip">
+          <button class="flip-toggle" type="button" aria-pressed="false" aria-label="Mito 2: virar a carta"></button>
+          <div class="flip-inner">
+            <div class="flip-front">
+              <p class="flip-kind">Mito <span class="display">2</span></p>
+              <p class="flip-myth">“Quem está ganhando entrou numa sequência de sorte que vai continuar.”</p>
+            </div>
+            <div class="flip-back">
+              <p class="flip-kind flip-kind-real">Realidade</p>
+              <p>É a chamada ilusão da mão quente. Ganhos anteriores acontecem por acaso e podem parar a qualquer momento, eles não reduzem o risco das próximas apostas.</p>
+            </div>
+          </div>
+        </li>
+        <li class="flip">
+          <button class="flip-toggle" type="button" aria-pressed="false" aria-label="Mito 3: virar a carta"></button>
+          <div class="flip-inner">
+            <div class="flip-front">
+              <p class="flip-kind">Mito <span class="display">3</span></p>
+              <p class="flip-myth">“Existem sistemas infalíveis de apostas.”</p>
+            </div>
+            <div class="flip-back">
+              <p class="flip-kind flip-kind-real">Realidade</p>
+              <p>Robôs de lucro, grupos de sinais, métodos de progressão como dobrar o valor apostado depois de cada perda. Nada disso garante ganho contínuo.</p>
+            </div>
+          </div>
+        </li>
+        <li class="flip">
+          <button class="flip-toggle" type="button" aria-pressed="false" aria-label="Mito 4: virar a carta"></button>
+          <div class="flip-inner">
+            <div class="flip-front">
+              <p class="flip-kind">Mito <span class="display">4</span></p>
+              <p class="flip-myth">“Apostar mais ajuda a recuperar o que já perdi.”</p>
+            </div>
+            <div class="flip-back">
+              <p class="flip-kind flip-kind-real">Realidade</p>
+              <p>Isso é uma perseguição de perdas que vai te levar a um ciclo destrutivo da sua conta bancária. Se você perde R$ 50 e daí aposta mais R$ 100 pra tentar recuperar e acaba perdendo, o prejuízo triplicou.</p>
+              <p class="loss-math" aria-hidden="true"><span>R$ 50</span> + <span>R$ 100</span> = <strong>R$ 150</strong></p>
+            </div>
+          </div>
+        </li>
+        <li class="flip">
+          <button class="flip-toggle" type="button" aria-pressed="false" aria-label="Mito 5: virar a carta"></button>
+          <div class="flip-inner">
+            <div class="flip-front">
+              <p class="flip-kind">Mito <span class="display">5</span></p>
+              <p class="flip-myth">“Entender muito de esporte garante vitória.”</p>
+            </div>
+            <div class="flip-back">
+              <p class="flip-kind flip-kind-real">Realidade</p>
+              <p>Conhecimento técnico não elimina o risco. Lesão de última hora, expulsão, chuva forte, qualquer evento imponderável muda o resultado independente de quanta estatística você analisou antes.</p>
+            </div>
+          </div>
+        </li>
+        <li class="flip">
+          <button class="flip-toggle" type="button" aria-pressed="false" aria-label="Mito 6: virar a carta"></button>
+          <div class="flip-inner">
+            <div class="flip-front">
+              <p class="flip-kind">Mito <span class="display">6</span></p>
+              <p class="flip-myth">“Aposta é uma forma de investimento.”</p>
+            </div>
+            <div class="flip-back">
+              <p class="flip-kind flip-kind-real">Realidade</p>
+              <p>Investimento é baseado em paciência, disciplina e juros compostos a seu favor, o mercado quer que seu dinheiro financie projetos e gere retorno. Aposta é baseada em sorte e numa probabilidade matemática contra você, a plataforma só lucra se você perder. Só em setembro de 2024, o Brasil movimentou cerca de R$ 21 bilhões em apostas online, e a Confederação Nacional do Comércio estima mais de R$ 100 bilhões desviados do varejo em 2024, dinheiro que deixou de sustentar necessidades básicas e de construir patrimônio de verdade.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <p class="src myths-src">Fontes: Metrópoles (falácia do apostador, ilusão da mão quente, sistemas infalíveis, perseguição de perdas); mePoupe (aposta x investimento)</p>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       FECHAMENTO
+       ========================================================== -->
+  <section class="block page-close" aria-labelledby="close-title">
+    <div class="wrap">
+      <div class="cta-head">
+        <h2 class="display block-title" id="close-title">Esse problema pode ser resolvido.</h2>
+        <p class="cta-hand hand">Se informar é o primeiro passo pra virar esse jogo.</p>
+      </div>
+
+      <h3 class="tag deck-title">Descubra os outros naipes</h3>
+      <ul class="deck deck-4">
+        <li>
+          <a class="pcard" href="dados-que-assustam.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-spade" class="s-out"/><use href="#g-spade" class="s-in"/></svg>
+            <span class="pcard-name">Confira dados alarmantes</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard" href="apoio-e-ajuda.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-heart" class="s-out"/><use href="#g-heart" class="s-in"/></svg>
+            <span class="pcard-name">Apoio &amp; Ajuda</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard" href="trevos.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
+            <span class="pcard-name">Confira nossas ações</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard pcard-joker" href="trevos.html#reis-e-rainhas">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg></span>
+            <svg class="pcard-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg>
+            <span class="pcard-name">Apoie o movimento</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     RODAPÉ (igual à home)
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap">
+
+    <div class="help-box">
+      <svg class="help-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg>
+      <div>
+        <p class="tag">Precisa de ajuda agora?</p>
+                <ul class="help-links">
+          <li><strong>Jogadores Anônimos:</strong> <a href="tel:+554198936054">+55 41 9893-6054</a> · <a href="https://jogadoresanonimos.com.br" target="_blank" rel="noopener">jogadoresanonimos.com.br</a></li>
+          <li><strong>CVV</strong> (apoio emocional 24h, gratuito e sigiloso): <a href="tel:188">ligue 188</a> · <a href="https://cvv.org.br" target="_blank" rel="noopener">cvv.org.br</a></li>
+          <li><strong>SUS</strong> (atendimento gratuito, autoavaliação no Meu SUS Digital): <a href="https://www.gov.br/saude/pt-br/assuntos/noticias-ms/2026/julho/campanha-do-ministerio-da-saude-orienta-sobre-riscos-das-apostas-online-e-atendimento-em-saude-mental-no-sus" target="_blank" rel="noopener">saiba mais</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/img/logo-completo.png" alt="Solta a Carta" width="1080" height="1080">
+      </div>
+
+      <nav class="footer-col" aria-label="Seções do site (rodapé)">
+        <p class="footer-h">Navegue</p>
+        <ul>
+          <li><a href="dados-que-assustam.html"><span aria-hidden="true">♠</span> Dados que assustam</a></li>
+          <li><a href="o-que-e-ludopatia.html" aria-current="page"><span aria-hidden="true">♦</span> O que é Ludopatia?</a></li>
+          <li><a href="apoio-e-ajuda.html"><span aria-hidden="true">♥</span> Apoio &amp; Ajuda</a></li>
+          <li><a href="trevos.html"><span aria-hidden="true">♣</span> Confira nossas ações</a></li>
+          <li><a href="trevos.html#reis-e-rainhas" class="footer-joker">Apoie o movimento</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <p class="footer-h">Acompanhe</p>
+        <ul class="social social-foot">
+          <li><a class="soc soc-ig" href="https://www.instagram.com/projetosoltaacarta/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></span><span class="soc-name">Instagram</span></a></li>
+          <li><a class="soc soc-fb" href="https://www.facebook.com/profile.php?id=61594390811809" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></span><span class="soc-name">Facebook</span></a></li>
+          <li><a class="soc soc-ml" href="mailto:projetosoltaacarta@gmail.com?subject=Imprensa%20e%20parcerias" aria-label="E-mail" title="E-mail"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 5.25A2.25 2.25 0 0 1 3.75 3h16.5a2.25 2.25 0 0 1 2.25 2.25v.7L12 12.6 1.5 5.95v-.7zm0 3.15V18.75A2.25 2.25 0 0 0 3.75 21h16.5a2.25 2.25 0 0 0 2.25-2.25V8.4L12 15.05 1.5 8.4z"/></svg></span><span class="soc-name">E-mail</span></a></li>
+          <li><a class="soc soc-lt" href="https://linktr.ee/projetosoltaacarta" target="_blank" rel="noopener" aria-label="Linktree" title="Linktree"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13.73635 5.85251 4.00467-4.11665 2.3248 2.3808-4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766-2.3248 2.3338L12.0005 12.099l-5.74052 5.76852-2.3248-2.3248 4.22864-4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248-2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"/></svg></span><span class="soc-name">Linktree</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-h">Transparência</p>
+        <ul>
+          <li><a href="privacidade.html">Política de Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="disclaimer">O Solta a Carta é um projeto de conscientização e não substitui atendimento profissional. Se você ou alguém que você conhece precisa de ajuda, procure a rede de apoio indicada aqui.</p>
+      <p class="footer-suits" aria-hidden="true">♠ ♦ ♥ ♣</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

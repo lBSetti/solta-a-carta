@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apoio &amp; Ajuda — Solta a Carta</title>
+  <meta name="description" content="Apoio e ajuda para quem vive a ludopatia, em si mesmo ou em alguém próximo: autoidentificação, como agir, rede de apoio e relatos anônimos.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Apoio &amp; Ajuda — Solta a Carta">
+  <meta property="og:description" content="Você não está sozinho nisso.">
+  <meta property="og:image" content="assets/img/logo-completo.png">
+  <link rel="icon" href="assets/img/logo-cartas.png">
+
+  <link rel="preload" href="assets/fonts/bernoru-blackultraexpanded.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/fonts/nf-ananias-regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/Luciole-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page-copas">
+
+<!-- ============================================================
+     Sprite SVG: naipes, coringa e ícones
+     ============================================================ -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <path id="g-spade" d="M12 2.5s-8.5 6.6-8.5 11.6c0 2.5 2 4.3 4.3 4.3 1.4 0 2.6-.6 3.3-1.6L10 21.5h4l-1.1-4.7c.7 1 1.9 1.6 3.3 1.6 2.3 0 4.3-1.8 4.3-4.3C20.5 9.1 12 2.5 12 2.5z"/>
+    <path id="g-diamond" d="M12 2.5 19.5 12 12 21.5 4.5 12z"/>
+    <path id="g-heart" d="M12 20.5S3 14.6 3 8.8C3 6 5.2 4 7.7 4c1.8 0 3.3 1 4.3 2.5C13 5 14.5 4 16.3 4 18.8 4 21 6 21 8.8c0 5.8-9 11.7-9 11.7z"/>
+    <g id="g-club">
+      <circle cx="12" cy="7.2" r="4"/>
+      <circle cx="7" cy="13.4" r="4"/>
+      <circle cx="17" cy="13.4" r="4"/>
+      <circle cx="12" cy="12" r="2.6"/>
+      <path d="M12 11.5 13.5 21.5h-3z"/>
+    </g>
+    <g id="g-joker" stroke-linejoin="round" stroke-width="1.6">
+      <path d="M3.6 18.2 5 8.4l4.3 5L12 5.4l2.7 8 4.3-5 1.4 9.8z"/>
+      <rect x="3" y="18" width="18" height="3.6" rx="1.4"/>
+      <circle cx="5" cy="6.4" r="1.9"/>
+      <circle cx="12" cy="3.3" r="1.9"/>
+      <circle cx="19" cy="6.4" r="1.9"/>
+    </g>
+    <!-- Ícones de traço (viewBox 24) -->
+    <g id="i-person"><circle cx="12" cy="7" r="3.5"/><path d="M4.5 21c.6-4.4 3.5-7 7.5-7s6.9 2.6 7.5 7"/></g>
+    <g id="i-teen"><circle cx="12" cy="7.5" r="3"/><path d="M6.5 21c.5-3.8 2.7-6 5.5-6s5 2.2 5.5 6"/><path d="M9 4.5c1-1.5 5-1.5 6 0"/></g>
+    <g id="i-brain"><path d="M11 4.5a3 3 0 0 0-5.5 1.3A3 3 0 0 0 3.8 11a3.2 3.2 0 0 0 1.5 5.2A3 3 0 0 0 11 19.5zM13 4.5a3 3 0 0 1 5.5 1.3 3 3 0 0 1 1.7 5.2 3.2 3.2 0 0 1-1.5 5.2 3 3 0 0 1-5.7 3.3z"/><path d="M11 9H8.5M13 9h2.5M11 14H8M13 14h3"/></g>
+    <g id="i-ticket"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"/><path d="M15 7v10" stroke-dasharray="2 2"/></g>
+    <g id="i-palette"><path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-.9 2-2 0-1-.9-1.4-.9-2.4 0-1 .9-1.6 2-1.6h2a4 4 0 0 0 4-4c0-4.4-4-8-9.1-8z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="15" cy="7" r="1.2"/></g>
+    <g id="i-clock-off"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2M4 4l16 16"/></g>
+    <g id="i-bell"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5a2 2 0 0 0 4 0"/></g>
+    <g id="i-trophy"><path d="M8 4h8v4a4 4 0 0 1-8 0zM8 5.5H5a3 3 0 0 0 3.2 3.5M16 5.5h3a3 3 0 0 1-3.2 3.5M12 12v3.5M8.5 20.5h7M9.5 15.5h5l.5 5h-6z"/></g>
+    <g id="i-target"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></g>
+    <g id="i-calendar"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g>
+    <g id="i-pulse"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"/></g>
+    <g id="i-phone"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/><circle cx="12" cy="9.5" r="2.2"/><path d="M8.8 14.6c.7-1.4 1.8-2 3.2-2s2.5.6 3.2 2"/></g>
+    <g id="i-stats"><path d="M4 20.5h16M7 20.5v-6M12 20.5V9M17 20.5v-10"/><path d="M5 9l5-4 4 3 5-4"/></g>
+    <g id="i-hourglass"><path d="M7 3h10M7 21h10M8 3c0 5 8 5 8 9s-8 4-8 9M16 3c0 5-8 5-8 9s8 4 8 9"/></g>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ============================================================
+     CABEÇALHO (igual à home; Ouros marcado como página atual)
+     ============================================================ -->
+<header class="site-header" id="topo">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Solta a Carta — página inicial">
+      <span class="brand-mark"><img src="assets/img/logo-cartas.png" alt="" width="1080" height="1080"></span>
+      <span class="brand-word" aria-hidden="true">Solta a<br>Carta</span>
+    </a>
+
+    <nav class="suit-nav" aria-label="Seções do site">
+      <ul class="suit-list">
+        <li>
+          <a class="suit-link" href="dados-que-assustam.html" data-label="Dados que assustam">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-spade" class="s-out"/><use href="#g-spade" class="s-in"/></svg>
+            <span class="suit-label"><span>Dados que assustam</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="o-que-e-ludopatia.html" data-label="O que é Ludopatia?">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-diamond" class="s-out"/><use href="#g-diamond" class="s-in"/></svg>
+            <span class="suit-label"><span>O que é Ludopatia?</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="apoio-e-ajuda.html" aria-current="page" data-label="Apoio &amp; Ajuda">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-heart" class="s-out"/><use href="#g-heart" class="s-in"/></svg>
+            <span class="suit-label"><span>Apoio &amp; Ajuda</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="suit-link" href="trevos.html" data-label="Confira nossas ações">
+            <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
+            <span class="suit-label"><span>Confira nossas ações</span></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="suit-link joker-link" href="trevos.html#reis-e-rainhas" data-label="Apoie o movimento">
+      <svg class="suit-icon joker-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg>
+      <span class="suit-label"><span>Apoie o movimento</span></span>
+    </a>
+  </div>
+
+  <div class="nav-hint" id="nav-hint" aria-live="polite" hidden>
+    <a class="nav-hint-link" href="#"><span class="nav-hint-label"></span><span class="nav-hint-cta">toque de novo para abrir →</span></a>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="block page-intro" aria-labelledby="page-title">
+    <div class="wrap">
+      <header class="block-head">
+        <p class="tag tag-display">Copas · Apoio &amp; Ajuda</p>
+        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg>
+      </header>
+      <h1 class="display block-title page-title" id="page-title">Você não está sozinho nisso</h1>
+      <p class="page-lead">Ludopatia se alimenta de silêncio. Este é um espaço feito para reconhecer, entender e pedir ajuda, seja pra você ou alguém que você ama.</p>
+    </div>
+  </section>
+
+  <section class="block block-dark" id="autoidentificacao" aria-labelledby="quiz-title">
+    <div class="wrap">
+      <header class="block-head on-dark"><p class="tag">Autoidentificação</p><svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></header>
+      <h2 class="display band-title" id="quiz-title">Você não está sozinho nessa</h2>
+      <p class="band-lead">Existem 9 perguntas feitas pelos profissionais para diagnosticar a ludopatia. Responda elas com sinceridade. Isso ainda não é um diagnóstico adequado, mas um ponto de partida.</p>
+      <form class="quiz" data-quiz>
+        <ol class="quiz-list">
+          <li><fieldset><legend>Você precisa apostar valores cada vez maiores pra sentir a mesma excitação?</legend><label><input type="radio" name="q1" value="1"> Sim</label><label><input type="radio" name="q1" value="0"> Não</label></fieldset></li>
+          <li><fieldset><legend>Você fica irritado ou inquieto quando tenta reduzir ou parar de apostar?</legend><label><input type="radio" name="q2" value="1"> Sim</label><label><input type="radio" name="q2" value="0"> Não</label></fieldset></li>
+          <li><fieldset><legend>Você já tentou controlar ou parar de apostar, sem sucesso?</legend><label><input type="radio" name="q3" value="1"> Sim</label><label><input type="radio" name="q3" value="0"> Não</label></fieldset></li>
+          <li><fieldset><legend>Você pensa em apostas com frequência, mesmo fora do momento de jogar?</legend><label><input type="radio" name="q4" value="1"> Sim</label><label><input type="radio" name="q4" value="0"> Não</label></fieldset></li>
+          <li><fieldset><legend>Você aposta quando está mal emocionalmente, pra fugir de um problema ou aliviar tensão?</legend><label><input type="radio" name="q5" value="1"> Sim</label><label><input type="radio" name="q5" value="0"> Não</label></fieldset></li>
+          <li><fieldset><legend>Você volta a apostar depois de perder, tentando recuperar o prejuízo?</legend><label><input type="radio" name="q6" value="1"> Sim</label><label><input type="radio" name="q6" value="0"> Não</label></fieldset></li>
+          <li><fieldset><legend>Você já mentiu pra esconder o quanto está envolvido com apostas?</legend><label><input type="radio" name="q7" value="1"> Sim</label><label><input type="radio" name="q7" value="0"> Não</label></fieldset></li>
+          <li><fieldset><legend>Você já perdeu relacionamento, emprego ou oportunidade acadêmica/profissional por causa disso?</legend><label><input type="radio" name="q8" value="1"> Sim</label><label><input type="radio" name="q8" value="0"> Não</label></fieldset></li>
+          <li><fieldset><legend>Você já dependeu de outras pessoas pra sair de dificuldades financeiras causadas pelas apostas?</legend><label><input type="radio" name="q9" value="1"> Sim</label><label><input type="radio" name="q9" value="0"> Não</label></fieldset></li>
+        </ol>
+        <p class="quiz-progress" aria-live="polite"><span data-count>0</span> de 9 respondidas</p>
+        <button class="btn btn-primary" type="submit">Ver resultado</button>
+        <div class="quiz-result definition" tabindex="-1" hidden>
+          <p class="tag">Seu resultado</p>
+          <p class="quiz-score hand"></p>
+          <p class="quiz-text"></p>
+          <p class="quiz-note"><strong>Isso não substitui uma avaliação profissional.</strong> Só um médico ou psicólogo pode dar um diagnóstico de verdade.</p>
+          <a class="btn btn-ghost" href="#consigo-mesmo">Ver o que fazer agora</a>
+        </div>
+      </form>
+      <p class="fig-src">Fonte: APA/DSM-5, especificador de gravidade</p>
+    </div>
+  </section>
+
+  <section class="block" id="quem-voce-ama" aria-labelledby="b3-title">
+    <div class="wrap">
+      <header class="block-head"><p class="tag">Como agir com quem você ama</p><svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></header>
+      <h2 class="display block-title" id="b3-title">Apoie alguém da maneira correta</h2>
+      <p class="page-lead">Ver alguém que você ama afundando em apostas dói. Mas ajudar do jeito errado pode alimentar o mesmo ciclo que você quer interromper.</p>
+      <div class="dodont">
+        <article class="do reveal"><p class="do-kind">✓ O que fazer</p><p>Escolha o momento certo, evite crises ou logo depois de uma perda grande. Fale com calma, cite fatos concretos, mostre os prejuízos que já aconteceram. Estabeleça limites claros: não empreste dinheiro, exija transparência financeira. Incentive ajuda profissional sempre que houver mentiras recorrentes, dívidas e sofrimento emocional claro.</p></article>
+        <article class="dont reveal"><p class="do-kind">! O que evitar</p><p>Não pague as dívidas da pessoa, isso só prolonga o ciclo e evita que ela enfrente a consequência real do próprio comportamento. Não vigie de forma obsessiva, isso vira perseguição e piora a relação. Não ignore os sinais nem trate como fase passageira.</p></article>
+      </div>
+      <p class="src">Fonte: Clínicas Revive, “Como Ajudar um Familiar com Vício em Apostas”</p>
+    </div>
+  </section>
+
+  <section class="block block-dark" id="consigo-mesmo" aria-labelledby="b4-title">
+    <div class="wrap">
+      <header class="block-head on-dark"><p class="tag">Como agir consigo mesmo</p><svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></header>
+      <h2 class="display band-title" id="b4-title">Reconhecer é o primeiro passo.</h2>
+      <p class="band-lead">Se você chegou até aqui e se identificou com algum dos sinais, o próximo passo não precisa ser perfeito, só precisa existir.</p>
+      <div class="dodont">
+        <article class="self reveal"><p class="do-kind">Autoexclusão</p><p>O governo federal tem uma ferramenta oficial e gratuita de autoexclusão, que bloqueia seu acesso a todas as casas de apostas regulamentadas no Brasil por um período mínimo de 1 mês, podendo ser por prazo determinado ou indeterminado. Basta entrar com sua conta gov.br e ativar o bloqueio.</p></article>
+        <article class="self reveal"><p class="do-kind">Dicas práticas</p><p>Deixe cartões em casa, use só dinheiro físico ou um cartão pré-pago com limite baixo. Evite apostar sob efeito de álcool ou outras substâncias, isso destrói seu julgamento. Evite apostar quando estiver estressado ou triste, procure um amigo, caminhe, durma, qualquer coisa antes de abrir o app. Substitua o hábito por outra atividade que libere dopamina de forma saudável, esporte, música, voluntariado.</p></article>
+      </div>
+      <p class="help-title">Rede de apoio</p>
+      <ul class="help-btns">
+        <li><a class="btn btn-primary" href="https://jogadoresanonimos.com.br" target="_blank" rel="noopener">Jogadores Anônimos</a></li>
+        <li><a class="btn btn-primary" href="https://cvv.org.br" target="_blank" rel="noopener">CVV · ligue 188 (24h, grátis e sigiloso)</a></li>
+        <li><a class="btn btn-primary" href="https://www.gov.br/saude/pt-br/assuntos/noticias-ms/2026/julho/campanha-do-ministerio-da-saude-orienta-sobre-riscos-das-apostas-online-e-atendimento-em-saude-mental-no-sus" target="_blank" rel="noopener">Atendimento pelo SUS · Meu SUS Digital</a></li>
+      </ul>
+      <p class="fig-src">Fontes: Ministério da Fazenda/Secretaria de Prêmios e Apostas, OffBet.app, Ministério da Saúde, CVV</p>
+    </div>
+  </section>
+
+  <section class="block" id="relatos" aria-labelledby="b5-title">
+    <div class="wrap">
+      <header class="block-head"><p class="tag">Relatos</p><svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></header>
+      <h2 class="display block-title" id="b5-title">Ninguém deve passar por isso sozinho</h2>
+      <p class="page-lead">Quem já viveu ludopatia de perto sabe que o silêncio é parte do problema. Aqui você pode ler relatos de outras pessoas, ou deixar o seu, sempre anônimo.</p>
+      <div class="actions">
+        <button class="btn btn-primary" type="button" data-open-gate aria-controls="gate">Ver relatos</button>
+        <a class="btn btn-ghost" href="#escrever">Escrever meu relato</a>
+      </div>
+
+      <div class="gate definition" id="gate" hidden tabindex="-1" role="region" aria-label="Aviso de conteúdo sensível">
+        <p class="display gate-title">Conteúdo sensível.</p>
+        <p>Os relatos a seguir falam sobre vício, dívidas, perda de relacionamentos e, em um dos casos, tentativa de suicídio. Pode ser pesado de ler, principalmente se você está passando por algo parecido.</p>
+        <div class="actions"><button class="btn btn-primary" type="button" data-gate-yes>Quero continuar</button><button class="btn btn-ghost" type="button" data-gate-no>Voltar</button></div>
+      </div>
+
+      <div class="stories" id="stories" hidden tabindex="-1">
+        <ul class="story-list">
+          <li class="story"><p>“Fiquei 54 horas seguidas jogando, de sexta a segunda de manhã, sem comer, sem dormir, só café e pão seco. Cheguei perto de virar morador de rua. Um amigo me emprestou uma casa no meio do mato pra eu morar sozinho, e foi lá que entendi: ou eu morria, ou eu vivia. Perdi casa, carro, trabalho e casamento. Falsifiquei documentos pra conseguir crédito e cheguei a levar ameaça de agiota com arma na mão. Entrei num grupo de apoio, fiz acordo pra pagar cada dívida aos poucos, e hoje mantenho a sobriedade há mais de 17 anos, indo às reuniões toda semana.”</p></li>
+          <li class="story"><p>“O momento mais pesado foi ver minha família sendo constrangida na porta de casa por causa de uma apreensão de veículo, com meus filhos pequenos ainda dentro do carro. Cheguei a sair de casa duas vezes, sustentando mentiras sobre dívidas escondidas com bancas clandestinas e apps de aposta. Decidi abrir tudo pra minha esposa, sem esconder mais nada, e fui atrás de cada credor pessoalmente pra reparar o que dava. Hoje aprendi a lidar com os momentos de crise sem deixar a dor virar gatilho de recaída.”</p></li>
+          <li class="story"><p>“Cheguei a tentar suicídio depois de esgotar todos os meus limites bancários e cartões. Perdi um relacionamento importante nesse processo. Minha mãe foi quem me segurou, disse que ia entrar comigo no fundo do poço e só sairíamos juntas. Entrei num grupo de apoio, comecei acompanhamento psiquiátrico e terapêutico, e criei um combinado diário com ela: uma mensagem simples, todo dia, contando os dias sem jogo e sem mentira. Hoje reconstruí o que tinha perdido.”</p><p class="story-cvv">Se você se identificou com esse relato e está passando por um momento parecido, o CVV atende 24h, de graça e em sigilo: <a href="tel:188"><strong>ligue 188</strong></a>.</p></li>
+          <li class="story"><p>“Ganhei uma quantia alta num único dia. Saquei metade, deixei a outra metade jogando. Meia hora depois já tinha perdido tudo, inclusive o que tinha sacado, e ainda peguei mais dinheiro emprestado. Passei a noite inteira andando dentro de casa feito um louco. Depois disso vieram anos de empréstimos, mentiras pra amigos e uma culpa que não passava. Só consegui virar a chave quando admiti a compulsão pra minha companheira e entreguei o controle financeiro pra ela. Voltei pra terapia, mudei de rotina, e estou reconstruindo minha vida aos poucos.”</p></li>
+          <li class="story"><p>“Usei o nome e o crédito do meu pai sem ele saber, num momento de desespero, e causei um rombo grande na empresa da família. Destruí a confiança que ele tinha em mim, e ainda perdi um relacionamento nesse caminho. Decidi expor a verdade inteira pra minha família e pro meu círculo mais próximo, em vez de continuar escondendo. Reatei o relacionamento, voltei a jogar esporte pra canalizar a ansiedade, e hoje trabalho pra devolver aos poucos o que causei ao meu pai.”</p></li>
+          <li class="story"><p>“Usei o cartão de parentes que confiavam em mim, achando que era só uma renda extra, e não consegui pagar depois. Anos mais tarde, numa recaída, perdi meu lar e fui morar com meus pais de novo, já adulto, dormindo num colchão no chão. A vergonha foi imensa. Minha esposa disse que eu nunca ia mudar. Fui atrás dela, contei a verdade completa sobre as dívidas, com bancos e com agiotas, e consegui uma última chance. Hoje mantenho presença semanal inegociável no grupo de apoio.”</p></li>
+        </ul>
+        <p class="src">Esses relatos são adaptados e anonimizados a partir de histórias reais compartilhadas com o movimento. Nenhum nome, imagem ou dado que possa identificar quem viveu isso é divulgado, seguindo a <a href="privacidade.html">política de privacidade</a> do Solta a Carta.</p>
+        <p class="help-title">Se alguma dessas histórias mexeu com você, existe apoio real e gratuito. Você não precisa esperar chegar nesse ponto pra pedir ajuda.</p>
+        <ul class="help-btns">
+        <li><a class="btn btn-primary" href="https://jogadoresanonimos.com.br" target="_blank" rel="noopener">Jogadores Anônimos</a></li>
+        <li><a class="btn btn-primary" href="https://cvv.org.br" target="_blank" rel="noopener">CVV · ligue 188 (24h, grátis e sigiloso)</a></li>
+        <li><a class="btn btn-primary" href="https://www.gov.br/saude/pt-br/assuntos/noticias-ms/2026/julho/campanha-do-ministerio-da-saude-orienta-sobre-riscos-das-apostas-online-e-atendimento-em-saude-mental-no-sus" target="_blank" rel="noopener">Atendimento pelo SUS · Meu SUS Digital</a></li>
+      </ul>
+      </div>
+
+      <!-- TODO: trocar SEU_ENDPOINT pelo endpoint do Formspree quando a conta for criada -->
+      <form class="story-form definition" id="escrever" action="https://formspree.io/f/SEU_ENDPOINT" method="POST" data-story-form>
+        <p class="tag">Escrever meu relato</p>
+        <label class="sf-label" for="relato">Seu relato <span>(não peça nem escreva nome, e-mail ou telefone)</span></label>
+        <textarea id="relato" name="relato" rows="7" required></textarea>
+        <label class="sf-check"><input type="checkbox" name="consentimento" value="sim" required> Eu entendo que meu relato pode ser usado, de forma anônima, pelo Solta a Carta em suas comunicações e no site, seguindo a política de privacidade do movimento. Nenhuma informação que possa me identificar será divulgada.</label>
+        <button class="btn btn-primary" type="submit" disabled>Enviar relato</button>
+        <p class="sf-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="block page-close" aria-labelledby="close-title">
+    <div class="wrap">
+      <div class="cta-head">
+        <h2 class="display block-title" id="close-title">Esse problema pode ser resolvido.</h2>
+        <p class="cta-hand hand">Se informar é o primeiro passo pra virar esse jogo.</p>
+      </div>
+      <h3 class="tag deck-title">Descubra os outros naipes</h3>
+      <ul class="deck deck-4">
+        <li>
+          <a class="pcard" href="dados-que-assustam.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-spade" class="s-out"/><use href="#g-spade" class="s-in"/></svg>
+            <span class="pcard-name">Confira dados alarmantes</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard" href="o-que-e-ludopatia.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-diamond" class="s-out"/><use href="#g-diamond" class="s-in"/></svg>
+            <span class="pcard-name">Entenda mais sobre a ludopatia</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard" href="trevos.html">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
+            <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
+            <span class="pcard-name">Confira nossas ações</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="pcard pcard-joker" href="trevos.html#reis-e-rainhas">
+            <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg></span>
+            <svg class="pcard-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg>
+            <span class="pcard-name">Apoie o movimento</span>
+            <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-joker"/></svg></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+
+<!-- ============================================================
+     RODAPÉ (igual à home)
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap">
+
+    <div class="help-box">
+      <svg class="help-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg>
+      <div>
+        <p class="tag">Precisa de ajuda agora?</p>
+                <ul class="help-links">
+          <li><strong>Jogadores Anônimos:</strong> <a href="tel:+554198936054">+55 41 9893-6054</a> · <a href="https://jogadoresanonimos.com.br" target="_blank" rel="noopener">jogadoresanonimos.com.br</a></li>
+          <li><strong>CVV</strong> (apoio emocional 24h, gratuito e sigiloso): <a href="tel:188">ligue 188</a> · <a href="https://cvv.org.br" target="_blank" rel="noopener">cvv.org.br</a></li>
+          <li><strong>SUS</strong> (atendimento gratuito, autoavaliação no Meu SUS Digital): <a href="https://www.gov.br/saude/pt-br/assuntos/noticias-ms/2026/julho/campanha-do-ministerio-da-saude-orienta-sobre-riscos-das-apostas-online-e-atendimento-em-saude-mental-no-sus" target="_blank" rel="noopener">saiba mais</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/img/logo-completo.png" alt="Solta a Carta" width="1080" height="1080">
+      </div>
+
+      <nav class="footer-col" aria-label="Seções do site (rodapé)">
+        <p class="footer-h">Navegue</p>
+        <ul>
+          <li><a href="dados-que-assustam.html"><span aria-hidden="true">♠</span> Dados que assustam</a></li>
+          <li><a href="o-que-e-ludopatia.html"><span aria-hidden="true">♦</span> O que é Ludopatia?</a></li>
+          <li><a href="apoio-e-ajuda.html" aria-current="page"><span aria-hidden="true">♥</span> Apoio &amp; Ajuda</a></li>
+          <li><a href="trevos.html"><span aria-hidden="true">♣</span> Confira nossas ações</a></li>
+          <li><a href="trevos.html#reis-e-rainhas" class="footer-joker">Apoie o movimento</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <p class="footer-h">Acompanhe</p>
+        <ul class="social social-foot">
+          <li><a class="soc soc-ig" href="https://www.instagram.com/projetosoltaacarta/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></span><span class="soc-name">Instagram</span></a></li>
+          <li><a class="soc soc-fb" href="https://www.facebook.com/profile.php?id=61594390811809" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></span><span class="soc-name">Facebook</span></a></li>
+          <li><a class="soc soc-ml" href="mailto:projetosoltaacarta@gmail.com?subject=Imprensa%20e%20parcerias" aria-label="E-mail" title="E-mail"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 5.25A2.25 2.25 0 0 1 3.75 3h16.5a2.25 2.25 0 0 1 2.25 2.25v.7L12 12.6 1.5 5.95v-.7zm0 3.15V18.75A2.25 2.25 0 0 0 3.75 21h16.5a2.25 2.25 0 0 0 2.25-2.25V8.4L12 15.05 1.5 8.4z"/></svg></span><span class="soc-name">E-mail</span></a></li>
+          <li><a class="soc soc-lt" href="https://linktr.ee/projetosoltaacarta" target="_blank" rel="noopener" aria-label="Linktree" title="Linktree"><span class="soc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13.73635 5.85251 4.00467-4.11665 2.3248 2.3808-4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766-2.3248 2.3338L12.0005 12.099l-5.74052 5.76852-2.3248-2.3248 4.22864-4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248-2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"/></svg></span><span class="soc-name">Linktree</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-h">Transparência</p>
+        <ul>
+          <li><a href="privacidade.html">Política de Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="disclaimer">O Solta a Carta é um projeto de conscientização e não substitui atendimento profissional. Se você ou alguém que você conhece precisa de ajuda, procure a rede de apoio indicada aqui.</p>
+      <p class="footer-suits" aria-hidden="true">♠ ♦ ♥ ♣</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
