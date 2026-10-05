@@ -47,6 +47,7 @@
     <g id="i-city"><path d="M3 21h18M5 21V10h6v11M11 21V4h8v17M7.5 13h1M7.5 16.5h1M14 7.5h2M14 11h2M14 14.5h2"/></g>
     <g id="i-house"><path d="M3 11.5 12 4l9 7.5M5.5 9.5V21h13V9.5M10 21v-6h4v6"/></g>
     <g id="i-bars"><path d="M4 20.5h16M7 20.5v-5M12 20.5v-9M17 20.5V7"/></g>
+    <g id="i-clock"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
     <g id="i-alert"><path d="M12 3 22 20.5H2z"/><path d="M12 9.5v5M12 17.3v.1"/></g>
     <g id="i-tv"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M9 21h6M12 17v4"/></g>
     <g id="i-ball"><circle cx="12" cy="12" r="9"/><path d="M12 7.5l3.2 2.3-1.2 3.8h-4l-1.2-3.8zM12 3v4.5M15.2 9.8l4.3-1.4M14 13.6l2.6 3.6M10 13.6l-2.6 3.6M8.8 9.8 4.5 8.4"/></g>
@@ -99,9 +100,9 @@
           </a>
         </li>
         <li>
-          <a class="suit-link" href="trevos.html" data-label="Confira nossas ações">
+          <a class="suit-link" href="trevos.html" data-label="Ações &amp; Apoio">
             <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
-            <span class="suit-label"><span>Confira nossas ações</span></span>
+            <span class="suit-label"><span>Ações &amp; Apoio</span></span>
           </a>
         </li>
       </ul>
@@ -120,495 +121,259 @@
 
 <main id="conteudo">
 
-  <!-- ==========================================================
-       ABERTURA
-       ========================================================== -->
+  <!-- ABERTURA -->
   <section class="block page-intro" aria-labelledby="page-title">
     <div class="wrap">
       <header class="block-head">
         <p class="tag tag-display">Espadas · Dados que assustam</p>
         <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg>
       </header>
-
       <h1 class="display block-title page-title" id="page-title">Confira dados alarmantes e a trajetória do problema</h1>
-
       <figure class="opener">
         <p class="opener-num display">R$&nbsp;105<br> bilhões</p>
         <figcaption class="opener-text">
-          <p class="opener-lead">foram depositados em casas de apostas somente até agosto de 2026.</p>
-          <p>Hoje, já são mais de 43,8 milhões de brasileiros cadastrados em plataformas regulamentadas, no entanto o número pode ser bem maior do que o datado.</p>
+          <p class="opener-lead">foram depositados em casas de apostas regulamentadas somente em 2026, até a proibição em setembro.</p>
+          <p>No auge, o Brasil chegou a ter mais de 43,8 milhões de pessoas cadastradas em plataformas regulamentadas, e o número real provavelmente foi ainda maior.</p>
           <p class="src">Fonte: Yogonet Brasil, setembro/2026</p>
         </figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- ==========================================================
-       LINHA DO TEMPO — régua horizontal com cartas que viram
-       Para usar foto real num acontecimento: coloque um <img> dentro
-       do .tl-photo correspondente (ex.: assets/img/linha-do-tempo/2019.jpg)
-       e preencha o crédito em .tl-credit. O tratamento duotone é automático.
-       ========================================================== -->
+  <!-- LINHA DO TEMPO HORIZONTAL -->
   <section class="block" id="linha-do-tempo" aria-labelledby="tl-title">
     <div class="wrap">
       <header class="block-head">
         <p class="tag">Linha do tempo</p>
         <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg>
       </header>
-
-      <h2 class="display block-title" id="tl-title">Como isso cresceu tão rápido?</h2>
-      <p class="tl-hint">Passe o mouse ou toque nas cartas para virar cada acontecimento.</p>
+      <h2 class="display block-title" id="tl-title">O jogo não é um problema novo</h2>
+      <p class="page-lead">Todas as vezes em que o Brasil tentou proibir formas de aposta elas voltaram.</p>
+      <div class="rail-head">
+        <p class="rail-hint">Arraste para o lado <span aria-hidden="true">→</span> 1892 a 2027</p>
+        <div class="rail-btns">
+          <button type="button" class="rail-btn" data-rail-prev aria-label="Voltar na linha do tempo">←</button>
+          <button type="button" class="rail-btn" data-rail-next aria-label="Avançar na linha do tempo">→</button>
+        </div>
+      </div>
     </div>
-
-    <div class="tl-scroller wrap">
-      <ol class="tl" data-timeline>
-        <li class="tl-slot" data-anchor="start">
-          <div class="tl-card">
-            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2018" aria-label="2018: virar a carta"></button>
-            <div class="tl-inner">
-              <div class="tl-front" aria-hidden="true"></div>
-              <div class="tl-back" id="tl-2018">
-                <div class="tl-back-in">
-                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-law"/></svg></div>
-                  <p class="tl-when">Dezembro · 2018</p>
-                  <p class="tl-text">Michel Temer sanciona a Lei 13.756, abrindo caminho pras apostas esportivas de quota fixa no Brasil.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <span class="tl-tick" aria-hidden="true">2018</span>
-        </li>
-
-        <li class="tl-slot" data-anchor="start">
-          <div class="tl-card">
-            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2019" aria-label="2019: virar a carta"></button>
-            <div class="tl-inner">
-              <div class="tl-front" aria-hidden="true"></div>
-              <div class="tl-back" id="tl-2019">
-                <div class="tl-back-in">
-                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-shirt"/></svg></div>
-                  <p class="tl-when">Janeiro · 2019</p>
-                  <p class="tl-text">O Fortaleza estampa a NetBet na camisa, o primeiro patrocínio de uma casa de apostas num clube brasileiro. Nove meses depois, 65% dos times da Série A já tinham uma bet no peito.</p>
-                  <p class="tl-src">Fonte: Máquina do Esporte, Exame</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <span class="tl-tick" aria-hidden="true">2019</span>
-        </li>
-
-        <li class="tl-slot">
-          <div class="tl-card">
-            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2020" aria-label="2020: virar a carta"></button>
-            <div class="tl-inner">
-              <div class="tl-front" aria-hidden="true"></div>
-              <div class="tl-back" id="tl-2020">
-                <div class="tl-back-in">
-                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-phone"/></svg></div>
-                  <p class="tl-when">2020</p>
-                  <p class="tl-text">Ainda sem uma regulamentação vigente, o mercado já movimentava R$ 7 bilhões por ano no começo da pandemia, quando o consumo digital de apostas começou a decolar no Brasil.</p>
-                  <p class="tl-src">Fonte: BNLData</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <span class="tl-tick" aria-hidden="true">2020</span>
-        </li>
-
-        <li class="tl-slot">
-          <div class="tl-card">
-            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2021" aria-label="2021: virar a carta"></button>
-            <div class="tl-inner">
-              <div class="tl-front" aria-hidden="true"></div>
-              <div class="tl-back" id="tl-2021">
-                <div class="tl-back-in">
-                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-grid"/></svg></div>
-                  <p class="tl-when">2021</p>
-                  <p class="tl-text">Já são 840 empresas de apostas disputando esse mercado no Brasil.</p>
-                  <p class="tl-src">Fonte: BigDataCorp</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <span class="tl-tick" aria-hidden="true">2021</span>
-        </li>
-
-        <li class="tl-slot">
-          <div class="tl-card">
-            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2023" aria-label="2023: virar a carta"></button>
-            <div class="tl-inner">
-              <div class="tl-front" aria-hidden="true"></div>
-              <div class="tl-back" id="tl-2023">
-                <div class="tl-back-in">
-                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-scales"/></svg></div>
-                  <p class="tl-when">Dezembro · 2023</p>
-                  <p class="tl-text">Lula sanciona a Lei 14.790, que regulamenta as bets e amplia o escopo pra incluir cassinos online, é aqui que jogos como o Tigrinho entram formalmente no radar, ainda numa zona cinzenta de fiscalização. Nesse ano, 14 milhões de brasileiros já apostam, movimentando uma estimativa de R$ 120 bilhões.</p>
-                  <p class="tl-src">Fonte: Lei 14.790/2023, Exame</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <span class="tl-tick" aria-hidden="true">2023</span>
-        </li>
-
-        <li class="tl-slot">
-          <div class="tl-card">
-            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2024" aria-label="2024: virar a carta"></button>
-            <div class="tl-inner">
-              <div class="tl-front" aria-hidden="true"></div>
-              <div class="tl-back" id="tl-2024">
-                <div class="tl-back-in">
-                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-search"/></svg></div>
-                  <p class="tl-when">Julho e novembro · 2024</p>
-                  <p class="tl-text">Sai a primeira regra de publicidade pra bets no Brasil. Em novembro, o Congresso instala a CPI das Bets pra investigar possíveis ligações com lavagem de dinheiro e o endividamento de famílias inteiras. Nesse ano, o número de apostadores chega a 23 milhões, com o Banco Central estimando entre R$ 18 e 21 bilhões movimentados por mês só em agosto.</p>
-                  <p class="tl-src">Fonte: Portaria SPA/MF 1.231/2024, CPI das Bets, Banco Central</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <span class="tl-tick" aria-hidden="true">2024</span>
-        </li>
-
-        <li class="tl-slot">
-          <div class="tl-card">
-            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2025" aria-label="2025: virar a carta"></button>
-            <div class="tl-inner">
-              <div class="tl-front" aria-hidden="true"></div>
-              <div class="tl-back" id="tl-2025">
-                <div class="tl-back-in">
-                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-tax"/></svg></div>
-                  <p class="tl-when">Janeiro · 2025</p>
-                  <p class="tl-text">O mercado federal regulado entra oficialmente em vigor, e começa a cobrança de imposto, 12% sobre a receita bruta das operadoras, 15% sobre os prêmios líquidos de quem aposta. No primeiro trimestre, a movimentação mensal já bate R$ 30 bilhões.</p>
-                  <p class="tl-src">Fonte: Senado Notícias, Exame</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <span class="tl-tick" aria-hidden="true">2025</span>
-        </li>
-
-        <li class="tl-slot" data-anchor="end">
-          <div class="tl-card">
-            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-2026" aria-label="2026: virar a carta"></button>
-            <div class="tl-inner">
-              <div class="tl-front" aria-hidden="true"></div>
-              <div class="tl-back" id="tl-2026">
-                <div class="tl-back-in">
-                  <div class="tl-photo"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#il-ad"/></svg></div>
-                  <p class="tl-when">Julho · 2026</p>
-                  <p class="tl-text">O próprio governo começa a exigir um aviso nos anúncios, “aposta não é investimento”. Até o momento, os cadastros chegam a 43,8 milhões, com mais de R$ 105 bilhões em depósitos acumulados no ano.</p>
-                  <p class="tl-src">Fonte: CNN Brasil, Yogonet Brasil</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <span class="tl-tick" aria-hidden="true">2026</span>
-        </li>
-
-        <li class="tl-slot tl-slot-now" data-anchor="end">
-          <div class="tl-card">
-            <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="tl-sac" aria-label="Setembro de 2026: virar a carta"></button>
-            <div class="tl-inner">
-              <div class="tl-front" aria-hidden="true"></div>
-              <div class="tl-back" id="tl-sac">
-                <div class="tl-back-in">
-                  <div class="tl-photo tl-photo-logo"><img class="tl-logo" src="assets/img/logo-completo.png" alt="" width="1080" height="1080" loading="lazy"></div>
-                  <p class="tl-when">Setembro · 2026</p>
-                  <p class="tl-text">A fim de combater a influência das apostas e seus males, nasce o movimento <strong>Solta a Carta</strong>.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <span class="tl-tick" aria-hidden="true">Set. 2026</span>
-        </li>
+    <div class="rail-wrap">
+      <ol class="rail" data-rail tabindex="0" aria-label="Linha do tempo, de 1892 a 2027">
+        <li class="ri flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="1892: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">1892</p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">1892</p><p class="ri-text">3 de julho: acontece o primeiro sorteio do jogo do bicho, com o avestruz sendo o animal sorteado. Nasce a modalidade de aposta mais popular da história do Brasil.</p><p class="ri-src">Fonte: Wikipédia, Jogo do Bicho</p></div></div></li>
+        <li class="ri ri-ban flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="1895: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">1895</p><p class="ri-tagx">Proibição</p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">1895</p><p class="ri-text">Sob pressão popular, o prefeito do Rio de Janeiro proíbe o jogo do bicho. A proibição não funciona, e o jogo migra pra clandestinidade, onde segue até hoje.</p><p class="ri-src">Fonte: Wikipédia, Jogo do Bicho</p></div></div></li>
+        <li class="ri ri-ban flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="1899 a 1932: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">1899<small>a 1932</small></p><p class="ri-tagx">Proibição</p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">1899<small>a 1932</small></p><p class="ri-text">Uma sequência de leis tenta conter o jogo do bicho com penas cada vez mais duras, prisão de até seis meses em 1910, contravenção penal inafiançável em 1932. Nada disso desmonta a rede, porque nunca houve um combate real contra as estruturas que sustentavam as apostas, só punição pra quem jogava.</p><p class="ri-src">Fonte: Leis 628/1899, 2.321/1910, Decreto-Lei 21.143/1932</p></div></div></li>
+        <li class="ri ri-ban flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="1946: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">1946</p><p class="ri-tagx">Proibição</p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">1946</p><p class="ri-text">O presidente Eurico Gaspar Dutra assina o Decreto-Lei 9.215, proibindo todos os jogos de azar no Brasil, cassinos inclusive. A rede clandestina que já sustentava o jogo do bicho absorve a demanda que sobra.</p><p class="ri-src">Fonte: Decreto-Lei 9.215/1946</p></div></div></li>
+        <li class="ri flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="1967: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">1967</p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">1967</p><p class="ri-text">A União cria a loteria federal e assume o monopólio dos jogos de azar legais no país.</p><p class="ri-src">Fonte: Gambling in Brazil, Wikipedia</p></div></div></li>
+        <li class="ri flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="1993: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">1993</p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">1993</p><p class="ri-text">Bingos e caça-níqueis são legalizados temporariamente.</p><p class="ri-src">Fonte: Gambling in Brazil, Wikipedia</p></div></div></li>
+        <li class="ri ri-ban flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="2004: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">2004</p><p class="ri-tagx">Proibição</p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">2004</p><p class="ri-text">O governo Lula edita a MP 168, proibindo bingos e caça-níqueis após o escândalo Valdomiro Diniz. A proibição dura apenas cerca de 70 dias: o Senado rejeita a medida por 32 votos a 31, e os bingos voltam a funcionar amparados por liminares judiciais até o STF proibir definitivamente o jogo em 2007.</p><p class="ri-src">Fonte: Senado Notícias, BNLData</p></div></div></li>
+        <li class="ri flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="2018: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">2018</p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">2018</p><p class="ri-text">Dezembro: Michel Temer sanciona a Lei 13.756, abrindo caminho pras apostas esportivas de quota fixa no Brasil.</p><p class="ri-src">Fonte: Lei 13.756/2018</p></div></div></li>
+        <li class="ri flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="2019: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">2019</p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">2019</p><p class="ri-text">O Fortaleza estampa a NetBet na camisa, o primeiro patrocínio de uma casa de apostas num clube brasileiro. Nove meses depois, 65% dos times da Série A já tinham uma bet no peito.</p><p class="ri-src">Fonte: Máquina do Esporte, Exame</p></div></div></li>
+        <li class="ri flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="2020: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">2020</p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">2020</p><p class="ri-text">O mercado já movimenta R$ 7 bilhões por ano no começo da pandemia.</p><p class="ri-src">Fonte: BNLData</p></div></div></li>
+        <li class="ri flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="2023: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">2023</p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">2023</p><p class="ri-text">Lula sanciona a Lei 14.790, regulamentando as bets e ampliando o escopo pra cassinos online. 14 milhões de brasileiros já apostam, movimentando uma estimativa de R$ 120 bilhões.</p><p class="ri-src">Fonte: Lei 14.790/2023, Exame</p></div></div></li>
+        <li class="ri flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="2024: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">2024</p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">2024</p><p class="ri-text">O Congresso instala a CPI das Bets pra investigar lavagem de dinheiro e endividamento de famílias. 23 milhões de brasileiros já apostam.</p><p class="ri-src">Fonte: CPI das Bets, Banco Central</p></div></div></li>
+        <li class="ri flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="2025: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">2025</p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">2025</p><p class="ri-text">O mercado federal regulado entra oficialmente em vigor, com cobrança de impostos. A movimentação mensal já bate R$ 30 bilhões.</p><p class="ri-src">Fonte: Senado Notícias, Exame</p></div></div></li>
+        <li class="ri flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="2026 julho: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">2026<small>julho</small></p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">2026<small>julho</small></p><p class="ri-text">O governo exige aviso nos anúncios, “aposta não é investimento”. Os cadastros chegam a 43,8 milhões.</p><p class="ri-src">Fonte: CNN Brasil, Yogonet Brasil</p></div></div></li>
+        <li class="ri ri-ban ri-key flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="2026 25 de setembro: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">2026<small>25 de setembro</small></p><p class="ri-tagx">Proibição</p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">2026<small>25 de setembro</small></p><p class="ri-text">Lula assina a Medida Provisória que proíbe as bets e cassinos online em todo o território nacional.</p></div></div></li>
+        <li class="ri ri-key flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="2026 6 de outubro: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">2026<small>6 de outubro</small></p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">2026<small>6 de outubro</small></p><p class="ri-text">Os sites e aplicativos de apostas saem do ar no Brasil.</p></div></div></li>
+        <li class="ri ri-sac flip"><button class="flip-toggle" type="button" aria-pressed="false" aria-label="2026 outubro: virar a carta"></button><div class="flip-inner"><div class="flip-front ri-front" aria-hidden="true"><p class="ri-year display">2026<small>outubro</small></p><span class="ri-pip">♠</span></div><div class="flip-back ri-back"><p class="ri-year display">2026<small>outubro</small></p><p class="ri-text">Nasce o Movimento <strong>Solta a Carta</strong>.</p></div></div></li>
+        <li class="ri ri-cta"><p class="ri-year display">2027</p><p class="ri-hand hand">Temos a oportunidade de dar um basta para as bets.</p><a class="btn btn-primary" href="trevos.html#reis-e-rainhas">Apoie o movimento</a></li>
       </ol>
     </div>
   </section>
 
-  <!-- ==========================================================
-       A SITUAÇÃO ASSUSTA (preto pontual)
-       ========================================================== -->
-  <section class="block block-dark" id="situacao" aria-labelledby="sit-title">
+  <!-- BRASÍLIA -->
+  <section class="block block-dark" id="brasilia" aria-labelledby="bsb-title">
     <div class="wrap">
-      <header class="block-head on-dark">
-        <p class="tag">O cenário atual</p>
-        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg>
-      </header>
-
-      <h2 class="display band-title" id="sit-title">A situação assusta</h2>
-      <p class="band-lead">Em menos de 7 anos de liberação, o Brasil já virou bagunça.</p>
-
-      <ul class="figures figures-3">
-        <li class="figure">
-          <div class="fig-top">
-            <p class="fig-num hand">3º</p>
-            <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-globe"/></svg>
-          </div>
-          <p class="fig-text">país do mundo que mais consome plataformas de apostas online, atrás apenas de Estados Unidos e Inglaterra.</p>
-          <p class="fig-src">Fonte: Comscore, 2023</p>
-        </li>
-        <li class="figure">
-          <div class="fig-top">
-            <p class="fig-num hand">+280%</p>
-            <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-trend"/></svg>
-          </div>
-          <p class="fig-text">foi quanto o setor cresceu desde 2019.</p>
-          <p class="fig-src">Fonte: Comscore, 2023</p>
-        </li>
-        <li class="figure">
-          <div class="fig-top">
-            <p class="fig-num hand">20%</p>
-            <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-person"/></svg>
-          </div>
-          <p class="fig-text">é a parcela aproximada da população brasileira que já tem uma conta ativa em plataformas online.</p>
-          <p class="fig-src">Fonte: Yogonet Brasil, setembro/2026</p>
-        </li>
-      </ul>
-
-      <div class="sp-group">
-        <p class="sp-lead">Na maior cidade do país, o número é mais preocupante ainda. A FecomercioSP realizou uma pesquisa entre 4 e 8 de maio de 2026 e descobriu que:</p>
-        <ul class="figures figures-4">
-          <li class="figure">
-            <div class="fig-top">
-              <p class="fig-num hand">50%</p>
-              <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-city"/></svg>
-            </div>
-            <p class="fig-text">dos paulistanos apostam com frequência.</p>
-          </li>
-          <li class="figure">
-            <div class="fig-top">
-              <p class="fig-num hand">35%</p>
-              <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-house"/></svg>
-            </div>
-            <p class="fig-text">apostam buscando aumentar de forma rápida a renda doméstica, um salto de 10 pontos percentuais frente aos 25% de 2024.</p>
-          </li>
-          <li class="figure">
-            <div class="fig-top">
-              <p class="fig-num hand">40%</p>
-              <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bars"/></svg>
-            </div>
-            <p class="fig-text">é quanto sobe essa busca por renda rápida entre quem ganha até 2 salários mínimos.</p>
-          </li>
-          <li class="figure">
-            <div class="fig-top">
-              <p class="fig-num hand">7%</p>
-              <svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-alert"/></svg>
-            </div>
-            <p class="fig-text">dos paulistanos reconhecem sofrer de dependência do jogo.</p>
-          </li>
-        </ul>
-        <p class="fig-src sp-src">Fonte: FecomercioSP, maio/2026</p>
-      </div>
-
-      <!-- Índice de risco FECAP: régua em cima, 4 frentes em cartas embaixo -->
-      <div class="risk">
-        <div class="risk-head">
-          <div class="risk-score">
-            <p class="risk-num hand">64,2 <span class="fig-unit">em 100</span></p>
-            <div class="meter" role="img" aria-label="Índice de risco: 64,2 de 100, risco elevado">
-              <span class="meter-fill" style="--v: 64.2%"></span>
-              <span class="meter-mark" style="--v: 64.2%"></span>
-            </div>
-            <p class="meter-scale" aria-hidden="true"><span>0</span><span>100</span></p>
-            <p class="meter-label">Risco elevado</p>
-          </div>
-          <div class="risk-text">
-            <p>É o índice de risco que a FECAP calculou cruzando quatro frentes. A partir dos resultados de cada frente, foi calculada uma pontuação de 0 a 100 pra medir o risco. Entre os jovens paulistas de 18 a 29 anos ouvidos na pesquisa, o resultado foi 64,2, classificado como risco elevado.</p>
-            <p class="fig-src">Fonte: FECAP, 2026</p>
-          </div>
-        </div>
-
-        <ul class="rcards" aria-label="As quatro frentes do índice">
-          <li class="rcard">
-            <span class="rcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg></span>
-            <svg class="rcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-diamond" class="s-out"/><use href="#g-diamond" class="s-in"/></svg>
-            <p class="rcard-name">Financeira</p>
-            <p class="rcard-text">Quanto dinheiro de despesa essencial e quantas dívidas a aposta já consumiu.</p>
-            <span class="rcard-corner rcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-diamond"/></svg></span>
-          </li>
-          <li class="rcard">
-            <span class="rcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></span>
-            <svg class="rcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-heart" class="s-out"/><use href="#g-heart" class="s-in"/></svg>
-            <p class="rcard-name">Emocional</p>
-            <p class="rcard-text">Quanta ansiedade e culpa ela já causou.</p>
-            <span class="rcard-corner rcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg></span>
-          </li>
-          <li class="rcard">
-            <span class="rcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
-            <svg class="rcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
-            <p class="rcard-name">Comportamental</p>
-            <p class="rcard-text">Com que frequência a pessoa tenta recuperar a perda na hora.</p>
-            <span class="rcard-corner rcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
-          </li>
-          <li class="rcard">
-            <span class="rcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></span>
-            <svg class="rcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-spade" class="s-out"/><use href="#g-spade" class="s-in"/></svg>
-            <p class="rcard-name">Acadêmica e profissional</p>
-            <p class="rcard-text">Se já afetou o desempenho na escola ou no trabalho.</p>
-            <span class="rcard-corner rcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================
-       A LÓGICA MERCADOLÓGICA — texto quebrado em linhas com ilustração
-       ========================================================== -->
-  <section class="block" id="logica" aria-labelledby="qg-title">
-    <div class="wrap">
-      <header class="block-head">
-        <p class="tag">A lógica mercadológica</p>
-        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg>
-      </header>
-
-      <h2 class="display block-title" id="qg-title">A engenharia do “quase ganho”</h2>
-
+      <header class="block-head on-dark"><p class="tag">Quem lutou pra isso não acabar</p><svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></header>
+      <h2 class="display band-title" id="bsb-title">Tem muita gente em Brasília lutando a favor da ludopatia</h2>
       <div class="mm">
-
         <div class="mm-row reveal">
-          <div class="mm-text"><p>Hoje o setor de apostas é o 2º maior anunciante do país, controlando 4% de todo o investimento em mídia no Brasil, ficando atrás apenas do setor de varejo.</p></div>
-          <figure class="mm-visual mm-card">
-            <ol class="rank">
-              <li><span class="rank-pos display">1º</span><span>Varejo</span></li>
-              <li class="is-bets"><span class="rank-pos display">2º</span><span>Apostas</span></li>
-            </ol>
-            <div class="waffle" data-waffle="4" role="img" aria-label="4 de cada 100 reais investidos em mídia no Brasil vão para as apostas"></div>
-            <figcaption><span class="hand mm-num">4%</span> de todo o investimento em mídia no Brasil</figcaption>
-          </figure>
-        </div>
-
-        <div class="mm-row mm-row-rev reveal">
-          <div class="mm-text"><p>Esse dinheiro gasto é principalmente distribuído em compra de espaço de propaganda na televisão, patrocínio esportivo e compra de influência pessoal nas redes sociais.</p></div>
-          <ul class="mm-visual channels" aria-label="Para onde vai o dinheiro">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tv"/></svg><span>Propaganda na televisão</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ball"/></svg><span>Patrocínio esportivo</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg><span>Influência nas redes sociais</span></li>
-          </ul>
-        </div>
-
-        <p class="mm-statement reveal"><span class="display">O gasto não é algo feito por acaso.</span> Quanto mais as apostas aparecem ao lado de coisas e pessoas que você admira e acompanha, menos ela se parece com um risco e mais parece um hábito do dia a dia.</p>
-
-        <div class="mm-row reveal">
-          <div class="mm-text"><p>É estimado pelo Itaú que o setor gasta entre R$ 5,8 e R$ 8,8 bilhões ao ano com marketing e patrocínios. Na televisão, três empresas são responsáveis pelo gasto de dois terços do setor.</p></div>
-          <figure class="mm-visual mm-card">
-            <p class="mm-big"><span class="hand mm-num">R$ 5,8 a 8,8 bi</span><span class="mm-per">por ano em marketing e patrocínios</span></p>
-            <div class="split-bar" role="img" aria-label="Três empresas respondem por dois terços do gasto do setor na televisão">
-              <span class="split-a">3 empresas</span><span class="split-b">o resto do setor</span>
+          <div class="mm-text"><p>Existe um grupo de parlamentares que atua, de forma informal mas coordenada, em defesa das casas de apostas no Congresso Nacional. O grupo inclui deputados, senadores e as duas maiores lideranças do Legislativo: o presidente da Câmara dos Deputados e o presidente do Senado Federal já atuaram publicamente para proteger o setor, incluindo a retirada de uma taxa extra sobre as bets de um projeto de combate a facções criminosas e o bloqueio de propostas que aumentariam a fiscalização sobre o setor.</p><p class="fig-src">Fonte: Agência Pública, MS Notícias</p></div>
+          <figure class="mm-visual">
+            <p class="quit-label">As vitórias que eles comemoraram</p>
+            <div class="wins">
+              <div class="win"><p class="win-from display">15%</p><p class="win-arrow" aria-hidden="true">→</p><p class="win-to display">0%</p><p class="win-cap">Taxa extra (CIDE-bets) retirada do projeto: <strong>R$ 30 bilhões por ano</strong> poupados pro setor</p></div>
+              <div class="win"><p class="win-from display">18%</p><p class="win-arrow" aria-hidden="true">→</p><p class="win-to display">12%</p><p class="win-cap">Alíquota de imposto reduzida durante a regulamentação</p></div>
             </div>
-            <figcaption>Gasto do setor na televisão</figcaption>
+            <figcaption class="fig-src">Fonte: Agência Pública</figcaption>
           </figure>
         </div>
-
         <div class="mm-row mm-row-rev reveal">
-          <div class="mm-text"><p>Uma das maiores paixões do brasileiro é financiada pelas casas de apostas. Ao todo, mais de R$ 1 bilhão por ano são gastos com patrocínios máster no futebol. Hoje, todos os clubes de futebol da principal liga nacional, a Série A, já foram financiados pelo setor. Inclusive, o campeonato vendeu seus naming rights para a maior anunciante do mercado pela bagatela de R$ 50 milhões por ano, desde 2024.</p></div>
-          <figure class="mm-visual mm-card">
-            <div class="shirts" data-shirts="20" role="img" aria-label="Todos os 20 clubes da Série A já tiveram patrocínio de casa de apostas"></div>
-            <figcaption>Todos os clubes da Série A já foram financiados pelo setor.</figcaption>
-            <div class="mm-mini">
-              <p><span class="hand mm-num">+R$ 1 bi</span> por ano em patrocínios máster</p>
-              <p><span class="hand mm-num">R$ 50 mi</span> por ano pelo nome do campeonato</p>
-            </div>
+          <div class="mm-text"><p>Esse grupo já comemorou vitórias concretas, como retirar uma taxa extra de 15% (a CIDE-bets) de um projeto de lei, o que teria economizado R$ 30 bilhões por ano pro setor, e reduzir a alíquota de imposto proposta de 18% para 12% durante a regulamentação. As estratégias vão além do plenário: convites pra coquetéis com empresários do setor, viagens a paraísos fiscais no Caribe e relações pessoais com donos de casas de apostas fazem parte do jogo de bastidores.</p><p class="fig-src">Fonte: Agência Pública</p></div>
+          <figure class="mm-visual">
+            <p class="quit-label">O jogo de bastidores</p>
+            <ul class="stack stack-dark">
+              <li><span class="stack-n">♠</span>Coquetéis com empresários do setor</li>
+              <li><span class="stack-n">♦</span>Viagens a paraísos fiscais no Caribe</li>
+              <li><span class="stack-n">♥</span>Relações pessoais com donos de casas de apostas</li>
+            </ul>
           </figure>
         </div>
-
         <div class="mm-row reveal">
-          <div class="mm-text"><p>A facilidade não é apenas pra ser visto. Você não precisa sair de casa pra apostar. Não é necessário ir a lugar nenhum e nem falar com ninguém. Você só precisa de um celular e de sua conta bancária pra perder um mês de salário em menos de uma hora, recuperá-lo e depois perder novamente. O jogo foi feito pra te prender a partir da sensação de <span class="hand hand-inline">“quase ganho”,</span> que ativa os mesmos mecanismos de recompensa que substâncias como a cocaína ativam. Diferente de um jogo de carteado tradicional, as casas de apostas online são desenhadas algoritmicamente pra fazer você sentir prazer quando perde, pra ter mais vontade de apostar.</p></div>
-          <figure class="mm-visual loop" aria-label="O ciclo: aposta, quase ganho, sensação de recompensa, vontade de apostar de novo">
-            <svg class="loop-ring" viewBox="0 0 200 200" aria-hidden="true">
-              <defs><marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker></defs>
-              <path d="M128 22A82 82 0 0 1 178 72" marker-end="url(#arrow)"/>
-              <path d="M178 128A82 82 0 0 1 128 178" marker-end="url(#arrow)"/>
-              <path d="M72 178A82 82 0 0 1 22 128" marker-end="url(#arrow)"/>
-              <path d="M22 72A82 82 0 0 1 72 22" marker-end="url(#arrow)"/>
-            </svg>
-            <span class="loop-node loop-n">Aposta</span>
-            <span class="loop-node loop-e is-hot">“Quase ganho”</span>
-            <span class="loop-node loop-s">Sensação de recompensa</span>
-            <span class="loop-node loop-w">Vontade de apostar de novo</span>
+          <div class="mm-text"><p>Essa influência também aparece em decisões recentes. Em junho de 2025, o relatório da CPI das Bets no Senado foi rejeitado por 4 votos a 3, a primeira vez em dez anos que um relatório de CPI é derrubado na própria Casa. Meses depois, um projeto de lei que libera cassinos, bingos e até o jogo do bicho físico também tramitava no Senado, e só não avançou com urgência porque o pedido foi rejeitado por 36 votos a 28.</p><p class="fig-src">Fonte: cobertura legislativa, 2025-2026</p></div>
+          <figure class="mm-visual votes">
+            <div class="vote"><p class="quit-label">Relatório da CPI das Bets</p><p class="vote-score display"><span class="vote-a">3</span> × <span class="vote-b">4</span></p><p class="vote-cap">a favor × contra · rejeitado</p></div>
+            <div class="vote"><p class="quit-label">Urgência pra liberar cassinos e bingos</p><p class="vote-score display"><span class="vote-a">28</span> × <span class="vote-b">36</span></p><p class="vote-cap">a favor × contra · rejeitada</p></div>
           </figure>
         </div>
-
-        <div class="mm-row mm-row-rev reveal">
-          <div class="mm-text"><p>Cada notificação, bônus, cupom de depósito, cashback e rodada grátis foram feitos pra você sentir esperança e vontade de jogar novamente. Os jogos são desenhados com animações vibrantes, efeitos sonoros, mascotes e gráficos feitos pra conquistar um pedaço corrosivo do seu cérebro, que cada vez mais vai passar a exigir um estímulo maior.</p></div>
-          <ul class="mm-visual notifs" aria-label="Iscas usadas pelas plataformas">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Notificação</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Bônus</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Cupom de depósito</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Cashback</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bell"/></svg>Rodada grátis</li>
-          </ul>
-        </div>
-
-        <p class="src mm-src">Fontes: Kantar Ibope Media/Folha de S.Paulo, Ibope Advertising Intelligence/Meio &amp; Mensagem, Itaú Unibanco, Tunad, Lance!, Veja, Mundo do Marketing, Máquina do Esporte, SportsPro</p>
       </div>
+      <p class="mm-statement on-dark-statement reveal"><span class="display">A vitória de hoje tem data de validade.</span> Esse é o mesmo grupo que vai decidir, nos próximos 120 dias, se a proibição se torna lei definitiva ou se perde a validade. Não é exagero dizer que a vitória de hoje tem data de validade e gente de interesse torcendo contra ela.</p>
     </div>
   </section>
 
-  <!-- ==========================================================
-       EXISTEM 4 FRENTES
-       ========================================================== -->
-  <section class="block" id="frentes" aria-labelledby="fr-title">
+  <!-- MIGRAÇÃO -->
+  <section class="block" id="migracao" aria-labelledby="mig-title">
     <div class="wrap">
-      <header class="block-head">
-        <p class="tag">Onde se aposta</p>
-        <svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg>
-      </header>
-
-      <h2 class="display block-title" id="fr-title">Existem 4 frentes</h2>
-      <div class="prose fronts-lead">
-        <p>Existe aposta em pelo menos quatro formatos rodando no Brasil ao mesmo tempo, e a linha entre eles é mais fina do que parece.</p>
+      <header class="block-head"><p class="tag">São milhares de opções</p><svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></header>
+      <h2 class="display block-title mig-title" id="mig-title">As bets acabaram.<br> Para onde que o<br> apostador vai migrar?</h2>
+      <div class="mm">
+        <div class="mm-row reveal">
+          <div class="mm-text"><p>Mesmo antes da proibição, 40% dos apostadores brasileiros já usavam plataformas clandestinas ou não regulamentadas, driblando a fiscalização mesmo com o mercado legal funcionando normalmente. Isso mostra que a demanda por apostar nunca dependeu de uma casa ter ou não autorização pra operar.</p></div>
+          <figure class="mm-visual mm-card">
+            <!-- TODO: dado sem fonte citada no briefing; confirmar antes de publicar -->
+            <div class="people people-10" role="img" aria-label="4 em cada 10 apostadores já usavam plataformas clandestinas">
+              <svg class="on" viewBox="0 0 24 24"><use href="#i-person"/></svg><svg class="on" viewBox="0 0 24 24"><use href="#i-person"/></svg><svg class="on" viewBox="0 0 24 24"><use href="#i-person"/></svg><svg class="on" viewBox="0 0 24 24"><use href="#i-person"/></svg><svg viewBox="0 0 24 24"><use href="#i-person"/></svg><svg viewBox="0 0 24 24"><use href="#i-person"/></svg><svg viewBox="0 0 24 24"><use href="#i-person"/></svg><svg viewBox="0 0 24 24"><use href="#i-person"/></svg><svg viewBox="0 0 24 24"><use href="#i-person"/></svg><svg viewBox="0 0 24 24"><use href="#i-person"/></svg>
+            </div>
+            <figcaption><span class="hand mm-num">40%</span> dos apostadores já usavam plataformas clandestinas antes da proibição</figcaption>
+          </figure>
+        </div>
+        <div class="mm-row mm-row-rev reveal">
+          <div class="mm-text"><p>Cerca de 20% da população brasileira tinha uma conta ativa em plataformas de apostas até a proibição. Na maior cidade do país, o número é mais preocupante ainda: uma pesquisa da FecomercioSP, realizada entre 4 e 8 de maio de 2026, descobriu que 50% dos paulistanos apostavam com frequência, e 7% deles já reconheciam sofrer de dependência do jogo. O índice de risco calculado pela FECAP, cruzando fatores financeiros, emocionais, comportamentais e acadêmicos/profissionais, chegou a 64,2 em 100 entre jovens paulistas de 18 a 29 anos, classificado como risco elevado.</p><p class="src">Fonte: FecomercioSP, maio/2026; FECAP, 2026</p></div>
+          <figure class="mm-visual mm-card risk-mini">
+            <p class="risk-num hand">64,2 <span class="fig-unit">em 100</span></p>
+            <div class="meter meter-light" role="img" aria-label="Índice de risco: 64,2 de 100, risco elevado"><span class="meter-fill" style="--v: 64.2%"></span><span class="meter-mark" style="--v: 64.2%"></span></div>
+            <p class="meter-scale"><span>0</span><span>100</span></p>
+            <p class="meter-label">Risco elevado · jovens de 18 a 29 anos</p>
+            <div class="mm-mini"><p><span class="hand mm-num">50%</span> dos paulistanos apostavam com frequência</p><p><span class="hand mm-num">7%</span> reconheciam dependência do jogo</p></div>
+          </figure>
+        </div>
       </div>
+    </div>
 
-      <div class="fronts" role="list">
-        <p class="fronts-axis" aria-hidden="true">Regulamentado</p>
-        <p class="fronts-axis" aria-hidden="true">Clandestino</p>
-
-        <article class="front" role="listitem">
-          <p class="front-kind">Digital regulamentado</p>
-          <p>As bets com autorização do Ministério da Fazenda, que hoje somam 43,8 milhões de cadastros.</p>
-          <p class="src">Fonte: Yogonet Brasil, setembro/2026</p>
-        </article>
-        <article class="front front-dark" role="listitem">
-          <p class="front-kind">Digital clandestino</p>
-          <p>Mais de 25 mil plataformas restritas que, mesmo assim, ainda respondem por até metade de tudo que é apostado no Brasil, operando com licenças de paraísos fiscais como Curaçao e Malta, sem seguir nenhuma regra brasileira. 13% dos apostadores já foram vítimas de algum golpe nesses ambientes.</p>
-          <p class="src">Fontes: estudo de mercado (25 mil plataformas restringidas); Serasa, 2024 (golpes)</p>
-        </article>
-        <article class="front" role="listitem">
-          <p class="front-kind">Físico regulamentado</p>
-          <p>Terminais de vídeo loteria já operam dentro de shoppings como o Jockey Plaza em Curitiba, sendo licenciados no Paraná desde 2022.</p>
-          <p class="src">Fonte: Lottopar-PR</p>
-        </article>
-        <article class="front front-dark" role="listitem">
-          <p class="front-kind">Físico clandestino</p>
-          <p>Caça-níqueis ilegais são apreendidos aos montes pela polícia em vários estados, sustentados às vezes até por corrupção dentro das próprias corporações policiais, e movimentam um mercado estimado em R$ 3,6 bilhões por ano (a estimativa mais recente disponível é de 2018, já que é um mercado clandestino e não auditado).</p>
-          <p class="src">Fontes: Polícia Civil do Paraná, BNLData/Instituto Brasileiro Jogo Legal</p>
-        </article>
+    <div class="data-band">
+      <div class="wrap">
+        <header class="band-head"><h3 class="display band-title">Depois da proibição</h3><svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></header>
+        <!-- TODO: os dados de sites/dia e de fiscalização vieram do vídeo de Filipe Boni; validar fonte escrita antes de publicar -->
+        <ul class="figures figures-4">
+          <li class="figure"><div class="fig-top"><p class="fig-num hand">103→294</p></div><p class="fig-text">novos sites clandestinos criados por dia nos dias seguintes ao anúncio, uma média de 143 por dia.</p><p class="fig-src">Fonte: Filipe Boni (vídeo)</p></li>
+          <li class="figure"><div class="fig-top"><p class="fig-num hand">4</p><svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-person"/></svg></div><p class="fig-text">servidores federais dedicados à fiscalização, que usaram só R$ 275 mil dos R$ 1 milhão disponíveis pro ano.</p><p class="fig-src">Fonte: Filipe Boni (vídeo)</p></li>
+          <li class="figure"><div class="fig-top"><p class="fig-num hand">−10%</p><svg class="fig-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-trend"/></svg></div><p class="fig-text">nas transações via Pix nos primeiros dias, em relação à média das quatro semanas anteriores.</p><p class="fig-src">Fonte: Banco Central, CNN Brasil</p></li>
+          <li class="figure"><div class="fig-top"><p class="fig-num hand">R$ 12 bi</p></div><p class="fig-text">por ano ainda movimentados pelo jogo do bicho, proibido desde 1895.</p><p class="fig-src">Fonte: Wikipédia, Jogo do Bicho</p></li>
+        </ul>
+        <div class="mm-row pix-row reveal">
+          <div class="mm-text"><p>Nos primeiros dias após a proibição, as transações via Pix caíram 10%. Isso não significa que o brasileiro parou de apostar, pode ser só o tempo que o mercado ilegal está levando pra se reorganizar e assumir toda a demanda que sobrou.</p><p class="fig-src">Fonte: Banco Central, CNN Brasil</p>
+          <!-- TODO: dado da Itália sem fonte citada no briefing -->
+          <p>Esse caminho já foi testado em outros países. A Itália baniu a publicidade de apostas em 2018 e hoje perde uma estimativa de 1 bilhão de euros por ano pro mercado negro de apostas online.</p>
+          <p>Proibido desde 1895, o jogo do bicho nunca deixou de existir, sustentado por uma rede informal de “bicheiros” que resistiu a mais de um século de leis contra ela. Não há motivo pra achar que o padrão vai ser diferente agora com as bets.</p>
+          </div>
+          <figure class="mm-visual pix" aria-label="Transações via Pix: queda de 10% nos primeiros dias após a proibição, em relação à média das quatro semanas anteriores">
+            <svg class="pix-logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 7.6 6.9l2.2 2.2L12 6.9l2.2 2.2 2.2-2.2zM6.9 7.6 2.5 12l4.4 4.4 2.2-2.2L6.9 12l2.2-2.2zM17.1 7.6l-2.2 2.2 2.2 2.2-2.2 2.2 2.2 2.2 4.4-4.4zM9.8 14.9l-2.2 2.2L12 21.5l4.4-4.4-2.2-2.2L12 17.1z"/></svg>
+            <div class="pix-bars">
+              <div class="pix-col"><div class="pix-track"><div class="pix-bar" style="--h: 100%"><span>100</span></div></div><p>Média das 4 semanas anteriores</p></div>
+              <div class="pix-col is-drop"><div class="pix-track"><div class="pix-bar" style="--h: 90%"><span>90</span><em class="pix-gap"></em></div></div><p>Primeiros dias após a proibição</p></div>
+            </div>
+            <figcaption><span class="hand mm-num">−10%</span> nas transações via Pix</figcaption>
+          </figure>
+        </div>
       </div>
+    </div>
 
-      <p class="closing-line fronts-close">Pra quem já passou pelo vício, essas quatro camadas não são categorias separadas. É tudo a mesma coisa.</p>
-
+    <div class="wrap">
       <figure class="testimony">
         <svg class="testimony-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-heart"/></svg>
         <p class="testimony-label tag">Relato anônimo</p>
-        <blockquote>
-          <p>“Comecei numa plataforma regulamentada, dessas que todo mundo conhece. No mesmo dia que abri minha conta lá, um amigo me indicou uma banca por fora, sem burocracia nenhuma, te dava crédito sem precisar pagar na hora. Você ganhava, não pagava nada, às vezes perdia, pagava um pouquinho, e a bola foi só aumentando. Pra mim não tinha diferença entre o site sério e o clandestino. Os dois queriam a mesma coisa.”</p>
-        </blockquote>
+        <blockquote><p>“Comecei numa plataforma regulamentada, dessas que todo mundo conhece. No mesmo dia que abri minha conta lá, um amigo me indicou uma banca por fora, sem burocracia nenhuma, te dava crédito sem precisar pagar na hora. Você ganhava, não pagava nada, às vezes perdia, pagava um pouquinho, e a bola foi só aumentando. Pra mim não tinha diferença entre o site sério e o clandestino. Os dois queriam a mesma coisa.”</p></blockquote>
         <figcaption>Cedido ao movimento por uma pessoa em recuperação. Relato composto a partir de um depoimento real coletado na escuta do movimento com o Jogadores Anônimos, anonimizado seguindo a mesma regra da <a href="privacidade.html">política de privacidade</a>.</figcaption>
       </figure>
+      <p class="mm-statement reveal mig-close"><span class="display">Mais de cem anos na ilegalidade.</span> Se o jogo do bicho resistiu mais de cem anos na ilegalidade com uma estrutura muito mais simples, imagine o que uma rede de apostas online, que já provou em poucos dias ser capaz de abrir milhares de sites novos por semana, é capaz de fazer.</p>
     </div>
   </section>
 
-  <!-- ==========================================================
-       FECHAMENTO
-       ========================================================== -->
+  <!-- QUASE GANHO -->
+  <section class="block block-dark" id="logica" aria-labelledby="qg-title">
+    <div class="wrap">
+      <header class="block-head on-dark"><p class="tag">A lógica mercadológica</p><svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></header>
+      <h2 class="display band-title" id="qg-title">A engenharia do “quase ganho”</h2>
+      <div class="mm">
+        <div class="mm-row reveal">
+          <div class="mm-text"><p>O setor foi o segundo maior anunciante do país, controlando 4% de todo o investimento em mídia no Brasil, ficando atrás apenas do setor de varejo. Esse dinheiro gasto era principalmente distribuído em compra de espaço de propaganda na televisão, patrocínio esportivo e compra de influência pessoal nas redes sociais. O gasto não era algo feito por acaso. Quanto mais as apostas apareciam ao lado de coisas e pessoas que o brasileiro admirava e acompanhava, menos elas se pareciam com um risco e mais pareciam um hábito do dia a dia.</p></div>
+          <figure class="mm-visual mm-card">
+            <ol class="rank"><li><span class="rank-pos display">1º</span><span>Varejo</span></li><li class="is-bets"><span class="rank-pos display">2º</span><span>Apostas</span></li></ol>
+            <div class="waffle" data-waffle="4" role="img" aria-label="4 de cada 100 reais investidos em mídia no Brasil iam para as apostas"></div>
+            <figcaption><span class="hand mm-num">4%</span> de todo o investimento em mídia no Brasil</figcaption>
+          </figure>
+        </div>
+        <div class="mm-row mm-row-rev reveal">
+          <!-- TODO: citar a fonte específica de cada caso (ação do MP, declaração) antes de publicar -->
+          <div class="mm-text"><p>Grande parte dessa publicidade massiva vinha de influenciadores. Criadores de conteúdo como Virginia Fonseca, Felipe Neto, Neymar e John Vlogs promoviam casas de apostas pra milhões de seguidores, muitas vezes recebendo uma comissão sobre o quanto esses seguidores perdiam, não sobre o quanto ganhavam. O Ministério Público já pede R$ 120 milhões de indenização de Virginia e da Blaze por publicidade enganosa, e outros influenciadores já fecharam acordos ou reconheceram o problema, Felipe Neto chegou a chamar a parceria de “a pior coisa que fiz na vida”.</p><p class="fig-src">Fonte: ações do Ministério Público, cobertura jornalística</p></div>
+          <figure class="mm-visual mm-card commission">
+            <p class="quit-label">Como o influenciador ganhava</p>
+            <div class="comm-row"><span>Seguidor ganha</span><span class="comm-val">R$ 0</span></div>
+            <div class="comm-row is-hot"><span>Seguidor perde</span><span class="comm-val">comissão</span></div>
+            <figcaption>A comissão vinha de quanto o seguidor perdia.</figcaption>
+          </figure>
+        </div>
+        <div class="mm-row reveal">
+          <div class="mm-text"><p>O jogo foi feito pra te prender a partir da sensação de <span class="hand hand-inline">“quase ganho”,</span> que ativa os mesmos mecanismos de recompensa que substâncias como a cocaína ativam. As casas de apostas online eram desenhadas algoritmicamente pra fazer você sentir prazer quando perde, pra ter mais vontade de apostar. Notificação, bônus, cupom de depósito, cashback e rodada grátis, tudo ali foi pensado pra ativar esse ciclo com o máximo de estímulos possível, mais do que qualquer outro jogo de azar já tinha feito antes.</p></div>
+          <figure class="mm-visual loop loop-dark" aria-label="O ciclo: aposta, quase ganho, sensação de recompensa, vontade de apostar de novo">
+            <svg class="loop-ring" viewBox="0 0 200 200" aria-hidden="true">
+              <defs><marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z"/></marker></defs>
+              <path d="M128 22A82 82 0 0 1 178 72" marker-end="url(#arrow)"/><path d="M178 128A82 82 0 0 1 128 178" marker-end="url(#arrow)"/><path d="M72 178A82 82 0 0 1 22 128" marker-end="url(#arrow)"/><path d="M22 72A82 82 0 0 1 72 22" marker-end="url(#arrow)"/>
+            </svg>
+            <span class="loop-node loop-n">Aposta</span><span class="loop-node loop-e is-hot">“Quase ganho”</span><span class="loop-node loop-s">Sensação de recompensa</span><span class="loop-node loop-w">Vontade de apostar de novo</span>
+          </figure>
+        </div>
+      </div>
+      <p class="mm-statement on-dark-statement reveal"><span class="display">O app saiu do ar. O gatilho, não.</span> Esses gatilhos não são desligados apenas pelo banimento dos aplicativos que saíram do ar. Quem passou meses ou anos sendo condicionado por esses estímulos continua sentindo a mesma vontade, só que agora sem o canal que criou o hábito. As plataformas clandestinas veem isso como oportunidade de mercado e planejam preencher esse vazio.</p>
+      <p class="fig-src">Fontes: Kantar Ibope Media/Folha de S.Paulo, Ibope Advertising Intelligence/Meio &amp; Mensagem, Itaú Unibanco, Tunad</p>
+    </div>
+  </section>
+
+  <!-- DINHEIRO -->
+  <section class="block" id="dinheiro" aria-labelledby="din-title">
+    <div class="wrap">
+      <header class="block-head"><p class="tag">Quem ganhou com isso?</p><svg class="tag-suit" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-spade"/></svg></header>
+      <h2 class="display block-title" id="din-title">Esse dinheiro nunca voltou pra sociedade</h2>
+      <div class="mm">
+        <div class="mm-row reveal">
+          <div class="mm-text"><p>Enquanto estiveram regulamentadas, as bets não geraram riqueza, elas só trocaram de mão o dinheiro que já existia. Segundo um estudo do Made (Centro de Pesquisa em Macroeconomia das Desigualdades) da USP, as apostas online retiraram entre R$ 120 e R$ 141 bilhões da atividade econômica do Brasil só em 2025. Esse valor equivale a 40% a 50% de todo o crescimento econômico do país naquele ano.</p><p class="src">Fonte: Made/USP</p></div>
+          <figure class="mm-visual mm-card">
+            <p class="mm-big"><span class="hand mm-num">R$ 120 a 141 bi</span><span class="mm-per">retirados da atividade econômica em 2025</span></p>
+            <div class="split-bar" role="img" aria-label="Equivale a 40% a 50% de todo o crescimento econômico do país em 2025"><span class="split-a" style="flex: 45">40 a 50%</span><span class="split-b" style="flex: 55">resto do crescimento</span></div>
+            <figcaption>do crescimento econômico do país em 2025</figcaption>
+          </figure>
+        </div>
+        <div class="mm-row mm-row-rev reveal">
+          <div class="mm-text"><p>O mecanismo é simples. A aposta transfere renda das famílias diretamente pros operadores das plataformas, sem gerar nenhum produto, serviço ou valor novo. As famílias perdem poder de compra, o consumo cai, e a demanda da economia como um todo encolhe. Mesmo contando os empregos criados pelas próprias plataformas de apostas, o estudo mostra que o resultado final pra economia continua sendo negativo.</p><p class="src">Fonte: Made/USP</p></div>
+          <figure class="mm-visual">
+            <p class="quit-label">Pra onde ia o dinheiro</p>
+            <ol class="stack flow">
+              <li><span class="stack-n display">01</span>A renda sai das famílias</li>
+              <li><span class="stack-n display">02</span>Vai direto pros operadores das plataformas</li>
+              <li><span class="stack-n display">03</span>Nenhum produto, serviço ou valor novo é criado</li>
+              <li><span class="stack-n display">04</span>O consumo cai e a economia encolhe</li>
+            </ol>
+          </figure>
+        </div>
+      </div>
+      <ul class="figures figures-light">
+        <li class="figure reveal"><div class="fig-top"><p class="fig-num hand">R$ 31–55 bi</p></div><p class="fig-text">de arrecadação perdida com a queda na atividade econômica.</p><p class="fig-src">Fonte: Made/USP</p></li>
+        <li class="figure reveal"><div class="fig-top"><p class="fig-num hand">−R$ 22–46 bi</p></div><p class="fig-text">foi o saldo pros cofres públicos, mesmo descontando cerca de R$ 9 bilhões arrecadados com impostos sobre as bets. Equivale a 10% a 20% do orçamento de saúde pública do estado de São Paulo em 2025.</p><p class="fig-src">Fonte: Made/USP</p></li>
+      </ul>
+      <div class="prose din-prose">
+        <p>O rombo nos cofres públicos não para aí. As 85 empresas que pagaram R$ 30 milhões cada para operar legalmente, um total de R$ 2,55 bilhões, não vão receber esse dinheiro de volta: a própria Medida Provisória que baniu o setor deixa claro que não haverá devolução das outorgas nem indenização pelas empresas.</p>
+        <p class="src">Fonte: Tribuna do Sertão, Ministério da Fazenda</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FECHAMENTO -->
   <section class="block page-close" aria-labelledby="close-title">
     <div class="wrap">
       <div class="cta-head">
         <h2 class="display block-title" id="close-title">Esse problema pode ser resolvido.</h2>
         <p class="cta-hand hand">Se informar é o primeiro passo pra virar esse jogo.</p>
       </div>
-
       <h3 class="tag deck-title">Descubra os outros naipes</h3>
       <ul class="deck deck-4">
         <li>
@@ -631,7 +396,7 @@
           <a class="pcard" href="trevos.html">
             <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
             <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
-            <span class="pcard-name">Confira nossas ações</span>
+            <span class="pcard-name">Ações &amp; Apoio</span>
             <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
           </a>
         </li>
@@ -648,6 +413,7 @@
   </section>
 
 </main>
+
 
 <!-- ============================================================
      RODAPÉ (igual à home)
@@ -678,7 +444,7 @@
           <li><a href="dados-que-assustam.html" aria-current="page"><span aria-hidden="true">♠</span> Dados que assustam</a></li>
           <li><a href="o-que-e-ludopatia.html"><span aria-hidden="true">♦</span> O que é Ludopatia?</a></li>
           <li><a href="apoio-e-ajuda.html"><span aria-hidden="true">♥</span> Apoio &amp; Ajuda</a></li>
-          <li><a href="trevos.html"><span aria-hidden="true">♣</span> Confira nossas ações</a></li>
+          <li><a href="trevos.html"><span aria-hidden="true">♣</span> Ações &amp; Apoio</a></li>
           <li><a href="trevos.html#reis-e-rainhas" class="footer-joker">Apoie o movimento</a></li>
         </ul>
       </nav>
@@ -702,7 +468,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p class="disclaimer">O Solta a Carta é um projeto de conscientização e não substitui atendimento profissional. Se você ou alguém que você conhece precisa de ajuda, procure a rede de apoio indicada aqui.</p>
+      <p class="disclaimer">O Movimento Solta a Carta é um projeto de conscientização e não substitui atendimento profissional. Se você ou alguém que você conhece precisa de ajuda, procure a rede de apoio indicada aqui.</p>
       <p class="footer-suits" aria-hidden="true">♠ ♦ ♥ ♣</p>
     </div>
   </div>

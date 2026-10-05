@@ -297,102 +297,285 @@
     check.addEventListener("change", function () { btn.disabled = !check.checked; });
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (/SEU_ENDPOINT/.test(form.action)) {
-        status.textContent = "O envio de relatos ainda está sendo configurado. Tente novamente em breve.";
-        return;
-      }
       btn.disabled = true;
       fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
         .then(function (r) {
           if (!r.ok) throw 0;
-          form.reset(); btn.disabled = true;
-          status.textContent = "Recebemos seu relato. Obrigado por confiar essa história pra gente. Ela pode ajudar outras pessoas a se reconhecerem e buscarem ajuda.";
+          // Some o formulário e mostra a confirmação no lugar, sem sair da página
+          var done = document.getElementById("mensagem-confirmacao");
+          form.reset(); form.hidden = true;
+          if (done) { done.hidden = false; done.focus(); }
         })
         .catch(function () {
           btn.disabled = !check.checked;
-          status.textContent = "Não conseguimos enviar agora. Tente novamente em alguns minutos.";
+          status.textContent = navigator.onLine === false
+            ? "Não foi possível enviar agora. Verifique sua conexão e tente de novo."
+            : "Algo deu errado ao enviar. Tente novamente em alguns minutos.";
         });
     });
   });
 
-  /* ---------- Trevos: relatos reaproveitados de Copas (sem duplicar texto) ---------- */
-  document.querySelectorAll("[data-load-stories]").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var slot = btn.closest(".xcard-body").querySelector(".stories-slot");
-      btn.disabled = true;
-      fetch("apoio-e-ajuda.html").then(function (r) { return r.text(); }).then(function (html) {
-        var doc = new DOMParser().parseFromString(html, "text/html");
-        var list = doc.querySelector("#stories .story-list"), note = doc.querySelector("#stories .src");
-        slot.innerHTML = "";
-        if (list) slot.appendChild(document.importNode(list, true));
-        if (note) slot.appendChild(document.importNode(note, true));
-        btn.closest(".xwarn").hidden = true;
-        slot.focus();
-      }).catch(function () {
-        slot.innerHTML = '<p>Não foi possível carregar os relatos aqui. <a href="apoio-e-ajuda.html#relatos">Leia na página Apoio &amp; Ajuda</a>.</p>';
-      });
-    });
-  });
+  /* ---------- Trevos: Reis e Rainhas + Portal de Transparência (planilhas Google publicadas como CSV) ---------- */
+  var moeda = function (v) { return v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }); };
 
-  /* ---------- Trevos: notícias a partir de planilha Google publicada como CSV ---------- */
+  // CSV simples com suporte a aspas (nomes com vírgula, valores "50,00")
   function parseCSV(text) {
     var rows = [], row = [], cell = "", q = false;
     for (var i = 0; i < text.length; i++) {
-      var ch = text[i];
+      var c = text[i];
       if (q) {
-        if (ch === '"' && text[i + 1] === '"') { cell += '"'; i++; }
-        else if (ch === '"') q = false;
-        else cell += ch;
-      } else if (ch === '"') q = true;
-      else if (ch === ",") { row.push(cell); cell = ""; }
-      else if (ch === "\n" || ch === "\r") {
-        if (ch === "\r" && text[i + 1] === "\n") i++;
+        if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; }
+        else if (c === '"') q = false;
+        else cell += c;
+      } else if (c === '"') q = true;
+      else if (c === ",") { row.push(cell); cell = ""; }
+      else if (c === "\n" || c === "\r") {
+        if (c === "\r" && text[i + 1] === "\n") i++;
         row.push(cell); rows.push(row); row = []; cell = "";
-      } else cell += ch;
+      } else cell += c;
     }
     if (cell || row.length) { row.push(cell); rows.push(row); }
     return rows;
   }
-  document.querySelectorAll("[data-news]").forEach(function (box) {
-    var url = box.getAttribute("data-sheet");
-    if (!url) return;
-    fetch(url).then(function (r) { return r.text(); }).then(function (csv) {
-      var rows = parseCSV(csv).filter(function (r) { return r.join("").trim(); });
-      var head = rows.shift().map(function (h) { return h.trim().toLowerCase(); });
-      var col = function (r, k) { return r[head.indexOf(k)] || ""; };
-      var esc = function (s) { var d = document.createElement("div"); d.textContent = s; return d.innerHTML; };
-      var cards = rows.map(function (r) {
-        var body = col(r, "corpo").split(/\n\s*\n/).map(function (p) { return "<p>" + esc(p.trim()) + "</p>"; }).join("");
-        return '<details class="xcard"><summary><span class="xcard-kind">' + esc(col(r, "data")) + '</span><span class="xcard-title">' +
-          esc(col(r, "titulo")) + '</span><span class="xcard-sum">' + esc(col(r, "resumo")) +
-          '</span><span class="xcard-more" aria-hidden="true">Ler notícia</span></summary><div class="xcard-body">' + body + "</div></details>";
+  // Lê a planilha e devolve objetos com as colunas pedidas (pelo nome do cabeçalho)
+  function loadSheet(url, cols) {
+    if (!url) return Promise.resolve([]);
+    return fetch(url, { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw 0; return r.text(); })
+      .then(function (text) {
+        var rows = parseCSV(text.trim());
+        // Cabeçalho sem acento e sem "_url" ("descrição" = "descricao", "comprovante_url" = "comprovante")
+        var head = (rows.shift() || []).map(function (h) {
+          return h.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/_url$/, "");
+        });
+        return rows.filter(function (r) { return r.join("").trim() !== ""; }).map(function (r) {
+          var o = {};
+          cols.forEach(function (c, i) { var k = head.indexOf(c); o[c] = (r[k > -1 ? k : i] || "").trim(); });
+          return o;
+        });
       });
-      if (cards.length) box.innerHTML = cards.join("") + box.innerHTML;
-    }).catch(function () { /* mantém os cards fixos */ });
+  }
+  // Aceita "50", "50.5", "50,50", "1.234,56" e "R$ 50"
+  function valorNum(raw) {
+    var v = String(raw || "").replace(/[^\d,.-]/g, "");
+    if (v.indexOf(",") > -1) v = v.replace(/\./g, "").replace(",", ".");
+    return parseFloat(v) || 0;
+  }
+  function dataBR(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || "");
+    return m ? m[3] + "/" + m[2] + "/" + m[1] : iso;
+  }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text; // textContent: nada da planilha vira HTML
+    return e;
+  }
+  function setText(ids, text) { ids.forEach(function (id) { var e = document.getElementById(id); if (e) e.textContent = text; }); }
+  function fillTable(tbody, rows) {
+    if (!tbody || !rows.length) return;
+    tbody.innerHTML = "";
+    rows.forEach(function (cells) {
+      var tr = document.createElement("tr");
+      cells.forEach(function (c, i) { tr.appendChild(el("td", i === cells.length - 1 ? "num" : "", c)); });
+      tbody.appendChild(tr);
+    });
+  }
+  var porData = function (a, b) { return (b.data > a.data) - (b.data < a.data); };
+
+  var board = document.querySelector("[data-donations]");
+  var portal = document.getElementById("portal");
+  if (board) {
+    var ranking = document.getElementById("ranking-apoiadores");
+    var lista = document.getElementById("lista-completa");
+    var btnTodos = document.getElementById("btn-ver-todos");
+    var nomeExibicao = function (d) { return d.exibir && d.nome ? d.nome : "Apoiador anônimo"; };
+
+    var doacoesP = loadSheet(board.getAttribute("data-donations"), ["data", "nome", "valor", "mostrar_nome"])
+      .then(function (rows) {
+        return rows.map(function (r) {
+          return { data: r.data, nome: r.nome, valor: valorNum(r.valor), exibir: r.mostrar_nome.toLowerCase() === "sim" };
+        }).filter(function (d) { return d.valor > 0; });
+      });
+    var gastosP = loadSheet(portal && portal.getAttribute("data-expenses"), ["data", "descricao", "valor", "comprovante"])
+      .then(function (rows) {
+        return rows.map(function (r) { return { data: r.data, descricao: r.descricao, valor: valorNum(r.valor), comprovante: r.comprovante }; })
+          .filter(function (g) { return g.valor > 0; });
+      }).catch(function () { return []; });
+
+    doacoesP.then(function (doacoes) {
+      var total = doacoes.reduce(function (s, d) { return s + d.valor; }, 0);
+      setText(["total-arrecadado", "total-arrecadado-portal", "portal-in"], moeda(total));
+      setText(["msg-total", "msg-total-portal"], doacoes.length
+        ? doacoes.length + (doacoes.length === 1 ? " doação registrada." : " doações registradas.")
+        : "Nenhum lançamento registrado ainda.");
+
+      var recentes = doacoes.slice().sort(porData);
+      fillTable(document.getElementById("tabela-arrecadacao"), recentes.map(function (d) { return [dataBR(d.data), nomeExibicao(d), moeda(d.valor)]; }));
+      if (!doacoes.length) return; // mantém o estado vazio do HTML
+
+      // Ranking: até 10 maiores valores
+      var ol = el("ol", "donors");
+      doacoes.slice().sort(function (a, b) { return b.valor - a.valor; }).slice(0, 10).forEach(function (d, i) {
+        var li = el("li", "donor" + (i < 3 ? " is-top" : ""));
+        li.appendChild(el("span", "donor-pos display", (i + 1) + "º"));
+        li.appendChild(el("p", "donor-name", nomeExibicao(d)));
+        li.appendChild(el("p", "donor-value", moeda(d.valor)));
+        ol.appendChild(li);
+      });
+      ranking.innerHTML = "";
+      ranking.appendChild(ol);
+
+      // Lista completa: mais recente primeiro
+      lista.innerHTML = "";
+      recentes.forEach(function (d) {
+        var li = el("li", "rr-row");
+        li.appendChild(el("span", "rr-date", dataBR(d.data)));
+        li.appendChild(el("span", "rr-name", nomeExibicao(d)));
+        li.appendChild(el("span", "rr-value", moeda(d.valor)));
+        lista.appendChild(li);
+      });
+      btnTodos.hidden = false;
+    }).catch(function () { /* sem rede ou planilha fora do ar: fica o estado do HTML */ });
+
+    Promise.all([doacoesP.catch(function () { return []; }), gastosP]).then(function (res) {
+      var entrou = res[0].reduce(function (s, d) { return s + d.valor; }, 0);
+      var saiu = res[1].reduce(function (s, g) { return s + g.valor; }, 0);
+      setText(["portal-out"], moeda(saiu));
+      setText(["portal-bal"], moeda(entrou - saiu));
+      var tbody = document.getElementById("tabela-gastos");
+      if (tbody && res[1].length) {
+        tbody.innerHTML = "";
+        res[1].slice().sort(porData).forEach(function (g) {
+          var tr = document.createElement("tr");
+          tr.appendChild(el("td", "", dataBR(g.data)));
+          tr.appendChild(el("td", "", g.descricao));
+          tr.appendChild(el("td", "num", moeda(g.valor)));
+          var td = el("td", "");
+          if (/^https?:\/\//i.test(g.comprovante)) { // só links http(s)
+            var a = el("a", "", "Ver comprovante");
+            a.href = g.comprovante; a.target = "_blank"; a.rel = "noopener";
+            td.appendChild(a);
+          } else td.textContent = "—";
+          tr.appendChild(td);
+          tbody.appendChild(tr);
+        });
+      }
+    });
+
+    if (btnTodos) btnTodos.addEventListener("click", function () {
+      var abrir = lista.hidden;
+      lista.hidden = !abrir;
+      btnTodos.setAttribute("aria-expanded", String(abrir));
+      btnTodos.textContent = abrir ? "Ocultar lista completa" : "Ver todos os apoiadores";
+    });
+  }
+
+  // Janelas (Portal de Transparência, Doação): <dialog> nativo
+  document.querySelectorAll("[data-open-dialog]").forEach(function (b) {
+    var dlg = document.getElementById(b.getAttribute("data-open-dialog"));
+    if (!dlg) return;
+    b.addEventListener("click", function () {
+      if (!dlg.showModal) { location.hash = dlg.id === "portal" ? "transparencia" : "reis-e-rainhas"; return; }
+      dlg._opener = b;
+      dlg.showModal();
+      document.documentElement.classList.add("has-modal");
+    });
+  });
+  document.querySelectorAll("dialog.portal").forEach(function (dlg) {
+    dlg.querySelectorAll("[data-close-dialog]").forEach(function (c) { c.addEventListener("click", function () { dlg.close(); }); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); }); // clique no fundo escuro fecha
+    dlg.addEventListener("close", function () {
+      document.documentElement.classList.remove("has-modal");
+      if (dlg._opener) dlg._opener.focus({ preventScroll: true });
+    });
+    // Link para um bloco da própria página: fecha a janela e rola até lá
+    dlg.querySelectorAll("[data-dialog-anchor]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        dlg._opener = null;
+        dlg.close();
+        document.documentElement.classList.remove("has-modal"); // libera a rolagem já
+        var alvo = document.querySelector(a.getAttribute("href"));
+        if (alvo) { alvo.scrollIntoView({ behavior: "smooth" }); history.replaceState(null, "", a.getAttribute("href")); }
+      });
+    });
   });
 
-  /* ---------- Compartilhar ---------- */
+  /* ---------- Coringa: copiar chave Pix ---------- */
+  document.querySelectorAll("[data-copy-key]").forEach(function (box) {
+    var key = box.getAttribute("data-copy-key");
+    var btn = box.querySelector(".pix-copy"), status = box.querySelector(".pix-copy-status");
+    var timer;
+    function done(ok) {
+      btn.textContent = ok ? "Copiado!" : "Copiar chave Pix";
+      btn.classList.toggle("is-copied", ok);
+      status.textContent = ok ? "Chave copiada. Agora é só colar no app do seu banco." : "Não deu pra copiar automaticamente. Selecione a chave acima e copie.";
+      clearTimeout(timer);
+      timer = setTimeout(function () { btn.textContent = "Copiar chave Pix"; btn.classList.remove("is-copied"); status.textContent = ""; }, 2500);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = key; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done(ok);
+    }
+    btn.addEventListener("click", function () {
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(key).then(function () { done(true); }, fallback);
+      else fallback();
+    });
+  });
+
+  /* ---------- Régua horizontal (linha do tempo): botões + arrastar com o mouse ---------- */
+  document.querySelectorAll("[data-rail]").forEach(function (rail) {
+    var sec = rail.closest("section");
+    var prev = sec.querySelector("[data-rail-prev]"), next = sec.querySelector("[data-rail-next]");
+    var step = function () { var it = rail.querySelector(".ri"); return it ? it.getBoundingClientRect().width + 20 : 320; };
+    function update() {
+      if (prev) prev.disabled = rail.scrollLeft < 4;
+      if (next) next.disabled = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
+    }
+    if (prev) prev.addEventListener("click", function () { rail.scrollBy({ left: -step() * 2 }); });
+    if (next) next.addEventListener("click", function () { rail.scrollBy({ left: step() * 2 }); });
+    rail.addEventListener("scroll", update, { passive: true });
+    rail.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); rail.scrollBy({ left: step() }); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); rail.scrollBy({ left: -step() }); }
+    });
+    var down = false, startX = 0, startLeft = 0, moved = false;
+    rail.addEventListener("pointerdown", function (e) {
+      if (e.pointerType !== "mouse" || e.target.closest("a, button")) return;
+      down = true; moved = false; startX = e.clientX; startLeft = rail.scrollLeft;
+    });
+    window.addEventListener("pointermove", function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) { moved = true; rail.classList.add("is-dragging"); }
+      rail.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener("pointerup", function () {
+      if (!down) return;
+      down = false; rail.classList.remove("is-dragging");
+    });
+    rail.addEventListener("click", function (e) { if (moved) { e.preventDefault(); moved = false; } }, true);
+    update();
+  });
+
+  /* ---------- Compartilhar (WhatsApp) ---------- */
   var shareBtn = document.getElementById("share-btn");
-  var feedback = document.getElementById("share-feedback");
-  var shareData = {
-    title: "Solta a Carta",
-    text: "Virando o jogo contra as casas de aposta.",
-    url: window.location.href.split("#")[0]
-  };
+  var shareMsg = [
+    "*Solta a Carta*",
+    "Confira o movimento que está virando o jogo contra as apostas:",
+    "",
+    "🌐 Site: https://lbsetti.github.io/solta-a-carta/",
+    "📸 Instagram: https://www.instagram.com/projetosoltaacarta/",
+    "📘 Facebook: https://www.facebook.com/profile.php?id=61594390811809",
+    "🔗 Todos os links: https://linktr.ee/projetosoltaacarta"
+  ].join("\n");
 
   if (shareBtn) shareBtn.addEventListener("click", function () {
-    if (navigator.share) {
-      navigator.share(shareData).catch(function () {});
-      return;
-    }
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(shareData.url).then(function () {
-        feedback.textContent = "Link copiado. Agora é só colar para quem você quiser.";
-      }, function () {
-        feedback.textContent = "Copie o endereço da página e compartilhe.";
-      });
-    } else {
-      feedback.textContent = "Copie o endereço da página e compartilhe.";
-    }
+    window.open("https://wa.me/?text=" + encodeURIComponent(shareMsg), "_blank", "noopener");
   });
 })();

@@ -91,9 +91,9 @@
           </a>
         </li>
         <li>
-          <a class="suit-link" href="trevos.html" data-label="Confira nossas ações">
+          <a class="suit-link" href="trevos.html" data-label="Ações &amp; Apoio">
             <svg class="suit-icon" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
-            <span class="suit-label"><span>Confira nossas ações</span></span>
+            <span class="suit-label"><span>Ações &amp; Apoio</span></span>
           </a>
         </li>
       </ul>
@@ -210,7 +210,7 @@
           <li class="story"><p>“Usei o nome e o crédito do meu pai sem ele saber, num momento de desespero, e causei um rombo grande na empresa da família. Destruí a confiança que ele tinha em mim, e ainda perdi um relacionamento nesse caminho. Decidi expor a verdade inteira pra minha família e pro meu círculo mais próximo, em vez de continuar escondendo. Reatei o relacionamento, voltei a jogar esporte pra canalizar a ansiedade, e hoje trabalho pra devolver aos poucos o que causei ao meu pai.”</p></li>
           <li class="story"><p>“Usei o cartão de parentes que confiavam em mim, achando que era só uma renda extra, e não consegui pagar depois. Anos mais tarde, numa recaída, perdi meu lar e fui morar com meus pais de novo, já adulto, dormindo num colchão no chão. A vergonha foi imensa. Minha esposa disse que eu nunca ia mudar. Fui atrás dela, contei a verdade completa sobre as dívidas, com bancos e com agiotas, e consegui uma última chance. Hoje mantenho presença semanal inegociável no grupo de apoio.”</p></li>
         </ul>
-        <p class="src">Esses relatos são adaptados e anonimizados a partir de histórias reais compartilhadas com o movimento. Nenhum nome, imagem ou dado que possa identificar quem viveu isso é divulgado, seguindo a <a href="privacidade.html">política de privacidade</a> do Solta a Carta.</p>
+        <p class="src">Esses relatos são adaptados e anonimizados a partir de histórias reais compartilhadas com o movimento. Nenhum nome, imagem ou dado que possa identificar quem viveu isso é divulgado, seguindo a <a href="privacidade.html">política de privacidade</a> do Movimento Solta a Carta.</p>
         <p class="help-title">Se alguma dessas histórias mexeu com você, existe apoio real e gratuito. Você não precisa esperar chegar nesse ponto pra pedir ajuda.</p>
         <ul class="help-btns">
         <li><a class="btn btn-primary" href="https://jogadoresanonimos.com.br" target="_blank" rel="noopener">Jogadores Anônimos</a></li>
@@ -220,14 +220,18 @@
       </div>
 
       <!-- TODO: trocar SEU_ENDPOINT pelo endpoint do Formspree quando a conta for criada -->
-      <form class="story-form definition" id="escrever" action="https://formspree.io/f/SEU_ENDPOINT" method="POST" data-story-form>
+      <form class="story-form definition" id="escrever" action="https://formspree.io/f/mnpnyypv" method="POST" data-story-form>
         <p class="tag">Escrever meu relato</p>
         <label class="sf-label" for="relato">Seu relato <span>(não peça nem escreva nome, e-mail ou telefone)</span></label>
-        <textarea id="relato" name="relato" rows="7" required></textarea>
-        <label class="sf-check"><input type="checkbox" name="consentimento" value="sim" required> Eu entendo que meu relato pode ser usado, de forma anônima, pelo Solta a Carta em suas comunicações e no site, seguindo a política de privacidade do movimento. Nenhuma informação que possa me identificar será divulgada.</label>
-        <button class="btn btn-primary" type="submit" disabled>Enviar relato</button>
+        <textarea id="relato" name="relato" rows="7" placeholder="Escreva seu relato aqui..." maxlength="2000" required></textarea>
+        <label class="sf-check"><input type="checkbox" id="consentimento" name="consentimento" value="sim" required> Eu entendo que meu relato pode ser usado, de forma anônima, pelo Movimento Solta a Carta em suas comunicações e no site, seguindo a política de privacidade do movimento. Nenhuma informação que possa me identificar será divulgada.</label>
+        <button class="btn btn-primary" type="submit" id="btn-enviar-relato" disabled>Enviar relato</button>
         <p class="sf-status" role="status"></p>
       </form>
+      <div class="story-form definition sf-done" id="mensagem-confirmacao" tabindex="-1" hidden>
+        <p class="tag">Relato enviado</p>
+        <p>Recebemos seu relato. Obrigado por confiar essa história pra gente. Ela pode ajudar outras pessoas a se reconhecerem e buscarem ajuda.</p>
+      </div>
     </div>
   </section>
 
@@ -259,7 +263,7 @@
           <a class="pcard" href="trevos.html">
             <span class="pcard-corner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
             <svg class="pcard-suit" viewBox="-2 -2 28 28" aria-hidden="true"><use href="#g-club" class="s-out"/><use href="#g-club" class="s-in"/></svg>
-            <span class="pcard-name">Confira nossas ações</span>
+            <span class="pcard-name">Ações &amp; Apoio</span>
             <span class="pcard-corner pcard-corner-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#g-club"/></svg></span>
           </a>
         </li>
@@ -306,7 +310,7 @@
           <li><a href="dados-que-assustam.html"><span aria-hidden="true">♠</span> Dados que assustam</a></li>
           <li><a href="o-que-e-ludopatia.html"><span aria-hidden="true">♦</span> O que é Ludopatia?</a></li>
           <li><a href="apoio-e-ajuda.html" aria-current="page"><span aria-hidden="true">♥</span> Apoio &amp; Ajuda</a></li>
-          <li><a href="trevos.html"><span aria-hidden="true">♣</span> Confira nossas ações</a></li>
+          <li><a href="trevos.html"><span aria-hidden="true">♣</span> Ações &amp; Apoio</a></li>
           <li><a href="trevos.html#reis-e-rainhas" class="footer-joker">Apoie o movimento</a></li>
         </ul>
       </nav>
@@ -330,7 +334,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p class="disclaimer">O Solta a Carta é um projeto de conscientização e não substitui atendimento profissional. Se você ou alguém que você conhece precisa de ajuda, procure a rede de apoio indicada aqui.</p>
+      <p class="disclaimer">O Movimento Solta a Carta é um projeto de conscientização e não substitui atendimento profissional. Se você ou alguém que você conhece precisa de ajuda, procure a rede de apoio indicada aqui.</p>
       <p class="footer-suits" aria-hidden="true">♠ ♦ ♥ ♣</p>
     </div>
   </div>
